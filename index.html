@@ -1003,7 +1003,6 @@ $('#infinite-scroll').infinitescroll({
             .social-share a {
                 text-decoration: none;
                 display: inline-block;
-                margin-bottom: -4px;
             }
 
             .social-share .share-count {
@@ -1030,6 +1029,17 @@ $('#infinite-scroll').infinitescroll({
                 float: left;
             }
 
+            .social-share .add-this ul, .social-share .social-like ul {
+                font-size: 0;
+                list-style: none;
+            }
+
+            .social-share .add-this li, .social-share .social-like li {
+                display: inline-block;
+                text-align: center;
+                margin: 0px 4px 4px 4px;
+            }
+
             .social-share .reblog_button, .social-share .like_button {
               display: inline-block !important;
               padding: 0px 5px;
@@ -1040,10 +1050,9 @@ $('#infinite-scroll').infinitescroll({
                 height: 30px;
                 line-height: 30px;
                 background-size: 30px;
-                margin-bottom: 4px;
+                margin-bottom: 2px;
                 text-align: center;
                 background-position: center center;
-                display: inline-block !important;
             }
 
             .social-share .social-like {
@@ -3324,18 +3333,22 @@ else {
                         </div>
                         {block:IfEnableSocialShare}
                         <div class="addthis_toolbox add-this" addthis:url="{Permalink}" addthis:title="Title">
-                          <a class="addthis_button_facebook"></a>
-                          <a class="addthis_button_twitter"></a>
-                          <a class="addthis_button_pinterest_share"></a>
+                          <ul>
+                            <li><a class="addthis_button_facebook"></a></li>
+                            <li><a class="addthis_button_twitter"></a></li>
+                            <li><a class="addthis_button_pinterest_share"></a></li>
+                          </ul>
                         </div>
                         {/block:IfEnableSocialShare}
                         <div class="social-like">
+                          <ul>
                           {block:IfEnableReblogButton}
-                          {ReblogButton color="grey" size="25"}
+                            <li>{ReblogButton color="grey" size="25"}</li>
                           {/block:IfEnableReblogButton}
                           {block:IfEnableLikeButton}
-                          {LikeButton color="grey" size="25"}
+                            <li>{LikeButton color="grey" size="25"}</li>
                           {/block:IfEnableLikeButton}
+                          </ul>
                         </div>
                       </div>
 
