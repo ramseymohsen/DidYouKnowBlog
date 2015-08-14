@@ -1,65 +1,54 @@
 <!doctype html>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
-<head>
-<meta name="robots" content="noindex">
-<meta name="googlebot" content="noindex">
-<meta name="robots" content="nofollow" />
-<meta name="robots" content="noarchive" />
-<meta name="googlebot" content="nosnippet" />
-<meta name="robots" content="noodp" />
-<meta name="slurp" content="noydir">
-<meta name="robots" content="noimageindex,nomediaindex" />
-<meta charset="utf-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<meta http-equiv="imagetoolbar" content="false">
-<title>{Title} {block:SearchPage}- {lang:Search results for SearchQuery}{/block:SearchPage}{block:PostSummary}- {PlaintextPostSummary}{/block:PostSummary}{block:IndexPage}- {PlaintextDescription}{/block:IndexPage}</title>
-{block:Description}
-<meta name="description" content="{MetaDescription}">
-{/block:Description}
-{block:PermalinkPage}
-{block:Posts}
-{block:Date}
-<link rel="canonical" href="{Permalink}">
-<link rel="shortlink" href="{ShortURL}">
-{/block:Date}
-{/block:Posts}
-{/block:PermalinkPage}
-<link rel="stylesheet" href="http://normalize-css.googlecode.com/svn/trunk/normalize.css">
-<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
-<link rel="shortcut icon" href="{Favicon}">
-<link rel="apple-touch-icon" href="{PortraitURL-128}">
-<link rel="alternate" type="application/rss+xml" href="{RSS}">
-<!-- Google Web Fonts -->
-{block:IfEnableGoogleWebFonts}
-{block:IfNormalFontWeight}
-<link href='https://fonts.googleapis.com/css?family={text:Normal Font Family Name}:{text:Normal Font Weight}' rel='stylesheet' type='text/css'>
-{/block:IfNormalFontWeight}
-{block:IfNormalItalicFontWeight}
-<link href='https://fonts.googleapis.com/css?family={text:Normal Font Family Name}:{text:Normal Italic Font Weight}italic' rel='stylesheet' type='text/css'>
-{/block:IfNormalItalicFontWeight}
-{block:IfBoldFontWeight}
-<link href='https://fonts.googleapis.com/css?family={text:Normal Font Family Name}:{text:Bold Font Weight}' rel='stylesheet' type='text/css'>
-{/block:IfBoldFontWeight}
-{block:IfBoldItalicFontWeight}
-<link href='https://fonts.googleapis.com/css?family={text:Normal Font Family Name}:{text:Bold Italic Font Weight}italic' rel='stylesheet' type='text/css'>
-{/block:IfBoldItalicFontWeight}
-{block:IfHeadingFontFamilyName}
-<link href='https://fonts.googleapis.com/css?family={text:Heading Font Family Name}:{text:Heading Font Family Weight}' rel='stylesheet' type='text/css'>
-{/block:IfHeadingFontFamilyName}
-{/block:IfEnableGoogleWebFonts}
-<!-- Fontello Fonts -->
-<link rel="stylesheet" href="http://static.tumblr.com/g8b5dgd/Etpmeo6kr/fonts.css">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<!-- jQuery -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-
-<!-- Facebook Tracking Pixel -->
-<script>
-(function() {
+    <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+    <!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+    <!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
+    <!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta http-equiv="imagetoolbar" content="false">
+        <title>{Title} {block:SearchPage}- {lang:Search results for SearchQuery}{/block:SearchPage}{block:PostSummary}- {PlaintextPostSummary}{/block:PostSummary}{block:IndexPage}- {PlaintextDescription}{/block:IndexPage}</title>
+        {block:Description}
+        <meta name="description" content="{MetaDescription}">
+        {/block:Description}
+        {block:PermalinkPage}
+        {block:Posts}
+        {block:Date}
+        <link rel="canonical" href="{Permalink}">
+        <link rel="shortlink" href="{ShortURL}">
+        {/block:Date}
+        {/block:Posts}
+        {/block:PermalinkPage}
+        <link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="apple-touch-icon" href="{PortraitURL-128}">
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+        <!-- Google Web Fonts -->
+        {block:IfEnableGoogleWebFonts}
+        {block:IfNormalFontWeight}
+        <link href='https://fonts.googleapis.com/css?family={text:Normal Font Family Name}:{text:Normal Font Weight}' rel='stylesheet' type='text/css'>
+        {/block:IfNormalFontWeight}
+        {block:IfNormalItalicFontWeight}
+        <link href='https://fonts.googleapis.com/css?family={text:Normal Font Family Name}:{text:Normal Italic Font Weight}italic' rel='stylesheet' type='text/css'>
+        {/block:IfNormalItalicFontWeight}
+        {block:IfBoldFontWeight}
+        <link href='https://fonts.googleapis.com/css?family={text:Normal Font Family Name}:{text:Bold Font Weight}' rel='stylesheet' type='text/css'>
+        {/block:IfBoldFontWeight}
+        {block:IfBoldItalicFontWeight}
+        <link href='https://fonts.googleapis.com/css?family={text:Normal Font Family Name}:{text:Bold Italic Font Weight}italic' rel='stylesheet' type='text/css'>
+        {/block:IfBoldItalicFontWeight}
+        {block:IfHeadingFontFamilyName}
+        <link href='https://fonts.googleapis.com/css?family={text:Heading Font Family Name}:{text:Heading Font Family Weight}' rel='stylesheet' type='text/css'>
+        {/block:IfHeadingFontFamilyName}
+        {/block:IfEnableGoogleWebFonts}
+        <!-- Fontello Fonts -->
+        <link rel="stylesheet" href="http://static.tumblr.com/g8b5dgd/Etpmeo6kr/fonts.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <!-- jQuery -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+        <!-- Facebook Tracking Pixel -->
+        <script>(function() {
   var _fbq = window._fbq || (window._fbq = []);
   if (!_fbq.loaded) {
     var fbds = document.createElement('script');
@@ -74,9 +63,7 @@
 window._fbq = window._fbq || [];
 window._fbq.push(['track', 'PixelInitialized', {}]);
 </script>
-
 <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=352328471558601&amp;ev=PixelInitialized" /></noscript>
-
 <!-- Facebook Conversion Code for DYKB - Visitor Viewed Content / Website -->
 <script>(function() {
   var _fbq = window._fbq || (window._fbq = []);
@@ -94,6 +81,9 @@ window._fbq.push(['track', '6017292471093', {'value':'0.00','currency':'USD'}]);
 </script>
 <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6017292471093&amp;cd[value]=0.00&amp;cd[currency]=USD&amp;noscript=1" /></noscript>
 
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<!--<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54dacdda333551f9" async="async"></script>-->
+
 <!-- Begin comScore Tag -->
 <script>
   var _comscore = _comscore || [];
@@ -108,7 +98,6 @@ window._fbq.push(['track', '6017292471093', {'value':'0.00','currency':'USD'}]);
   <img src="http://b.scorecardresearch.com/p?c1=2&c2=19400334&cv=2.0&cj=1" />
 </noscript>
 <!-- End comScore Tag -->
-
 <!-- Quantcast Tag -->
 <script type="text/javascript">
 var _qevents = _qevents || [];
@@ -133,7 +122,6 @@ qacct:"p-xhJ_GNcMjHJBy"
 </div>
 </noscript>
 <!-- End Quantcast tag -->
-
 <!-- Twitter Retargeting Tag -->
 <script src="//platform.twitter.com/oct.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -196,20 +184,31 @@ fjs.parentNode.insertBefore(js, fjs);
 </script>
 <!-- END Hotjar Tracking Code for didyouknowblog.com -->
 
-<!-- INFINITE SCROLL -->
-<script type="text/javascript" src="http://static.tumblr.com/cbgnuxd/saomz5tvi/jquery.infinitescroll.js"></script>
-<script>
-$('#infinite-scroll').infinitescroll({
+<!--<script>
 
-    navSelector  : "div.navigation",
-                   // selector for the paged navigation (it will be hidden)
-    nextSelector : "div.navigation a:first",
-                   // selector for the NEXT link (to page 2)
-    itemSelector : "#content div.post"
-                   // selector for all items you'll retrieve
-  });
-</script>
-<!-- END INFINITE SCROLL -->
+$(window).on('scroll', function() {
+    var scrollTop     = $(window).scrollTop();
+    var sidebarOffset = $('.articles').offset().top;
+    var sidebarTop      = (sidebarOffset - scrollTop);
+    //var sidebarTop = $('.articles').offset().top;
+    //$('.ad-test').text(sidebarTop);
+
+    if (sidebarTop < 0) {
+        $('.sidebar-content').css({
+		    'position': 'fixed',
+		    'top':'0'
+	    });
+    }
+
+    if (sidebarTop > 0) {
+        $('.sidebar-content').css({
+		    'position': 'absolute',
+		    'top':'auto'
+	    });
+    }
+});
+
+</script>-->
 
         <!-- Filter Text -->
         <meta name="text:Filter Menu Tag 1" content="audio" />
@@ -426,7 +425,6 @@ $('#infinite-scroll').infinitescroll({
         <meta name="color:SidebarFilterCountBGColour" content="#2c2c2e"/>
         <meta name="color:SidebarTweetTimeColour" content="#57565a"/>
         <meta name="color:SidebarTweetTimeHoverColour" content="#bbbbc1"/>
-
         <!-- Theme CSS -->
         <style>
             /* 'Pierre' Tumblr Theme - mikedidthis */
@@ -662,6 +660,9 @@ $('#infinite-scroll').infinitescroll({
                 padding-bottom:30px;
             }
 
+            .articles {
+            }
+
             .sidebar-left, .sidebar-right {
                 display: none;
             }
@@ -761,7 +762,7 @@ $('#infinite-scroll').infinitescroll({
 
             #header {
                 position: fixed;
-                background: #000000;
+                background: #ffffff;
                 width:100%;
                 z-index: 3;
                 -webkit-box-shadow:0 0 10px rgba(0,0,0,0.5);
@@ -779,6 +780,8 @@ $('#infinite-scroll').infinitescroll({
                 -webkit-box-sizing:border-box;
                 -moz-box-sizing:border-box;
                 box-sizing:border-box;
+
+
             }
 
             .header-top {
@@ -788,7 +791,9 @@ $('#infinite-scroll').infinitescroll({
             }
 
             header .logo {
+                float: left;
                 margin:0 auto;
+                text-align:left;
                 text-decoration:none;
             }
             {block:IfEnableImageOnlyLogo}
@@ -802,14 +807,13 @@ $('#infinite-scroll').infinitescroll({
             }
             {/block:IfEnableImageOnlyLogo}
             header .logo h1 {
-
                 margin:-.25em 0 0 0;
                 font-size:32px !important;
                 line-height: 1;
                 font-weight:400;
                 display:inline-block;
                 letter-spacing:-1px;
-                color: #ffffff;
+                color:{color:LogoNormalColour};
             }
 
            {block:IfEnableFancyTextLogo}
@@ -822,7 +826,6 @@ $('#infinite-scroll').infinitescroll({
             header .logo p {
                 font-size: 11px;
                 margin: -.5em 0 0 0;
-                color: #c1c1c1;
             }
             {/block:IfEnableSubTextLogo}
             header ul {
@@ -873,30 +876,8 @@ $('#infinite-scroll').infinitescroll({
 
             .menu-button {
                 width: 45px;
-                cursor: pointer;
-            }
-
-
-            .menu-nav {
-                width: 15%;
-                float: left;
-            }
-
-            .menu-logo {
-                float: left;
-                width: 70%;
-                text-align: center;
-            }
-
-            .menu-social {
                 float: right;
-                width: 15%;
-                text-align: right;
-                -ms-transform: scale(1.3);
-                -webkit-transform: scale(1.3);
-                transform: scale(1.3);
-                overflow: visible;
-                margin-top: 4px;
+                cursor: pointer;
             }
 
             .menu-bar {
@@ -910,68 +891,13 @@ $('#infinite-scroll').infinitescroll({
                 margin: 0;
             }
 
-            #index .social-bar {
-                display: none;
-            }
-
-            #permalink .social-bar {
-                display: block;
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                background: #fff;
-                box-shadow:0 0 10px rgba(0,0,0,0.5);
-                padding: 15px 20px;
-                z-index: 9000;
-            }
-
-            .social-bar .button {
-              border-radius: 5px;
-              padding: 10px;
-              cursor: pointer;
-              color: #fff;
-              text-decoration: none;
-            }
-
-            .social-bar .fb-button {
-              background: #3b5998;
-            }
-
-            .social-bar .next-button {
-              background: #39383d;
-            }
-
-            .social-bar .bar-left {
-              float: left;
-            }
-
-            .social-bar .bar-right {
-              float: right;
-            }
-
-            .post-comments .comments{
-                font-size: 13px;
-                color: #1390b0;
-            }
-
-            .post-comments .comments a{
-                color: #1390b0;
-                font-weight: bold;
-            }
-
-            .post-comments .comments a:hover{
-                color: #11819e;
-            }
-
 
             /* Base Post */
             .post {
-                display:block;
+                display:inline-block;
                 margin-top:1em;
                 padding-bottom:0.1em;
                 width:100%;
-                position: relative;
             }
             .post.index {
                 border-bottom:1px solid {color:PostTrimColour};
@@ -983,70 +909,6 @@ $('#infinite-scroll').infinitescroll({
 
             .post-ad div {
                 margin: 0 auto;
-            }
-
-            .post {
-              width: 100%;
-              float: left;
-            }
-
-            .post-block {
-                margin-left: 60px;
-            }
-
-            .social-share {
-                float: left;
-                width: 60px;
-                text-align: center;
-            }
-
-            .social-share a {
-                text-decoration: none;
-                display: inline-block;
-            }
-
-            .social-share .share-count {
-                width: 60px;
-                float: left;
-            }
-
-            .social-share .share-number {
-                font-size: 18px;
-                margin-bottom: -6px;
-                color: #20a605;
-                font-weight: bold;
-            }
-
-            .social-share .share-description {
-                font-size: 10px;
-                text-transform: uppercase;
-                margin-bottom: 8px;
-                width: 100%;
-            }
-
-            .social-share .add-this {
-                text-align: center;
-                float: left;
-            }
-
-            .social-share .reblog_button, .social-share .like_button {
-              display: inline-block !important;
-              padding: 0px 5px;
-            }
-
-            .social-share .at4-icon{
-                width: 30px;
-                height: 30px;
-                line-height: 30px;
-                background-size: 30px;
-                margin-bottom: 2px;
-                text-align: center;
-                background-position: center center;
-                display: inline-block !important;
-            }
-
-            .social-share .social-like {
-                float: left;
             }
 
             .content {
@@ -1244,6 +1106,34 @@ $('#infinite-scroll').infinitescroll({
                 border-radius:0px;
                 margin:0;
             }
+            /* Like Post */
+            {block:IfEnableLikeButton}
+            .like_button {
+                display:block;
+                position: absolute;
+                top: .5em;
+                right: 0;
+                width:20px;
+                height:20px;
+                line-height:20px;
+            }
+            {/block:IfEnableLikeButton}
+            /* Reblog Post */
+            {block:IfEnableReblogButton}
+            .reblog_button {
+                display:block;
+                position: absolute;
+                top: .5em;
+                right: 0;
+                width:20px;
+                height:20px;
+                line-height:20px;
+                margin-top: 1px;
+            }
+            .like_button + .reblog_button {
+                right: 24px;
+            }
+            {/block:IfEnableReblogButton}
 
             .addthis_sharing_custom {
                 position:absolute;
@@ -1254,14 +1144,6 @@ $('#infinite-scroll').infinitescroll({
             .addthis_sharing_custom a {
                 display: inline-block;
                 margin: 0 .05em 0 0;
-            }
-
-            .float-left {
-                float: left;
-            }
-
-            .float-right {
-                float: right;
             }
 
             /* Post Details */
@@ -1302,6 +1184,7 @@ $('#infinite-scroll').infinitescroll({
             }
             .details ul {
                 display:inline-block;
+                width: 100%;
                 margin:0;
                 padding:0;
                 list-style:none;
@@ -1324,6 +1207,10 @@ $('#infinite-scroll').infinitescroll({
             .details ul li.date .full {
                 display:none;
             }
+
+            .details ul li.comments {
+                    display:none;
+                }
 
             .details ul li.comments .comment-count {
                 display: none;
@@ -1411,7 +1298,6 @@ $('#infinite-scroll').infinitescroll({
                 display:none;
             }
             {/block:IfEnableSocialShare}
-
             {block:IfEnablePostTags}
             /* Tags */
             .tags {
@@ -1461,7 +1347,6 @@ $('#infinite-scroll').infinitescroll({
                 color:{color:HeadingColour};
             }
             {/block:IfEnablePostTags}
-
             /* Pagination */
             .pagination {
                 display:inline-block;
@@ -1578,7 +1463,6 @@ $('#infinite-scroll').infinitescroll({
                 color:{color:DisqusThreadTrimColour};
             }
             {/block:IfDisqusShortname}
-
             /* Notes */
             {block:IfEnablePostNotes}
             #notes {
@@ -1632,7 +1516,6 @@ $('#infinite-scroll').infinitescroll({
                 border-radius:2px;
             }
             {/block:IfEnablePostNotes}
-
             /* Aside Trigger */
             .sidebar-trigger {
                 position:absolute;
@@ -1676,7 +1559,6 @@ $('#infinite-scroll').infinitescroll({
             .sidebar-trigger:hover,.sidebar-trigger.open {
                 color:{color:SidebarTriggerHoverColour};
             }
-
             /* Aside */
             aside {
                 -moz-box-sizing:border-box;
@@ -1878,7 +1760,6 @@ $('#infinite-scroll').infinitescroll({
                 padding:0 3px;
             }
             {/block:IfEnableFilterMenu}
-
             {block:IfEnableTwitterFeed}
             aside .tweets p {
                 margin-bottom:0px;
@@ -1925,7 +1806,6 @@ $('#infinite-scroll').infinitescroll({
             aside .dribbble-feed li a img,aside .instagram-feed li a img,aside .flickr-feed li a img {
                 max-width:100%;
             }
-
             {block:IfEnableSocialLinks}
             aside .social-links ul {
                 margin-bottom:inherit;
@@ -1960,7 +1840,6 @@ $('#infinite-scroll').infinitescroll({
             aside .theme-credit p a:hover {
                 color:{color:SidebarAnchorHoverColour};
             }
-
             /* Lightbox */
             #galleryOverlay {
                 width:100%;
@@ -2141,7 +2020,6 @@ $('#infinite-scroll').infinitescroll({
                 right:0;
             }
             {block:IfEnableGistEmbedSupport}
-
             /* Gist Embed */
             div.gist {
                 font-size:11px;
@@ -2152,7 +2030,6 @@ $('#infinite-scroll').infinitescroll({
                 margin-bottom:0;
             }
             {/block:IfEnableGistEmbedSupport}
-
             {block:IfEnablePreCodeSupport}
             /* Prettify */
             .pln {
@@ -2249,12 +2126,10 @@ $('#infinite-scroll').infinitescroll({
                 background:#e9e9e7;
             }
             {/block:IfEnablePreCodeSupport}
-
             /* Mediaqueries */
             @media screen and (min-width:320px) {
 
             }
-
             {block:IfEnable500pxMediaQuery}
             @media screen and (min-width:500px) {
                 body {
@@ -2277,13 +2152,11 @@ $('#infinite-scroll').infinitescroll({
                     margin-left:300px;
                 }
                 {/block:IfEnableSidebarLeft}
-
                 {block:IfEnableSidebarRight}
                 #wrapper.open {
                     margin-left:-300px;
                 }
                 {/block:IfEnableSidebarRight}
-
                 .audio .spotify_audio_player {
                     display:inline-block;
                     width:460px!important;
@@ -2361,20 +2234,17 @@ $('#infinite-scroll').infinitescroll({
                     margin-bottom:1.533333em;
                 }
                 {/block:IfEnableGistEmbedSupport}
-
                 .video .video-wrapper, .better-photo, .photoset-grid {
                     margin-bottom:.75em;
                 }
                 .post.permalink .content .divider {
                     margin-top:1.45em;
                 }
-
                 {block:IfEnablePostTags}
                 .tags {
                     margin-bottom:.9em;
                 }
                 {/block:IfEnablePostTags}
-
                 .tagged {
                     margin-top:1.533333em;
                 }
@@ -2382,7 +2252,6 @@ $('#infinite-scroll').infinitescroll({
                     margin-top:1em;
                     margin-bottom:3.5em;
                 }
-
                 {block:IfEnablePostNotes}
                 #notes {
                     padding-top:3em;
@@ -2397,14 +2266,12 @@ $('#infinite-scroll').infinitescroll({
                     line-height:1.916667em;
                 }
                 {/block:IfEnablePostNotes}
-
                 {block:IfDisqusShortname}
                 #disqus_thread {
                     padding-top:2.95em;
                     padding-bottom:2.95em;
                 }
                 {/block:IfDisqusShortname}
-
                 .sidebar-trigger {
                     top:48px;
                 }
@@ -2500,7 +2367,6 @@ $('#infinite-scroll').infinitescroll({
 
             }
             {/block:IfEnable500pxMediaQuery}
-
             {block:IfEnable760pxMediaQuery}
             @media screen and (min-width:760px) {
                 body {
@@ -2542,13 +2408,11 @@ $('#infinite-scroll').infinitescroll({
                     line-height:1.625;
                     margin:0 0 1.625em;
                 }
-
                 {block:IfEnableOpenSansChromeAndroidFix}
                 p.fix {
                     width:97%;
                 }
                 {/block:IfEnableOpenSansChromeAndroidFix}
-
                 blockquote {
                     padding-left:1.625em;
                     margin-top:1.625em;
@@ -2610,20 +2474,17 @@ $('#infinite-scroll').infinitescroll({
                     margin-bottom:1.625em;
                 }
                 {/block:IfEnableGistEmbedSupport}
-
                 .video .video-wrapper, .better-photo, .photoset-grid {
                     margin-bottom:1em;
                 }
                 .post.permalink .content .divider {
                     margin-top:1.45em;
                 }
-
                 {block:IfEnablePostTags}
                 .tags {
                     margin-bottom:1.15em;
                 }
                 {/block:IfEnablePostTags}
-
                 .tagged {
                     margin-top:1.625em;
                 }
@@ -2641,7 +2502,6 @@ $('#infinite-scroll').infinitescroll({
                 .pagination + .credits {
                     margin-top: -3.5em;
                 }
-
                 {block:IfEnablePostNotes}
                 #notes {
                     padding-top:3.05em;
@@ -2656,27 +2516,23 @@ $('#infinite-scroll').infinitescroll({
                     margin-bottom:1.2em;
                 }
                 {/block:IfEnablePostNotes}
-
                 {block:IfDisqusShortname}
                 #disqus_thread {
                     padding-top:3em;
                     padding-bottom:3em;
                 }
                 {/block:IfDisqusShortname}
-
                 .sidebar-trigger {
                     top:58px;
                 }
                 aside {
                     padding:62px 40px 80px;
                 }
-
                 {block:IfEnableSearch}
                 aside .search {
                     padding-bottom:62px;
                 }
                 {/block:IfEnableSearch}
-
                 aside section {
                     line-height:1.538462em;
                     margin-bottom:2em;
@@ -2687,13 +2543,11 @@ $('#infinite-scroll').infinitescroll({
                 aside h4 {
                     margin-bottom:1em;
                 }
-
                 {block:IfEnableSocialShare}
                 .addthis_default_style {
                     display:inline-block!important;
                 }
                 {/block:IfEnableSocialShare}
-
             }
             @media screen and (min-width:820px) {
                 .details,.content,#notes,#disqus_thread,.quote>blockquote,.answer .dialogue {
@@ -2718,7 +2572,6 @@ $('#infinite-scroll').infinitescroll({
 
                  .articles {
                     float: left;
-                    min-width: 470px;
                     margin-right: 320px;
                     border-right: 1px solid {color:SidebarTrimColour};
                     padding-right: 20px;
@@ -2812,26 +2665,6 @@ $('#infinite-scroll').infinitescroll({
                     box-sizing:content-box;
                 }
 
-                header .logo h1 {
-                    margin:-.25em 0 0 0;
-                    font-size:32px !important;
-                    line-height: 1;
-                    font-weight:400;
-                    display:inline-block;
-                    letter-spacing:-1px;
-                    color: #ffffff;
-                }
-
-                #header {
-                    position: fixed;
-                    background: #000000;
-                    width:100%;
-                    z-index: 3;
-                    -webkit-box-shadow:0 0 10px rgba(0,0,0,0.5);
-                    -moz-box-shadow:0 0 10px rgba(0,0,0,0.5);
-                    box-shadow:0 0 10px rgba(0,0,0,0.5);
-                }
-
                 .header-top {
                    float: left;
                    width: auto;
@@ -2851,26 +2684,8 @@ $('#infinite-scroll').infinitescroll({
                     margin: 0 0 0 0;
                 }
 
-                #index .social-bar, #permalink .social-bar {
+                .menu-button {
                     display: none;
-                }
-
-                .menu-nav {
-                    display: none;
-                }
-
-                .menu-logo {
-                    float: left;
-                    width: auto;
-                    text-align: left;
-                }
-
-                .menu-social {
-                    display: none;
-                }
-
-                .post-comments .comments{
-                    font-size: 16px;
                 }
 
                 {block:IfEnableSidebarLeft}
@@ -2878,13 +2693,11 @@ $('#infinite-scroll').infinitescroll({
                     margin-left:340px;
                 }
                 {/block:IfEnableSidebarLeft}
-
                 {block:IfEnableSidebarRight}
                 #wrapper.open {
                     margin-left:-340px;
                 }
                 {/block:IfEnableSidebarRight}
-
                 .details,.content,#notes,#disqus_thread,.quote>blockquote,.answer .dialogue {
                     padding-left:0;
                     padding-right:0;
@@ -2908,13 +2721,11 @@ $('#infinite-scroll').infinitescroll({
                     padding:62px 60px 120px;
                     width:340px;
                 }
-
                 {block:IfEnableSidebarLeft}
                 aside {
                     left:-340px;
                 }
                 {/block:IfEnableSidebarLeft}
-
                 {block:IfEnableSidebarRight}
                 aside {
                     right:-340px;
@@ -2922,7 +2733,6 @@ $('#infinite-scroll').infinitescroll({
                 {/block:IfEnableSidebarRight}
             }
             {/block:IfEnable760pxMediaQuery}
-
             {block:IfEnable1480pxMediaQuery}
             @media screen and (min-width:1480px) {
                 body {
@@ -2946,13 +2756,11 @@ $('#infinite-scroll').infinitescroll({
                     margin-left:380px;
                 }
                 {/block:IfEnableSidebarLeft}
-
                 {block:IfEnableSidebarRight}
                 #wrapper.open {
                     margin-left:-380px;
                 }
                 {/block:IfEnableSidebarRight}
-
                 h1 {
                     font-size:1.764706em;
                     line-height:1.4;
@@ -3026,7 +2834,6 @@ $('#infinite-scroll').infinitescroll({
                     margin-top:1em;
                     padding-bottom:0.1em;
                 }
-
                 {block:IfEnableGistEmbedSupport}
                 div.gist {
                     font-size:14px;
@@ -3034,7 +2841,6 @@ $('#infinite-scroll').infinitescroll({
                     margin-bottom:1.647059em;
                 }
                 {/block:IfEnableGistEmbedSupport}
-
                 .video .video-wrapper, .better-photo, .photoset-grid {
                     margin-bottom:1em;
                 }
@@ -3132,15 +2938,242 @@ $('#infinite-scroll').infinitescroll({
                 {/block:IfEnableImgReplacement}
             }
         </style>
+        <!-- IE Stuff -->
+        <!--[if lt IE 9]>
+        <script src="http://static.tumblr.com/g8b5dgd/oqXm47me1/html5shiv.js"></script>
+        <style>
+            body {
+                font-size:16px;
+                line-height:1.625em;
+            }
+            h1 {
+                font-size:1.875em;
+                line-height:1.3;
+                margin:0 0 .866667em;
+            }
+            h2 {
+                font-size:1.625em;
+                line-height:1.5;
+                margin:0 0 1em;
+            }
+            h3 {
+                font-size:1.375em;
+                line-height:1.772727;
+                margin:0 0 1.181818em;
+            }
+            h4 {
+                font-size:1.25em;
+                line-height:1.95;
+                margin:0 0 1.3em;
+            }
+            h5 {
+                font-size:1.125em;
+                line-height:1.444444;
+                margin:0 0 1.444444em;
+            }
+            h6 {
+                font-size:1.0625em;
+                line-height:1.529412;
+                margin:0 0 1.529412em;
+            }
+            p {
+                font-size:1em;
+                line-height:1.625;
+                margin:0 0 1.625em;
+            }
+            {block:IfEnableOpenSansChromeAndroidFix}
+            p.fix {
+                width:97%;
+            }
+            {/block:IfEnableOpenSansChromeAndroidFix}
+            blockquote {
+                padding-left:1.625em;
+                margin-top:1.625em;
+                margin-bottom:1.625em;
+            }
+            ul,ol {
+                font-size:1em;
+                line-height:1.625;
+                margin:0 0 1.625em;
+                padding-left:1.625em;
+            }
+            pre {
+                margin-bottom:1.625em;
+            }
+            .details .title {
+                float:none;
+            }
+            .details .title h2 {
+                font-size:1.875em;
+                line-height:1.3;
+                margin:0;
+            }
+            header .logo {
+                width:auto;
+            }
+            header ul li,.details ul li,aside section,.tags li a,.pagination,#notes li {
+                font-size:13px;
+            }
+            aside .filters span {
+                font-size:12px;
+                padding:0 3px;
+                margin:2px 0;
+                line-height:22px;
+            }
+            #main {
+                width:820px;
+                padding-left:0;
+                padding-right:0;
+            }
 
+
+
+            #wrapper.open {
+                margin-left:340px;
+            }
+            {/block:IfEnableSidebarLeft}
+            {block:IfEnableSidebarRight}
+            #wrapper.open {
+                margin-left:-340px;
+            }
+            {/block:IfEnableSidebarRight}
+            .details,.content,#notes,#disqus_thread,.quote>blockquote {
+                padding-left:100px;
+                padding-right:100px;
+                width:100%;
+                -webkit-box-sizing:border-box;
+                -moz-box-sizing:border-box;
+                box-sizing:border-box;
+            }
+            aside {
+                padding:62px 60px 120px;
+                width:340px;
+            }
+            {block:IfEnableSidebarLeft}
+            aside {
+                left:-340px;
+            }
+            {/block:IfEnableSidebarLeft}
+            {block:IfEnableSidebarRight}
+            aside {
+                right:-340px;
+            }
+            {/block:IfEnableSidebarRight}
+
+            header {
+                    padding: .5em 0;
+                    width:820px;
+                }
+
+            header ul {
+                float:right;
+                width:auto;
+                padding:0;
+                border:0;
+                margin:0;
+            }
+            .post {
+                margin-top:3.25em;
+                padding-bottom:1.625em;
+            }
+            .lt-ie9 .better-photo {
+                width:auto !important;
+            }
+            .lt-ie9 .better-photo.large {
+                width:100% !important;
+            }
+            {block:IfEnableGistEmbedSupport}
+            .gist {
+                margin-bottom:1.625em;
+            }
+            {/block:IfEnableGistEmbedSupport}
+            .video .video-wrapper, .photoset-grid, .better-photo {
+                margin-bottom:1.625em;
+            }
+            .post.permalink .content .divider {
+                margin-top:1.45em;
+            }
+            {block:IfEnablePostTags}
+            .tags {
+                margin-bottom:1.15em;
+            }
+            {/block:IfEnablePostTags}
+            .tagged {
+                margin-top:1.625em;
+            }
+            .index .tags {
+                margin-bottom:1em;
+            }
+            .pagination {
+                margin-top:3.5em;
+                margin-bottom:3.5em;
+                line-height:34px;
+            }
+            .pagination .prev,.pagination .next {
+                width:90px;
+            }
+            .pagination + .credits {
+                margin-top: -3.5em;
+            }
+            {block:IfEnablePostNotes}
+            #notes {
+                padding-top:3.05em;
+            }
+            #notes .divider {
+                margin-top:2.05em;
+            }
+            #notes li {
+                line-height:2em;
+            }
+            #notes ol {
+                margin-bottom:1.2em;
+            }
+            {/block:IfEnablePostNotes}
+            {block:IfDisqusShortname}
+            #disqus_thread {
+                padding-top:3em;
+                padding-bottom:3em;
+            }
+            {/block:IfDisqusShortname}
+            .sidebar-trigger {
+                top:58px;
+            }
+            aside {
+                padding:62px 40px 80px;
+            }
+            {block:IfEnableSearch}
+            aside .search {
+                padding-bottom:62px;
+            }
+            {/block:IfEnableSearch}
+            aside section {
+                line-height:1.538462em;
+                margin-bottom:2em;
+            }
+            aside .button {
+                line-height:34px;
+            }
+            aside h4 {
+                margin-bottom:1em;
+            }
+            {block:IfEnableSocialShare}
+            .addthis_default_style {
+                display:inline-block!important;
+            }
+            {/block:IfEnableSocialShare}
+        </style>
+        <![endif]-->
+        <!--[if lt IE 8 ]>
+        <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+        <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
         <!-- Custom CSS -->
         <style>
         {CustomCSS}
         </style>
-
     </head>
     {block:IfNotEnablePreCodeSupport}
-    <body id="{block:IndexPage}index{/block:IndexPage}{block:Permalink}permalink{/block:Permalink}">
+    <body>
     {/block:IfNotEnablePreCodeSupport}
     {block:IfEnablePreCodeSupport}
     <body lang="en" onload="prettyPrint()">
@@ -3148,49 +3181,43 @@ $('#infinite-scroll').infinitescroll({
         <div class="container">
         <div id="header">
             <header>
-              <div class="header-top clearfix">
-              <div class="menu-nav">
-                <div class="menu-button">
-                  <div class="menu-bar"></div>
-                  <div class="menu-bar"></div>
-                  <div class="menu-bar"></div>
+                        <div class="header-top clearfix">
+                        <a href="/" title="{Title}" class="logo">
+                            {block:IfEnableSimpleTextLogo}
+                            <h1>{Title}</h1>
+                            {/block:IfEnableSimpleTextLogo}
+                            {block:IfEnableFancyTextLogo}
+                            <h1>{text:Logo Text}</h1>
+                            {/block:IfEnableFancyTextLogo}
+                            {block:IfEnableSubTextLogo}
+                            <p>{text:Logo Sub Text}</p>
+                            {/block:IfEnableSubTextLogo}
+                            {block:IfEnableImageOnlyLogo}
+                            <span class="img"></span>
+                            {/block:IfEnableImageOnlyLogo}
+                        </a>
+                        <div class="menu-button">
+                            <div class="menu-bar"></div>
+                            <div class="menu-bar"></div>
+                            <div class="menu-bar"></div>
+                        </div>
+                        </div>
+                        <ul class="menu-content">
+                            <li><a href="http://didyouknowblog.com/tagged/science"><img src="http://static.tumblr.com/ubpcooi/Aepnq1r4b/icon_menu_science.png" alt="Science Icon"/>Science</a></li>
+                            <li><a href="http://didyouknowblog.com/tagged/weird"><img src="http://static.tumblr.com/ubpcooi/2dqnq1r59/icon_menu_weird.png" alt="Weird Icon"/>Weird</a></li>
+                            <li><a href="http://didyouknowblog.com/tagged/animals+%26+nature"><img src="http://static.tumblr.com/ubpcooi/h9Cnq1r1e/icon_menu_animals.png" alt="Animals Icon"/>Animals</a></li>
+                            <li><a href="http://didyouknowblog.com/tagged/humor"><img src="http://static.tumblr.com/ubpcooi/Qahnq1r31/icon_menu_humor.png" alt="Humor Icon"/>Funny</a></li>
+                            <li><a href="http://didyouknowblog.com/tagged/history"><img src="http://static.tumblr.com/ubpcooi/7aInq1sfe/icon_menu_history.png" alt="History Icon"/>History</a></li>
+                            <li><a href="http://didyouknowblog.com/tagged/society+&+laws"><img src="http://static.tumblr.com/ubpcooi/Ze2nq3kns/icon_menu_world.png" alt="Culture Icon"/>World Culture</a></li>
+                              </ul>
+                        </header>
                 </div>
-              </div>
-              <div class="menu-logo">
-                <a href="/" title="{Title}" class="logo">
-                    {block:IfEnableSimpleTextLogo}
-                    <h1>{Title}</h1>
-                    {/block:IfEnableSimpleTextLogo}
-                    {block:IfEnableFancyTextLogo}
-                    <h1>{text:Logo Text}</h1>
-                    {/block:IfEnableFancyTextLogo}
-                    {block:IfEnableSubTextLogo}
-                    <p>{text:Logo Sub Text}</p>
-                    {/block:IfEnableSubTextLogo}
-                    {block:IfEnableImageOnlyLogo}
-                    <span class="img"></span>
-                    {/block:IfEnableImageOnlyLogo}
-                </a>
-              </div>
-              <div class="menu-social">
-                <div class="fb-like" data-href="http://www.facebook.com/didyouknowblog" data-layout="button" data-action="like" data-show-faces="true" data-share="false"></div>
-              </div>
-              </div>
-              <ul class="menu-content">
-                  <li><a href="http://didyouknowblog.com/tagged/science">Science</a></li>
-                  <li><a href="http://didyouknowblog.com/tagged/weird">Weird</a></li>
-                  <li><a href="http://didyouknowblog.com/tagged/animals+%26+nature">Animals</a></li>
-                  <li><a href="http://didyouknowblog.com/tagged/humor">Funny</a></li>
-                  <li><a href="http://didyouknowblog.com/tagged/history">History</a></li>
-                  <li><a href="http://didyouknowblog.com/tagged/society+&+laws">World Culture</a></li>
-                    </ul>
-              </header>
-            </div>
             <div id="wrapper">
 
                 <section id="main">
-                <!-- SOVRN 728/300 header tag -->
                 <div class="header-ad" id="header-google-ad">
+
+<!-- SOVRN 728/300 header tag -->
 <script>
 if ( $(window).width() > 739) {
      document.write('<scr'+'ipt type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299141&u=didyouknow&width=728&height=90"></scr'+'ipt>');
@@ -3219,27 +3246,24 @@ else {
                     <span class="ad-label">Sign up for Our Best Stuff:</span>
                      <!-- Begin VR Signup Form --> <form class="vr-signup-form" id="vr-signup-form-4398046512102"><input class="form_field"type="email" name="email_address" placeholder="enter your email" required><input type="submit" value="subscribe!" class="form_button"></form><script type="text/javascript" src="https://vr2.verticalresponse.com/signup_forms/signup_forms.embedded-1.js"></script> <script type="text/javascript">if (typeof VR !== "undefined" && typeof VR.SignupForm !== "undefined") { new VR.SignupForm({ id: "4398046512102", element: "vr-signup-form-4398046512102", endpoint: "https://vr2.verticalresponse.com/se/"}); }</script> <!-- End VR Signup Form -->
                      <span class="ad-label">Like Us On Facebook:</span>
-                     <div class="fb-like" data-href="https://facebook.com/didyouknowblog" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
-                     <br>
-                     <br>
-                     <!-- SOVRN 300x250 sidebar tag -->
-                     <script type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299144&u=didyouknow&width=300&height=250"></script>
-                     <!-- END SOVRN 300x250 sidebar tag -->
-                     <br>
-                     <br>
-                     <!-- Taboola Sidebar Content -->
-                     <div id="taboola-right-rail-thumbnails"></div>
-                     <script type="text/javascript">
-                       window._taboola = window._taboola || [];
-                       _taboola.push({
-                         mode: 'thumbnails-b',
-                         container: 'taboola-right-rail-thumbnails',
-                         placement: 'Right Rail Thumbnails',
-                         target_type: 'mix'
-                       });
-                     </script>
-                     <!-- End Taboola Sidebar Content -->
-
+<div class="fb-like" data-href="https://facebook.com/didyouknowblog" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+<br>
+<br>
+<!-- SOVRN 300x250 sidebar tag -->
+<script type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299144&u=didyouknow&width=300&height=250"></script>
+<!-- END SOVRN 300x250 sidebar tag -->
+<br>
+<br>
+<div id="taboola-right-rail-thumbnails"></div>
+<script type="text/javascript">
+  window._taboola = window._taboola || [];
+  _taboola.push({
+    mode: 'thumbnails-b',
+    container: 'taboola-right-rail-thumbnails',
+    placement: 'Right Rail Thumbnails',
+    target_type: 'mix'
+  });
+</script>
                    <!-- End Permalink Page Sidebar Content -->
                     {/block:PermalinkPage}
 
@@ -3250,28 +3274,42 @@ else {
 <script type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299143&u=didyouknow&width=300&height=250"></script>
 <!-- END SOVRN 300x250 sidebar tag -->
 
-      <span class="ad-label">Sign up for Our Best Stuff:</span>
-       <!-- Begin VR Signup Form --> <form class="vr-signup-form" id="vr-signup-form-4398046512102"><input class="form_field"type="email" name="email_address" placeholder="enter your email" required><input type="submit" value="subscribe!" class="form_button"></form><script type="text/javascript" src="https://vr2.verticalresponse.com/signup_forms/signup_forms.embedded-1.js"></script> <script type="text/javascript">if (typeof VR !== "undefined" && typeof VR.SignupForm !== "undefined") { new VR.SignupForm({ id: "4398046512102", element: "vr-signup-form-4398046512102", endpoint: "https://vr2.verticalresponse.com/se/"}); }</script> <!-- End VR Signup Form -->
+                    <span class="ad-label">Sign up for Our Best Stuff:</span>
+                     <!-- Begin VR Signup Form --> <form class="vr-signup-form" id="vr-signup-form-4398046512102"><input class="form_field"type="email" name="email_address" placeholder="enter your email" required><input type="submit" value="subscribe!" class="form_button"></form><script type="text/javascript" src="https://vr2.verticalresponse.com/signup_forms/signup_forms.embedded-1.js"></script> <script type="text/javascript">if (typeof VR !== "undefined" && typeof VR.SignupForm !== "undefined") { new VR.SignupForm({ id: "4398046512102", element: "vr-signup-form-4398046512102", endpoint: "https://vr2.verticalresponse.com/se/"}); }</script> <!-- End VR Signup Form -->
 
-      <span class="ad-label">Like Us On Facebook:</span>
-      <div class="fb-like" data-href="https://facebook.com/didyouknowblog" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
-      <br>
-      <br>
-      <!-- SOVRN 300x250 sidebar tag -->
-      <script type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299144&u=didyouknow&width=300&height=250"></script>
-      <!-- END SOVRN 300x250 sidebar tag -->
-      <br>
-      <br>
-      <div id="taboola-right-rail-thumbnails"></div>
-      <script type="text/javascript">
-      window._taboola = window._taboola || [];
-      _taboola.push({
-      mode: 'thumbnails-b',
-      container: 'taboola-right-rail-thumbnails',
-      placement: 'Right Rail Thumbnails',
-      target_type: 'mix'
-      });
-      </script>
+<span class="ad-label">Like Us On Facebook:</span>
+<div class="fb-like" data-href="https://facebook.com/didyouknowblog" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+<br>
+<br>
+<!-- SOVRN 300x250 sidebar tag -->
+<script type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299144&u=didyouknow&width=300&height=250"></script>
+<!-- END SOVRN 300x250 sidebar tag -->
+<br>
+<br>
+<div id="taboola-right-rail-thumbnails"></div>
+<script type="text/javascript">
+  window._taboola = window._taboola || [];
+  _taboola.push({
+    mode: 'thumbnails-b',
+    container: 'taboola-right-rail-thumbnails',
+    placement: 'Right Rail Thumbnails',
+    target_type: 'mix'
+  });
+</script>
+                    <!--<span class="sidebar-categories-title">Filter By Category:</span>
+                    <div class="sidebar-icons clearfix">
+                        <a href="http://didyouknowblog.com/tagged/animals+%26+nature" title="Animals"><img src="http://static.tumblr.com/ubpcooi/0uHnlirra/icon_animals.png" alt="Animals Icon"/><br/>Animals</a>
+                        <a href="http://didyouknowblog.com/tagged/entertainment" title="Entertainment"><img src="http://static.tumblr.com/ubpcooi/SAunlis1m/icon_entertainment.png" alt="Entertainment Icon"/><br/>Entertainment</a>
+                        <a href="http://didyouknowblog.com/tagged/humor" title="Humor"><img src="http://static.tumblr.com/ubpcooi/4Olnlis59/icon_humor.png" alt="Humor Icon"/><br/>Humor</a>
+                        <a href="http://didyouknowblog.com/tagged/science" title="Science"><img src="http://static.tumblr.com/ubpcooi/Mognlis5g/icon_science.png" alt="Science Icon"/><br/>Science</a>
+                        <a href="http://didyouknowblog.com/tagged/society+&+laws" title="Society"><img src="http://static.tumblr.com/ubpcooi/IeDnlisef/icon_society.png" alt="Society Icon"/><br/>Society</a>
+                        <a href="http://didyouknowblog.com/tagged/weird" title="Weird"><img src="http://static.tumblr.com/ubpcooi/3tLnlishg/icon_weird.png" alt="Weird Icon"/><br/>Weird</a>
+                        <a href="http://didyouknowblog.com/tagged/technology" title="Technology"><img src="http://static.tumblr.com/ubpcooi/6BKnlisha/icon_technology.png" alt="Technology Icon"/><br/>Technology</a>
+                        <a href="http://didyouknowblog.com/tagged/celebrities" title="Celebrities"><img src="http://static.tumblr.com/ubpcooi/Mwsnlis1b/icon_celebrities.png" alt="Celebrities Icon"/><br/>Celebrities</a>
+                        <a href="http://didyouknowblog.com/tagged/sports" title="Sports"><img src="http://static.tumblr.com/ubpcooi/eb1nliseo/icon_sports.png" alt="Sports Icon"/><br/>Sports</a>
+
+                    </div>-->
+                    <!-- Static Sidebar -->
 
 {/block:IndexPage}
 
@@ -3280,24 +3318,6 @@ else {
                     <!-- End Sidebar -->
 
 
-
-                  <div class="social-bar">
-                    <div class="bar-left">
-                      <a class="button fb-button" href="javascript:fbshareCurrentPage()" target="_blank" alt="Share on Facebook">Share on Facebook</a>
-                    </div>
-                    <div class="bar-right">
-                      {block:PermalinkPagination}
-                      {block:PreviousPost}  <a href="{PreviousPost}" class="button next-button">Next Post</a>{/block:PreviousPost}
-                      {/block:PermalinkPagination}
-                    </div>
-                  </div>
-
-                  <!-- Facebook Share tag -->
-                  <script>
-                      function fbshareCurrentPage()
-                      {window.open("https://www.facebook.com/sharer/sharer.php?u="+escape(window.location.href)+"&t="+document.title, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false; }
-                  </script>
-                  <!-- END Facebook Share tag -->
 
                    <section class="articles">
                     {block:TagPage}
@@ -3311,34 +3331,7 @@ else {
                     </article>
                     {/block:SearchPage}
                     {block:Posts}
-                    <div id="infinite-scroll">
                     <article class="post {PostType} {block:IndexPage}index{/block:IndexPage}{block:Permalink}permalink{/block:Permalink} {TagsAsClasses}">
-
-                      <div class="social-share">
-                        <div class="share-count">
-                          <a href="{Permalink}" title="{block:NoteCount}{NoteCount} Shares{/block:NoteCount}">
-                            <p class="share-number">{NoteCount}</p>
-                            <p class="share-description">Shares</p>
-                          </a>
-                        </div>
-                        {block:IfEnableSocialShare}
-                        <div class="addthis_toolbox add-this" addthis:url="{Permalink}" addthis:title="Title">
-                          <a class="addthis_button_facebook"></a>
-                          <a class="addthis_button_twitter"></a>
-                          <a class="addthis_button_pinterest_share"></a>
-                        </div>
-                        {/block:IfEnableSocialShare}
-                        <div class="social-like">
-                          {block:IfEnableReblogButton}
-                          {ReblogButton color="grey" size="25"}
-                          {/block:IfEnableReblogButton}
-                          {block:IfEnableLikeButton}
-                          {LikeButton color="grey" size="25"}
-                          {/block:IfEnableLikeButton}
-                        </div>
-                      </div>
-
-                      <div class="post-block">
                         {block:Text}
                         {block:Title}
                             <a href="{Permalink}" title="{Title}" class="title"><h2>{Title}</h2></a>
@@ -3367,21 +3360,22 @@ else {
 
                         <section class="details">
 
-                            {block:IfEnablePostDetails}
-                            <ul class="float-left post-comments">
-                              {block:IfEnablePostCommentCount}
-                              {block:IfDisqusShortname}
-                              <li class="comments">
-                                <i class="fa fa-comment"></i>
-                                  <a href="{Permalink}#disqus_thread" title="Comments" class="dsq-comment-count">0 Comments</a>
-                                  <a href="{Permalink}" title="Comments" class="comment-count">
-                                      0 Comments</a>
-                              </li>
-                              {/block:IfDisqusShortname}
-                              {/block:IfEnablePostCommentCount}
-                            </ul>
+                            {block:IfEnableLikeButton}
+                            {LikeButton color="grey" size="20"}
+                            {/block:IfEnableLikeButton}
+                            {block:IfEnableReblogButton}
+                            {ReblogButton color="grey" size="20"}
+                            {/block:IfEnableReblogButton}
 
-                            <ul class="float-right">
+                            {block:IfEnableSocialShare}
+                            <div class="addthis_toolbox addthis_sharing_custom" addthis:url="{Permalink}" addthis:title="Title">
+					    <a class="addthis_button_facebook"></a>
+					    <a class="addthis_button_twitter"></a>
+					    <a class="addthis_button_pinterest_share"></a>
+					    </div>
+                            {/block:IfEnableSocialShare}
+                            {block:IfEnablePostDetails}
+                            <ul>
                                 {block:IfEnablePostDate}
                                 <li class="date">
                                     <a href="{Permalink}" title="{DayOfMonth} {Month}, {Year}">
@@ -3391,12 +3385,35 @@ else {
                                 </li>
                                 {/block:IfEnablePostDate}
 
+                                {block:IfEnablePostNotesCount}
+                                <li class="notes">
+                                    <a href="{Permalink}" title="{block:NoteCount}{NoteCount} Shares{/block:NoteCount}">
+                                        <span {block:NoteCount}class="hide"{/block:NoteCount}>0 Shares</span>
+                                        <span class="full">{block:NoteCount}{NoteCount} Shares{/block:NoteCount}</span>
+                                    </a>
+                                </li>
+                                {/block:IfEnablePostNotesCount}
+                                {block:IfEnablePostCommentCount}
+                                {block:IfDisqusShortname}
+                                <li class="comments">
+                                    <a href="{Permalink}#disqus_thread" title="Comments" class="dsq-comment-count">0 Comments</a>
+                                    <a href="{Permalink}" title="Comments" class="comment-count">
+                                        0 Comments</a>
+                                </li>
+                                {/block:IfDisqusShortname}
+                                {/block:IfEnablePostCommentCount}
                                 {block:IfEnablePostSource}
                                 <li class="source">
                                     <a href="{Permalink}">Permalink / Source</a>
                                 </li>
                                 {/block:IfEnablePostSource}
+                                <!--{block:IfEnableSocialShare}
+                                <li class="addthis_toolbox addthis_default_style" addthis:title="{block:Title}{PlaintextTitle}{/block:Title}" addthis:url="{Permalink}">
+                                    <a class="addthis_button_expanded" href="#"><span class="count">0</span> Shares</a>
+                                    <a class="addthis_counter addthis_bubble_style" href="#"></a>
 
+                                </li>
+                                {/block:IfEnableSocialShare}-->
                             </ul>
                             {/block:IfEnablePostDetails}
                         </section>
@@ -3417,22 +3434,23 @@ else {
                         {LinkCloseTag}
                         {block:Date}
                         <section class="details">
+
+                            {block:IfEnableLikeButton}
+                            {LikeButton color="grey" size="20"}
+                            {/block:IfEnableLikeButton}
+                            {block:IfEnableReblogButton}
+                            {ReblogButton color="grey" size="20"}
+                            {/block:IfEnableReblogButton}
+                            {block:IfEnableSocialShare}
+                            <div class="addthis_toolbox addthis_sharing_custom" addthis:url="{Permalink}" addthis:title="Title">
+					    <a class="addthis_button_facebook"></a>
+					    <a class="addthis_button_twitter"></a>
+					    <a class="addthis_button_pinterest_share"></a>
+					    </div>
+                            {/block:IfEnableSocialShare}
                             {block:IfEnablePostDetails}
 
-                            <ul class="float-left post-comments">
-                              {block:IfEnablePostCommentCount}
-                              {block:IfDisqusShortname}
-                              <li class="comments">
-                                <i class="fa fa-comment"></i>
-                                  <a href="{Permalink}#disqus_thread" title="Comments" class="dsq-comment-count">0 Comments</a>
-                                  <a href="{Permalink}" title="Comments" class="comment-count">
-                                      0 Comments</a>
-                              </li>
-                              {/block:IfDisqusShortname}
-                              {/block:IfEnablePostCommentCount}
-                            </ul>
-
-                            <ul class="float-right">
+                            <ul>
                                 {block:IfEnablePostDate}
                                 <li class="date">
                                     <a href="{Permalink}" title="{DayOfMonth} {Month}, {Year}">
@@ -3441,13 +3459,35 @@ else {
                                     </a>
                                 </li>
                                 {/block:IfEnablePostDate}
-
+                                {block:IfEnablePostNotesCount}
+                                <li class="notes">
+                                    <a href="{Permalink}" title="{block:NoteCount}{NoteCount} Shares{/block:NoteCount}">
+                                        <span {block:NoteCount}class="hide"{/block:NoteCount}>0 Shares</span>
+                                        <span class="full">{block:NoteCount}{NoteCount} Shares{/block:NoteCount}</span>
+                                    </a>
+                                </li>
+                                {/block:IfEnablePostNotesCount}
+                                {block:IfEnablePostCommentCount}
+                                {block:IfDisqusShortname}
+                                <li class="comments">
+                                    <a href="{Permalink}#disqus_thread" title="Comments" class="dsq-comment-count">0 Comments</a>
+                                    <a href="{Permalink}" title="Comments" class="comment-count">
+                                        0 Comments</a>
+                                </li>
+                                {/block:IfDisqusShortname}
+                                {/block:IfEnablePostCommentCount}
                                 {block:IfEnablePostSource}
                                 <li class="source">
                                     <a href="{Permalink}">Permalink / Source</a>
                                 </li>
                                 {/block:IfEnablePostSource}
+                                <!--{block:IfEnableSocialShare}
+                                <li class="addthis_toolbox addthis_default_style" addthis:title="{block:Caption}{PlaintextCaption}{/block:Caption}" addthis:url="{Permalink}">
+                                    <a class="addthis_button_expanded"><span class="count">0</span> Shares</a>
+                                    <a class="addthis_counter addthis_bubble_style"></a>
 
+                                </li>
+                                {/block:IfEnableSocialShare}-->
                             </ul>
                             {/block:IfEnablePostDetails}
                         </section>
@@ -3490,21 +3530,22 @@ else {
                             {/block:Photos}
                         </ul>
                         <section class="details">
+                            {block:IfEnableLikeButton}
+                            {LikeButton color="grey" size="20"}
+                            {/block:IfEnableLikeButton}
+                            {block:IfEnableReblogButton}
+                            {ReblogButton color="grey" size="20"}
+                            {/block:IfEnableReblogButton}
+                            {block:IfEnableSocialShare}
+                            <div class="addthis_toolbox addthis_sharing_custom" addthis:url="{Permalink}" addthis:title="Title">
+					    <a class="addthis_button_facebook"></a>
+					    <a class="addthis_button_twitter"></a>
+					    <a class="addthis_button_pinterest_share"></a>
+					    </div>
+                            {/block:IfEnableSocialShare}
                             {block:IfEnablePostDetails}
 
-                            <ul class="float-left post-comments">
-                              {block:IfEnablePostCommentCount}
-                              {block:IfDisqusShortname}
-                              <li class="comments">
-                                <i class="fa fa-comment"></i>
-                                  <a href="{Permalink}#disqus_thread" title="Comments" class="dsq-comment-count">0 Comments</a>
-                                  <a href="{Permalink}" title="Comments" class="comment-count">
-                                      0 Comments</a>
-                              </li>
-                              {/block:IfDisqusShortname}
-                              {/block:IfEnablePostCommentCount}
-                            </ul>
-                            <ul class="float-right">
+                            <ul>
                                 {block:IfEnablePostDate}
                                 <li class="date">
                                     <a href="{Permalink}" title="{DayOfMonth} {Month}, {Year}">
@@ -3513,12 +3554,35 @@ else {
                                     </a>
                                 </li>
                                 {/block:IfEnablePostDate}
+                                {block:IfEnablePostNotesCount}
+                                <li class="notes">
+                                    <a href="{Permalink}" title="{block:NoteCount}{NoteCount} Shares{/block:NoteCount}">
+                                        <span {block:NoteCount}class="hide"{/block:NoteCount}>0 Shares</span>
+                                        <span class="full">{block:NoteCount}{NoteCount} Shares{/block:NoteCount}</span>
+                                    </a>
+                                </li>
+                                {/block:IfEnablePostNotesCount}
+                                {block:IfEnablePostCommentCount}
+                                {block:IfDisqusShortname}
+                                <li class="comments">
+                                    <a href="{Permalink}#disqus_thread" title="Comments" class="dsq-comment-count">0 Comments</a>
+                                    <a href="{Permalink}" title="Comments" class="comment-count">
+                                        0 Comments</a>
+                                </li>
+                                {/block:IfDisqusShortname}
+                                {/block:IfEnablePostCommentCount}
                                 {block:IfEnablePostSource}
                                 <li class="source">
                                     <a href="{Permalink}">Permalink / Source</a>
                                 </li>
                                 {/block:IfEnablePostSource}
+                                <!--{block:IfEnableSocialShare}
+                                <li class="addthis_toolbox addthis_default_style" addthis:title="{block:Caption}{PlaintextCaption}{/block:Caption}" addthis:url="{Permalink}">
+                                    <a class="addthis_button_expanded"><span class="count">0</span> Shares</a>
+                                    <a class="addthis_counter addthis_bubble_style"></a>
 
+                                </li>
+                                {/block:IfEnableSocialShare}-->
                             </ul>
                             {/block:IfEnablePostDetails}
                         </section>
@@ -3596,7 +3660,13 @@ else {
                                     <a href="{Permalink}">Permalink / Source</a>
                                 </li>
                                 {/block:IfEnablePostSource}
+                                <!--{block:IfEnableSocialShare}
+                                <li class="addthis_toolbox addthis_default_style" addthis:title="{PlaintextQuote}" addthis:url="{Permalink}">
+                                    <a class="addthis_button_expanded"><span class="count">0</span> Shares</a>
+                                    <a class="addthis_counter addthis_bubble_style"></a>
 
+                                </li>
+                                {/block:IfEnableSocialShare}-->
                             </ul>
                             {/block:IfEnablePostDetails}
                         </section>
@@ -3670,7 +3740,13 @@ else {
                                     <a href="{Permalink}">Permalink / Source</a>
                                 </li>
                                 {/block:IfEnablePostSource}
+                                <!--{block:IfEnableSocialShare}
+                                <li class="addthis_toolbox addthis_default_style" addthis:title="{PlaintextName}" addthis:url="{Permalink}">
+                                    <a class="addthis_button_expanded"><span class="count">0</span> Shares</a>
+                                    <a class="addthis_counter addthis_bubble_style"></a>
 
+                                </li>
+                                {/block:IfEnableSocialShare}-->
                             </ul>
                             {/block:IfEnablePostDetails}
                         </section>
@@ -3748,7 +3824,13 @@ else {
                                     <a href="{Permalink}">Permalink / Source</a>
                                 </li>
                                 {/block:IfEnablePostSource}
+                                <!--{block:IfEnableSocialShare}
+                                <li class="addthis_toolbox addthis_default_style" addthis:title="{block:Title}{PlaintextTitle}{/block:Title}" addthis:url="{Permalink}">
+                                    <a class="addthis_button_expanded"><span class="count">0</span> Shares</a>
+                                    <a class="addthis_counter addthis_bubble_style"></a>
 
+                                </li>
+                                {/block:IfEnableSocialShare}-->
                             </ul>
                             {/block:IfEnablePostDetails}
                         </section>
@@ -3835,7 +3917,13 @@ else {
                                     <a href="{Permalink}">Permalink / Source</a>
                                 </li>
                                 {/block:IfEnablePostSource}
+                                <!--{block:IfEnableSocialShare}
+                                <li class="addthis_toolbox addthis_default_style" addthis:title="{block:TrackName}{PlaintextTrackName}{/block:TrackName}{block:Artist} - {PlaintextArtist}{/block:Artist}" addthis:url="{Permalink}">
+                                    <a class="addthis_button_expanded"><span class="count">0</span> Shares</a>
+                                    <a class="addthis_counter addthis_bubble_style"></a>
 
+                                </li>
+                                {/block:IfEnableSocialShare}-->
                             </ul>
                             {/block:IfEnablePostDetails}
                         </section>
@@ -3913,7 +4001,13 @@ else {
                                     <a href="{Permalink}">Permalink / Source</a>
                                 </li>
                                 {/block:IfEnablePostSource}
+                                <!--{block:IfEnableSocialShare}
+                                <li class="addthis_toolbox addthis_default_style" addthis:title="{block:Caption}{PlaintextCaption}{/block:Caption}" addthis:url="{Permalink}">
+                                    <a class="addthis_button_expanded"><span class="count">0</span> Shares</a>
+                                    <a class="addthis_counter addthis_bubble_style"></a>
 
+                                </li>
+                                {/block:IfEnableSocialShare}-->
                             </ul>
                             {/block:IfEnablePostDetails}
                         </section>
@@ -3996,7 +4090,13 @@ else {
                                     <a href="{Permalink}">Permalink / Source</a>
                                 </li>
                                 {/block:IfEnablePostSource}
+                                <!--{block:IfEnableSocialShare}
+                                <li class="addthis_toolbox addthis_default_style" addthis:title="{PlaintextQuestion}" addthis:url="{Permalink}">
+                                    <a class="addthis_button_expanded"><span class="count">0</span> Shares</a>
+                                    <a class="addthis_counter addthis_bubble_style"></a>
+                                </li>
 
+                                {/block:IfEnableSocialShare}-->
                             </ul>
                             {/block:IfEnablePostDetails}
                         </section>
@@ -4021,12 +4121,24 @@ else {
                         </section>
                         {/block:PermalinkPage}
                         {/block:Answer}
-                      </div>
                     </article>
-                  </div>
 
                     {block:Post2}
                     {block:IndexPage}
+
+<!-- TripleLift ad tag <script src="http://ib.3lift.com/ttj?inv_code=didyouknowblog_main_feed"></script>
+<!-- End TripleLift ad tag -->
+
+<!-- AD OPS in-between content tag
+<div class="post-ad">
+<script src="http://www.googletagservices.com/tag/js/gpt.js">
+   googletag.pubads().definePassback('/8788/OAO_Alpha_Everhance/didyouknowblog/desktop', [[336,280],[300,250],[320,50],[320,100]])
+      .setTargeting("cat", "arts")
+      .setTargeting("pos", "btf")
+      .display();
+</script>
+</div>
+ END AD OPS in-between content tag -->
 
     <div class="post-ad">
   <!-- SOVRN 300x50 in-between content tag -->
@@ -4121,9 +4233,338 @@ else {
                 </section>
                 </div>
 
-
-
+            <!--<aside>
+                <a href="#sidebar" title="" class="sidebar-trigger icon-menu"></a>
+                {block:IfEnableSearch}
+                <section class="search">
+                    <form action="/search" method="get" id="search">
+                        <input type="text" name="q" value="{SearchQuery}" id="input"/>
+                        <input type="submit" value="Search" id="submit"/>
+                        <a href="#" title="Search" class="icon-search"></a>
+                    </form>
+                </section>
+                {/block:IfEnableSearch}
+                {block:IfEnableDescription}
+                <section class="description">
+                    {block:IfEnablePortraitImage}<img src="{PortraitURL-128}" alt="{Title}">{/block:IfEnablePortraitImage}
+                    {block:IfDescriptionTitle}<h4>{text:Description Title}</h4>{/block:IfDescriptionTitle}
+                    <p>{Description}</p>
+                </section>
+                {/block:IfEnableDescription}
+                {block:IfEnableFilterMenu}
+                <section class="filter">
+                    {block:IfFilterMenuTitle}<h4>{text:Filter Menu Title}</h4>{/block:IfFilterMenuTitle}
+                    <ul class="filters">
+                        {block:IfFilterMenuTag1}
+                        <li><a href="/tagged/{text:Filter Menu Tag 1}{block:IfNavChrono}/chrono{/block:IfNavChrono}">{text:Filter Menu Tag 1}<span class="count">0</span></a></li>
+                        {/block:IfFilterMenuTag1}
+                        {block:IfFilterMenuTag2}
+                        <li><a href="/tagged/{text:Filter Menu Tag 2}{block:IfNavChrono}/chrono{/block:IfNavChrono}">{text:Filter Menu Tag 2}<span class="count">0</span></a></li>
+                        {/block:IfFilterMenuTag2}
+                        {block:IfFilterMenuTag3}
+                        <li><a href="/tagged/{text:Filter Menu Tag 3}{block:IfNavChrono}/chrono{/block:IfNavChrono}">{text:Filter Menu Tag 3}<span class="count">0</span></a></li>
+                        {/block:IfFilterMenuTag3}
+                        {block:IfFilterMenuTag4}
+                        <li><a href="/tagged/{text:Filter Menu Tag 4}{block:IfNavChrono}/chrono{/block:IfNavChrono}">{text:Filter Menu Tag 4}<span class="count">0</span></a></li>
+                        {/block:IfFilterMenuTag4}
+                        {block:IfFilterMenuTag5}
+                        <li><a href="/tagged/{text:Filter Menu Tag 5}{block:IfNavChrono}/chrono{/block:IfNavChrono}">{text:Filter Menu Tag 5}<span class="count">0</span></a></li>
+                        {/block:IfFilterMenuTag5}
+                        {block:IfFilterMenuTag6}
+                        <li><a href="/tagged/{text:Filter Menu Tag 6}{block:IfNavChrono}/chrono{/block:IfNavChrono}">{text:Filter Menu Tag 6}<span class="count">0</span></a></li>
+                        {/block:IfFilterMenuTag6}
+                        {block:IfFilterMenuTag7}
+                        <li><a href="/tagged/{text:Filter Menu Tag 7}{block:IfNavChrono}/chrono{/block:IfNavChrono}">{text:Filter Menu Tag 7}<span class="count">0</span></a></li>
+                        {/block:IfFilterMenuTag7}
+                        {block:IfFilterMenuTag8}
+                        <li><a href="/tagged/{text:Filter Menu Tag 8}{block:IfNavChrono}/chrono{/block:IfNavChrono}">{text:Filter Menu Tag 8}<span class="count">0</span></a></li>
+                        {/block:IfFilterMenuTag8}
+                        {block:IfFilterMenuTag9}
+                        <li><a href="/tagged/{text:Filter Menu Tag 9}{block:IfNavChrono}/chrono{/block:IfNavChrono}">{text:Filter Menu Tag 9}<span class="count">0</span></a></li>
+                        {/block:IfFilterMenuTag9}
+                        {block:IfFilterMenuTag10}
+                        <li><a href="/tagged/{text:Filter Menu Tag 10}{block:IfNavChrono}/chrono{/block:IfNavChrono}">{text:Filter Menu Tag 10}<span class="count">0</span></a></li>
+                        {/block:IfFilterMenuTag10}
+                        {block:IfFilterMenuTag11}
+                        <li><a href="/tagged/{text:Filter Menu Tag 11}{block:IfNavChrono}/chrono{/block:IfNavChrono}">{text:Filter Menu Tag 11}<span class="count">0</span></a></li>
+                        {/block:IfFilterMenuTag11}
+                        {block:IfFilterMenuTag12}
+                        <li><a href="/tagged/{text:Filter Menu Tag 12}{block:IfNavChrono}/chrono{/block:IfNavChrono}">{text:Filter Menu Tag 12}<span class="count">0</span></a></li>
+                        {/block:IfFilterMenuTag12}
+                    </ul>
+                </section>
+                {/block:IfEnableFilterMenu}
+                {block:IfEnableTwitterFeed}
+                {block:Twitter}
+                <section class="twitter-feed">
+                    {block:IfTwitterFeedTitle}<h4>{text:Twitter Feed Title}</h4>{/block:IfTwitterFeedTitle}
+                    <ul class="tweets"></ul>
+                    {block:IfEnableTwitterButton}
+                    <a href="http://twitter.com/{TwitterUsername}" title="{text:Twitter Button Text}" class="button" target="_blank">{text:Twitter Button Text}</a>
+                    {/block:IfEnableTwitterButton}
+                </section>
+                {/block:Twitter}
+                {/block:IfEnableTwitterFeed}
+                {block:IfEnableDribbbleFeed}
+                {block:IfDribbbleUsername}
+                <section class="dribbble-feed">
+                    {block:IfDribbbleFeedTitle}<h4>{text:Dribbble Feed Title}</h4>{/block:IfDribbbleFeedTitle}
+                    <ul class="dribbble-pics"></ul>
+                    <p>Loading...</p>
+                    {block:IfEnableDribbbleButton}
+                    <a href="http://dribbble.com/{text:Dribbble Username}" title="{text:Dribbble Button Text}" class="button" target="_blank">{text:Dribbble Button Text}</a>
+                    {/block:IfEnableDribbbleButton}
+                </section>
+                {/block:IfDribbbleUsername}
+                {/block:IfEnableDribbbleFeed}
+                {block:IfEnableInstagramFeed}
+                {block:IfInstagramUserID}
+                <section class="instagram-feed">
+                    {block:IfInstagramFeedTitle}<h4>{text:Instagram Feed Title}</h4>{/block:IfInstagramFeedTitle}
+                    <ul class="instagram-pics"></ul>
+                    <p>Loading...</p>
+                    {block:IfEnableInstagramButton}
+                    <a href="http://instagram.com/{text:Instagram Username}" title="{text:Instagram Button Text}" class="button" target="_blank">{text:Instagram Button Text}</a>
+                    {/block:IfEnableInstagramButton}
+                </section>
+                {/block:IfInstagramUserID}
+                {/block:IfEnableInstagramFeed}
+                {block:IfEnableFlickrFeed}
+                {block:IfFlickrUserID}
+                <section class="flickr-feed">
+                    {block:IfFlickrFeedTitle}<h4>{text:Flickr Feed Title}</h4>{/block:IfFlickrFeedTitle}
+                    <ul class="flickr-pics"></ul>
+                    <p>Loading...</p>
+                    {block:IfEnableFlickrButton}
+                    <a href="http://flickr.com/photos/{text:Flickr Username}" title="{text:Flickr Button Text}" class="button" target="_blank">{text:Flickr Button Text}</a>
+                    {/block:IfEnableFlickrButton}
+                </section>
+                {/block:IfFlickrUserID}
+                {/block:IfEnableFlickrFeed}
+                {block:IfEnableSocialLinks}
+                <section class="social-links">
+                    {block:IfSocialLinksTitle}<h4>{text:Social Links Title}</h4>{/block:IfSocialLinksTitle}
+                    <ul>
+                        {block:IfAmazonLink}
+                        <li><a href="{text:Amazon Link}" class="icon-amazon" title="Visit Amazon Link">Amazon</a></li>
+                        {/block:IfAmazonLink}
+                        {block:IfAppNetLink}
+                        <li><a href="{text:App Net Link}" class="icon-appnet" title="Visit App.net Link">App.net</a></li>
+                        {/block:IfAppNetLink}
+                        {block:IfBitBucketLink}
+                        <li><a href="{text:Bit Bucket Link}" class="icon-bitbucket" title="Visit BitBucket Link">BitBucket</a></li>
+                        {/block:IfBitBucketLink}
+                        {block:IfBitCoinLink}
+                        <li><a href="{text:Bit Coin Link}" class="icon-bitcoin" title="Visit BitCoin Link">BitCoin</a></li>
+                        {/block:IfBitCoinLink}
+                        {block:IfBloggerLink}
+                        <li><a href="{text:Blogger Link}" class="icon-blogger" title="Visit Blogger Link">Blogger</a></li>
+                        {/block:IfBloggerLink}
+                        {block:IfBufferLink}
+                        <li><a href="{text:Buffer Link}" class="icon-buffer" title="Visit Buffer App Link">Buffer App</a></li>
+                        {/block:IfBufferLink}
+                        {block:IfDeliciousLink}
+                        <li><a href="{text:Delicious Link}" class="icon-delicious" title="Visit Delicious Link">Delicious</a></li>
+                        {/block:IfDeliciousLink}
+                        {block:IfDeviantartLink}
+                        <li><a href="{text:Deviantart Link}" class="icon-deviantart" title="Visit DeviantArt Link">DeviantArt</a></li>
+                        {/block:IfDeviantartLink}
+                        {block:IfDiggLink}
+                        <li><a href="{text:Digg Link}" class="icon-digg" title="Visit Digg Link">Digg</a></li>
+                        {/block:IfDiggLink}
+                        {block:IfDisqusLink}
+                        <li><a href="{text:Disqus Link}" class="icon-disqus" title="Visit Disqus Link">Disqus</a></li>
+                        {/block:IfDisqusLink}
+                        {block:IfDribbbleLink}
+                        <li><a href="{text:Dribbble Link}" class="icon-dribbble" title="Visit Dribbble Link">Dribbble</a></li>
+                        {/block:IfDribbbleLink}
+                        {block:IfDropboxLink}
+                        <li><a href="{text:Dropbox Link}" class="icon-dropbox" title="Visit Dropbox Link">Dropbox</a></li>
+                        {/block:IfDropboxLink}
+                        {block:IfEbayLink}
+                        <li><a href="{text:Ebay Link}" class="icon-ebay" title="Visit Ebay Link">Ebay</a></li>
+                        {/block:IfEbayLink}
+                        {block:IfEmailLink}
+                        <li><a href="{text:Email Link}" class="icon-email" title="Visit Email Link">Email</a></li>
+                        {/block:IfEmailLink}
+                        {block:IfEvernoteLink}
+                        <li><a href="{text:Evernote Link}" class="icon-evernote" title="Visit Evernote Link">Evernote</a></li>
+                        {/block:IfEvernoteLink}
+                        {block:IfFacebookLink}
+                        <li><a href="{text:Facebook Link}" class="icon-facebook" title="Visit Facebook Link">Facebook</a></li>
+                        {/block:IfFacebookLink}
+                        {block:If500PXLink}
+                        <li><a href="{text:500PX Link}" class="icon-fivehundredpx" title="Visit 500px Link">500px</a></li>
+                        {/block:If500PXLink}
+                        {block:IfFlattrLink}
+                        <li><a href="{text:Flattr Link}" class="icon-flattr" title="Visit Flattr Link">Flattr</a></li>
+                        {/block:IfFlattrLink}
+                        {block:IfFlickrLink}
+                        <li><a href="{text:Flickr Link}" class="icon-flickr" title="Visit Flickr Link">Flickr</a></li>
+                        {/block:IfFlickrLink}
+                        {block:IfForrstLink}
+                        <li><a href="{text:Forrst Link}" class="icon-forrst" title="Visit Forrst Link">Forrst</a></li>
+                        {/block:IfForrstLink}
+                        {block:IfFourSquareLink}
+                        <li><a href="{text:Four Square Link}" class="icon-foursquare" title="Visit Four Square Link">Four Square</a></li>
+                        {/block:IfFourSquareLink}
+                        {block:IfGithubLink}
+                        <li><a href="{text:Github Link}" class="icon-github" title="Visit Github Link">Github</a></li>
+                        {/block:IfGithubLink}
+                        {block:IfGooglePlayLink}
+                        <li><a href="{text:Google Play Link}" class="icon-googleplay" title="Visit Google Play Link">Google Play</a></li>
+                        {/block:IfGooglePlayLink}
+                        {block:IfGoWallaLink}
+                        <li><a href="{text:GoWalla Link}" class="icon-gowalla" title="Visit GoWalla Link">GoWalla</a></li>
+                        {/block:IfGoWallaLink}
+                        {block:IfGooglePlusLink}
+                        <li><a href="{text:Google Plus Link}" class="icon-gplus" title="Visit Google Plus Link">Google Plus</a></li>
+                        {/block:IfGooglePlusLink}
+                        {block:IfGroovesharkLink}
+                        <li><a href="{text:Grooveshark Link}" class="icon-grooveshark" title="Visit Grooveshark Link">Grooveshark</a></li>
+                        {/block:IfGroovesharkLink}
+                        {block:IfInstagramLink}
+                        <li><a href="{text:Instagram Link}" class="icon-instagram-1" title="Visit Instagram Link">Instagram</a></li>
+                        {/block:IfInstagramLink}
+                        {block:IfInstapaperLink}
+                        <li><a href="{text:Instapaper Link}" class="icon-instapaper" title="Visit Instapaper Link">Instapaper</a></li>
+                        {/block:IfInstapaperLink}
+                        {block:IfiTunesStoreLink}
+                        <li><a href="{text:iTunes Store Link}" class="icon-itunes" title="Visit iTunes Store Link">iTunes Store</a></li>
+                        {/block:IfiTunesStoreLink}
+                        {block:IfKloutLink}
+                        <li><a href="{text:Klout Link}" class="icon-klout" title="Visit Klout Link">Klout</a></li>
+                        {/block:IfKloutLink}
+                        {block:IfLanyrdLink}
+                        <li><a href="{text:Lanyrd Link}" class="icon-lanyrd" title="Visit Lanyrd Link">Lanyrd</a></li>
+                        {/block:IfLanyrdLink}
+                        {block:IfLastFMLink}
+                        <li><a href="{text:Last FM Link}" class="icon-lastfm" title="Visit Last FM Link">Last.fm</a></li>
+                        {/block:IfLastFMLink}
+                        {block:IfLinkedInLink}
+                        <li><a href="{text:LinkedIn Link}" class="icon-linkedin" title="Visit LinkedIn Link">LinkedIn</a></li>
+                        {/block:IfLinkedInLink}
+                        {block:IfMeetupLink}
+                        <li><a href="{text:Meetup Link}" class="icon-meetup" title="Visit Meetup Link">Meetup</a></li>
+                        {/block:IfMeetupLink}
+                        {block:IfMySpaceLink}
+                        <li><a href="{text:MySpace Link}" class="icon-myspace" title="Visit MySpace Link">MySpace</a></li>
+                        {/block:IfMySpaceLink}
+                        {block:If99DesignsLink}
+                        <li><a href="{text:99Designs Link}" class="icon-ninetyninedesigns" title="Visit 99Designs Link">99Designs</a></li>
+                        {/block:If99DesignsLink}
+                        {block:IfOpenIDLink}
+                        <li><a href="{text:OpenID Link}" class="icon-openid" title="Visit OpenID Link">OpenID</a></li>
+                        {/block:IfOpenIDLink}
+                        {block:IfPaypalLink}
+                        <li><a href="{text:Paypal Link}" class="icon-paypal" title="Visit Paypal Link">Paypal</a></li>
+                        {/block:IfPaypalLink}
+                        {block:IfPicasaLink}
+                        <li><a href="{text:Picasa Link}" class="icon-picasa" title="Visit Picasa Link">Picasa</a></li>
+                        {/block:IfPicasaLink}
+                        {block:IfPinterestLink}
+                        <li><a href="{text:Pinterest Link}" class="icon-pinterest" title="Visit Pinterest Link">Pinterest</a></li>
+                        {/block:IfPinterestLink}
+                        {block:IfPodcastLink}
+                        <li><a href="{text:Podcast Link}" class="icon-podcast" title="Visit Podcast Link">Podcast</a></li>
+                        {/block:IfPodcastLink}
+                        {block:IfPosterousLink}
+                        <li><a href="{text:Posterous Link}" class="icon-posterous" title="Visit Posterous Link">Posterous</a></li>
+                        {/block:IfPosterousLink}
+                        {block:IfQuoraLink}
+                        <li><a href="{text:Quora Link}" class="icon-quora" title="Visit Quora Link">Quora</a></li>
+                        {/block:IfQuoraLink}
+                        {block:IfRedditLink}
+                        <li><a href="{text:Reddit Link}" class="icon-reddit" title="Visit Reddit Link">Reddit</a></li>
+                        {/block:IfRedditLink}
+                        {block:IfRSSLink}
+                        <li><a href="{text:RSS Link}" class="icon-rss" title="Visit RSS Link">RSS</a></li>
+                        {/block:IfRSSLink}
+                        {block:IfScribdLink}
+                        <li><a href="{text:Scribd Link}" class="icon-scribd" title="Visit Scribd Link">Scribd</a></li>
+                        {/block:IfScribdLink}
+                        {block:IfSkypeLink}
+                        <li><a href="{text:Skype Link}" class="icon-skype-1" title="Visit Skype Link">Skype</a></li>
+                        {/block:IfSkypeLink}
+                        {block:IfSoundcloudLink}
+                        <li><a href="{text:Soundcloud Link}" class="icon-soundcloud" title="Visit Soundcloud Link">Soundcloud</a></li>
+                        {/block:IfSoundcloudLink}
+                        {block:IfSpotifyLink}
+                        <li><a href="{text:Spotify Link}" class="icon-spotify" title="Visit Spotify Link">Spotify</a></li>
+                        {/block:IfSpotifyLink}
+                        {block:IfSteamLink}
+                        <li><a href="{text:Steam Link}" class="icon-steam" title="Visit Steam Link">Steam</a></li>
+                        {/block:IfSteamLink}
+                        {block:IfStripeLink}
+                        <li><a href="{text:Stripe Link}" class="icon-stripe" title="Visit Stripe Link">Stripe</a></li>
+                        {/block:IfStripeLink}
+                        {block:IfStumbleUponLink}
+                        <li><a href="{text:Stumble Upon Link}" class="icon-stumbleupon" title="Visit Stumble Upon Link">Stumble Upon</a></li>
+                        {/block:IfStumbleUponLink}
+                        {block:IfTumblrLink}
+                        <li><a href="{text:Tumblr Link}" class="icon-tumblr" title="Visit Tumblr Link">Tumblr</a></li>
+                        {/block:IfTumblrLink}
+                        {block:IfTwitterLink}
+                        <li><a href="{text:Twitter Link}" class="icon-twitter" title="Visit Twitter Link">Twitter</a></li>
+                        {/block:IfTwitterLink}
+                        {block:IfVimeoLink}
+                        <li><a href="{text:Vimeo Link}" class="icon-vimeo" title="Visit Vimeo Link">Vimeo</a></li>
+                        {/block:IfVimeoLink}
+                        {block:IfWordpressLink}
+                        <li><a href="{text:Wordpress Link}" class="icon-wordpress" title="Visit Wordpress Link">Wordpress</a></li>
+                        {/block:IfWordpressLink}
+                        {block:IfYahooLink}
+                        <li><a href="{text:Yahoo Link}" class="icon-yahoo" title="Visit Yahoo Link">Yahoo</a></li>
+                        {/block:IfYahooLink}
+                        {block:IfYoutubeLink}
+                        <li><a href="{text:Youtube Link}" class="icon-youtube" title="Visit YouTube Link">YouTube</a></li>
+                        {/block:IfYoutubeLink}
+                    </ul>
+                </section>
+                {/block:IfEnableSocialLinks}
+                {block:IfEnableGoogleAdsense}
+                <section class="google-adsense">
+                    <script type="text/javascript">
+                        google_ad_client = "{text:Google Ad Client}";
+                        google_ad_slot = "{text:Google Ad Slot}";
+                        google_ad_width = "{text:Google Ad Width}";
+                        google_ad_height = "{text:Google Ad Height}";
+                    </script>
+                    <script src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+                </section>
+                {/block:IfEnableGoogleAdsense}
+                <section class="theme-credit">
+                    <p><a href="http://themeforest.net/item/pierre-a-super-clean-tumblr-theme/3635113?ref=mikedidthis" target="_blank" title="Purchase Pierre on ThemeForest">Pierre <span class="themeVersion">1.6</span> by mikedidthis</a></p>
+                </section>
+            </aside>-->
         </section>
+<!--
+
+<div class="footer-ad">
+    <script src="http://www.googletagservices.com/tag/js/gpt.js">
+   googletag.pubads().definePassback('/8788/OAO_Alpha_Everhance/didyouknowblog/mobile', [[320,100],[320,50]])
+      .setTargeting("cat", "arts")
+      .setTargeting("pos", "atf")
+      .display();
+</script>
+</div>
+
+<script src="http://www.googletagservices.com/tag/js/gpt.js"></script>
+<script>
+if ( $(window).width() > 739) {
+     googletag.pubads().definePassback('/8788/OAO_Alpha_Everhance/didyouknowblog/desktop', [728, 90])
+      .setTargeting("cat", "arts")
+      .setTargeting("pos", "atf")
+      .display();
+}
+else {
+   googletag.pubads().definePassback('/8788/OAO_Alpha_Everhance/didyouknowblog/mobile', [[320,50],[320,100]])
+      .setTargeting("cat", "arts")
+      .setTargeting("pos", "atf")
+      .display();
+}
+
+</script> -->
 
         <script>window.jQuery || document.write('<script src="http://static.tumblr.com/l184zuh/M30lxehxp/jquery-1.8.0.min.js"><\/script>')</script>
         <!-- Theme Variables -->
