@@ -197,17 +197,20 @@ fjs.parentNode.insertBefore(js, fjs);
 <!-- END Hotjar Tracking Code for didyouknowblog.com -->
 
 <!-- INFINITE SCROLL -->
-<script type="text/javascript" src="http://static.tumblr.com/cbgnuxd/saomz5tvi/jquery.infinitescroll.js"></script>
-<script>
-$('#infinite-scroll').infinitescroll({
-
-    navSelector  : "div.navigation",
-                   // selector for the paged navigation (it will be hidden)
-    nextSelector : "div.navigation a:first",
-                   // selector for the NEXT link (to page 2)
-    itemSelector : "#content div.post"
-                   // selector for all items you'll retrieve
+<script type="text/javascript" src="http://static.tumblr.com/ib6vvvn/h4Rmt3ou9/jquery.infinitescroll.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.content-wrapper').infinitescroll({
+    navSelector: ".next a:last",
+    nextSelector: ".next a:last",
+    itemSelector: ".content-wrapper .content-infinite",
+    path: function(index) {
+      return "page/" + index;
+      moreContent();
+    }
+  }, function(newElements, data, url){
   });
+});
 </script>
 <!-- END INFINITE SCROLL -->
 
@@ -1494,6 +1497,7 @@ $('#infinite-scroll').infinitescroll({
                 font-size:12px;
                 line-height:30px;
                 padding:0px 0;
+                opacity: 0;
             }
             .pagination .prev,.pagination .next {
                 width:50px;
@@ -2887,7 +2891,6 @@ $('#infinite-scroll').infinitescroll({
                 }
 
                 header ul ul li {
-                	width: 170px;
                 	float: none;
                 	display: list-item;
                 	position: relative;
@@ -3103,6 +3106,9 @@ $('#infinite-scroll').infinitescroll({
                     max-width: 1940px;
                 }
 
+                .content-wrapper {
+                    max-width: 490px;
+                }
 
                 .post {
                     margin-top:1em;
@@ -3402,8 +3408,9 @@ else {
                         <p>Showing {SearchResultCount} post(s) related to: <strong>{SearchQuery}</strong></p>
                     </article>
                     {/block:SearchPage}
+                    <div class="content-wrapper">
+                      <div class="content-infinite">
                     {block:Posts}
-                    <div id="infinite-scroll">
                     <article class="post {PostType} {block:IndexPage}index{/block:IndexPage}{block:Permalink}permalink{/block:Permalink} {TagsAsClasses}">
 
                       <div class="social-share">
@@ -4119,8 +4126,6 @@ else {
                         {/block:Answer}
                       </div>
                     </article>
-                  </div>
-
                     {block:Post2}
                     {block:IndexPage}
 
@@ -4143,6 +4148,8 @@ else {
 <div id="9d9f0b8e27" class="pagefair-acceptable"></div>
 <!-- PageFair 300x50 footer tag -->
     </div>
+  </div>
+</div>
                     {block:Pagination}
                     <section class="pagination">
                         <div class="prev">
