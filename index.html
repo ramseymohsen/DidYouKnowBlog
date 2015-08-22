@@ -910,6 +910,10 @@ $('#infinite-scroll').infinitescroll({
                 margin: 0;
             }
 
+            .social-share-top {
+                display: none;
+            }
+
             #index .social-bar {
                 display: none;
             }
@@ -2879,6 +2883,35 @@ $('#infinite-scroll').infinitescroll({
                     display: none;
                 }
 
+                .social-share-top {
+                    display: block;
+                    position: fixed;
+                    top: 0;
+                    right: 0;
+                    padding: 10px 15px;
+                    z-index: 5000;
+                    font-size: 22px;
+                }
+
+                .social-share-top a {
+                    color: #c1c1c1;
+                    text-decoration: none;
+                    padding: 4px;
+                }
+
+                .social-share-top a:hover {
+                    color: #ffffff;
+                    text-decoration: none;
+                }
+
+                .social-share-top ul {
+                    list-style: none;
+                }
+
+                .social-share-top li {
+                    display: inline;
+                }
+
                 .post-comments .comments{
                     font-size: 16px;
                 }
@@ -3189,11 +3222,13 @@ $('#infinite-scroll').infinitescroll({
               <ul class="menu-content">
                   <li><a href="http://didyouknowblog.com/tagged/science">Science</a></li>
                   <li><a href="http://didyouknowblog.com/tagged/weird">Weird</a></li>
-                  <li><a href="http://didyouknowblog.com/tagged/animals+%26+nature">Animals</a></li>
+                  <li><a href="http://didyouknowblog.com/tagged/animals+%26+nature">Animals & Nature</a></li>
                   <li><a href="http://didyouknowblog.com/tagged/humor">Funny</a></li>
                   <li><a href="http://didyouknowblog.com/tagged/history">History</a></li>
                   <li><a href="http://didyouknowblog.com/tagged/society+&+laws">World Culture</a></li>
-                    </ul>
+                  <li><a href="http://didyouknowblog.com/tagged/technology">Tech</a></li>
+                  <li><a href="">More <i class="fa fa-caret-down"></i></a></li>
+              </ul>
               </header>
             </div>
             <div id="wrapper">
@@ -4374,9 +4409,14 @@ else {
 	//$('.accordion_content').hide();
 </script>
 
-        <!-- AddThis.com Social Media Sharing Tags -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54dacdda333551f9" async="async"></script>
-        <!-- END AddThis.com Social Media Sharing Tags -->
+<div class="social-share-top">
+  <ul>
+    <li><a href="http://www.facebook.com/didyouknowblog" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+    <li><a href="http://twitter.com/officialdykn" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+    <li><a href="http://instagram.com/didyouknowblog" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+    <li><a href="http://did-you-kno.tumblr.com/" title="Tumblr"><i class="fa fa-tumblr"></i></a></li>
+  </ul>
+</div>
 
 <!-- Taboola Tag -->
 <script type="text/javascript">
