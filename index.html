@@ -914,6 +914,10 @@ $('#infinite-scroll').infinitescroll({
                 display: none;
             }
 
+            .menu-more {
+                display: none;
+            }
+
             #index .social-bar {
                 display: none;
             }
@@ -2861,8 +2865,35 @@ $('#infinite-scroll').infinitescroll({
                 }
 
                 header ul li {
-                    display:inline-block;
+                    display: inline-block;
                     margin: 0 0 0 0;
+                }
+
+                header ul ul {
+                	display: none;
+                	position: absolute;
+                	top: 49px;
+                  margin-left: -5px;
+                  padding: 2px 5px;
+                  background: #000000;
+                }
+
+                header ul li:hover > ul {
+                	display: inherit;
+                }
+
+                header ul ul li {
+                	width: 170px;
+                	float: none;
+                	display: list-item;
+                	position: relative;
+                  margin: 5px 0;
+                }
+
+                header ul ul ul li {
+                	position: relative;
+                	top: -60px;
+                	left: 170px;
                 }
 
                 #index .social-bar, #permalink .social-bar {
@@ -2881,6 +2912,10 @@ $('#infinite-scroll').infinitescroll({
 
                 .menu-social {
                     display: none;
+                }
+
+                .menu-more {
+                    display: inline-block;
                 }
 
                 .social-share-top {
@@ -3227,7 +3262,15 @@ $('#infinite-scroll').infinitescroll({
                   <li><a href="http://didyouknowblog.com/tagged/history">History</a></li>
                   <li><a href="http://didyouknowblog.com/tagged/society+&+laws">World Culture</a></li>
                   <li><a href="http://didyouknowblog.com/tagged/technology">Tech</a></li>
-                  <li><a href="">More <i class="fa fa-caret-down"></i></a></li>
+                  <li class="menu-more">
+                    <a href="">More <i class="fa fa-caret-down"></i></a>
+                    <ul>
+                      <li><a href="http://didyouknowblog.com/DMCA" title="DMCA">DMCA</a></li>
+                      <li><a href="http://didyouknowblog.com/privacy-policy" title="Privacy Policy">Privacy</a></li>
+                      <li><a href="http://didyouknowblog.com/submit" title="Submit Idea">Submit Idea</a></li>
+                      <li><a href="http://didyouknowblog.com/ask" title="Contact/Advertise">Contact</a></li>
+                    </ul>
+                  </li>
               </ul>
               </header>
             </div>
