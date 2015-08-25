@@ -196,24 +196,6 @@ fjs.parentNode.insertBefore(js, fjs);
 </script>
 <!-- END Hotjar Tracking Code for didyouknowblog.com -->
 
-<!-- INFINITE SCROLL -->
-<script type="text/javascript" src="http://static.tumblr.com/ib6vvvn/h4Rmt3ou9/jquery.infinitescroll.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-  $('.content-wrapper').infinitescroll({
-    navSelector: ".next a:last",
-    nextSelector: ".next a:last",
-    itemSelector: ".content-wrapper .content-infinite",
-    path: function(index) {
-      return "page/" + index;
-      moreContent();
-    }
-  }, function(newElements, data, url){
-  });
-});
-</script>
-<!-- END INFINITE SCROLL -->
-
         <!-- Filter Text -->
         <meta name="text:Filter Menu Tag 1" content="audio" />
         <meta name="text:Filter Menu Tag 2" content="chat" />
@@ -1570,7 +1552,39 @@ $(document).ready(function(){
 
 
             /* Credits */
-            .pagination + .credits {
+            /* Pagination */
+            .credits {
+                display:inline-block;
+                width:100%;
+                text-align:center;
+                margin-top:0.75em;
+                margin-bottom:3.2em;
+                font-size:12px;
+                line-height:30px;
+                padding:0px 0;
+                opacity: 0;
+            }
+            .credits span,.credits a {
+                display:inline-block;
+                text-decoration:none;
+                padding:0 10px;
+                font-size:inherit;
+                line-height:inherit;
+            }
+            .credits span {
+                color:{color:PaginationActiveColour};
+            }
+            .credits a {
+                -webkit-border-radius:3px;
+                -moz-border-radius:3px;
+                border-radius:3px;
+                color:{color:PaginationPagesColour};
+            }
+            .credits a:hover {
+                text-decoration:underline;
+                color:{color:PaginationPagesHoverColour};
+            }
+            .credits {
                 margin-top: -3.2em;
             }
             .credits p {
@@ -2664,7 +2678,7 @@ $(document).ready(function(){
                 .pagination .prev,.pagination .next {
                     width:90px;
                 }
-                .pagination + .credits {
+                .credits {
                     margin-top: -3.5em;
                 }
 
@@ -3226,6 +3240,10 @@ $(document).ready(function(){
         {CustomCSS}
         </style>
 
+        <!-- AddThis.com Social Media Sharing Tags -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54dacdda333551f9" async="async"></script>
+<!-- END AddThis.com Social Media Sharing Tags -->
+
     </head>
     {block:IfNotEnablePreCodeSupport}
     <body id="{block:IndexPage}index{/block:IndexPage}{block:Permalink}permalink{/block:Permalink}">
@@ -3411,7 +3429,7 @@ else {
                     <div class="content-wrapper">
                       <div class="content-infinite">
                     {block:Posts}
-                    <article class="post {PostType} {block:IndexPage}index{/block:IndexPage}{block:Permalink}permalink{/block:Permalink} {TagsAsClasses}">
+                    <article class="post {PostType} {block:IndexPage}index{/block:IndexPage}{block:Permalink}permalink{/block:Permalink} {TagsAsClasses}" id="{PostID}">
 
                       <div class="social-share">
                         <div class="share-count">
@@ -4198,7 +4216,7 @@ else {
                     {/block:Permalink}
                     {/block:IfEnablePostNotes}
 
-                    <section class="pagination credits">
+                    <section class="credits">
                         <br/>
                         <p class="credits-links"><a href="http://didyouknowblog.com/DMCA" title="DMCA">DMCA</a>|<a href="http://didyouknowblog.com/privacy-policy" title="Privacy Policy">Privacy</a>|<a href="http://didyouknowblog.com/submit" title="Submit Idea">Submit Idea</a> |<a href="http://didyouknowblog.com/ask" title="Contact/Advertise">Contact</a>
                         </p>
@@ -4472,9 +4490,33 @@ else {
   </ul>
 </div>
 
-<!-- AddThis.com Social Media Sharing Tags -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54dacdda333551f9" async="async"></script>
-<!-- END AddThis.com Social Media Sharing Tags -->
+<!-- INFINITE SCROLL -->
+<script type="text/javascript" src="http://static.tumblr.com/ib6vvvn/h4Rmt3ou9/jquery.infinitescroll.min.js"></script>
+
+<script>
+$(function(){
+
+   var $container = $('.content-wrapper');
+
+   $container.infinitescroll({
+    navSelector: ".pagination",
+    nextSelector: ".next a:last",
+    itemSelector: ".content-wrapper .content-infinite",
+    bufferPX: 20,
+    loading: {
+        msgText: 'Fetching more posts...',
+        finishedMsg: 'We\'ve ran out of posts!',
+    }
+},
+function(arrayOfNewElems)
+{
+    addthis.toolbox('.addthis_toolbox');
+});
+
+ });
+</script>
+
+<!-- END INFINITE SCROLL -->
 
 <!-- Taboola Tag -->
 <script type="text/javascript">
