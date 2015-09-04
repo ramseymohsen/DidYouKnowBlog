@@ -4492,7 +4492,7 @@ else {
 
 <!-- INFINITE SCROLL -->
 <script type="text/javascript" src="http://static.tumblr.com/ib6vvvn/h4Rmt3ou9/jquery.infinitescroll.min.js"></script>
-
+<script src="http://media.krxd.net/derek/postscribe.min.js"></script>
 <script>
 $(function(){
 
@@ -4510,6 +4510,10 @@ $(function(){
 },
 function(arrayOfNewElems)
 {
+    postscribe(
+        arrayOfNewElems[0],
+        '<script src="http://ap.lijit.com/www/delivery/fpi.js?z=299145&u=didyouknow&width=300&height=250"><\/script>'
+    );
     addthis.toolbox('.addthis_toolbox');
 });
 
