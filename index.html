@@ -638,7 +638,7 @@ fjs.parentNode.insertBefore(js, fjs);
             #main {
                 margin:0 auto;
                 width:100%;
-                padding-left:20px;
+                padding-left:5px;
                 padding-right:20px;
                 overflow:hidden;
                 -webkit-box-sizing:border-box;
@@ -895,11 +895,45 @@ fjs.parentNode.insertBefore(js, fjs);
                 margin: 0;
             }
 
+            .menu-search input {
+                background-color: #fff;
+                padding: 6px 8px;
+                border: 0px;
+                width: 150px;
+                font-size: 14px;
+            }
+
             .social-share-top {
                 display: none;
             }
 
-            .menu-more {
+            .social-share-top ul ul {
+              display: none;
+              position: absolute;
+              top: 49px;
+              margin-left: -170px;
+              padding: 5px;
+              background: #000000;
+            }
+
+            .social-share-top ul li:hover > ul {
+              display: inherit;
+            }
+
+            .social-share-top ul ul li {
+              float: none;
+              display: list-item;
+              position: relative;
+              margin: 5px 0;
+            }
+
+            .social-share-top ul ul ul li {
+              position: relative;
+              top: -60px;
+              left: 170px;
+            }
+
+            .menu-more, .menu-search {
                 display: none;
             }
 
@@ -1073,7 +1107,7 @@ fjs.parentNode.insertBefore(js, fjs);
                 margin-top:1.4em;
             }
 
-            .post.reblog {
+            #index .post.reblog {
             display:none;
             }
 
@@ -1479,7 +1513,6 @@ fjs.parentNode.insertBefore(js, fjs);
                 font-size:12px;
                 line-height:30px;
                 padding:0px 0;
-                opacity: 0;
             }
             .pagination .prev,.pagination .next {
                 width:50px;
@@ -1562,7 +1595,6 @@ fjs.parentNode.insertBefore(js, fjs);
                 font-size:12px;
                 line-height:30px;
                 padding:0px 0;
-                opacity: 0;
             }
             .credits span,.credits a {
                 display:inline-block;
@@ -2836,7 +2868,7 @@ fjs.parentNode.insertBefore(js, fjs);
             }
             @media screen and (min-width:980px) {
                 #main {
-                    width:820px;
+                    width:900px;
                     padding-left:0;
                     padding-right:0;
                     -moz-box-sizing:content-box;
@@ -3121,7 +3153,8 @@ fjs.parentNode.insertBefore(js, fjs);
                 }
 
                 .content-wrapper {
-                    max-width: 490px;
+                    width: 100%;
+                    /*max-width: 490px;*/
                 }
 
                 .post {
@@ -4147,7 +4180,7 @@ else {
                     {block:Post2}
                     {block:IndexPage}
 
-    <div class="post-ad">
+    <div class="post-ad" id="{PostID}">
   <!-- SOVRN 300x50 in-between content tag -->
 <script type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299148&u=didyouknow&width=320&height=50"></script>
  <!-- END SOVRN 300x50 in-between content tag -->
@@ -4156,12 +4189,12 @@ else {
                     {/block:Post2}
                     {/block:Posts}
 
-   <div class="post-ad">
+   <div class="post-ad sovrn" id="{PostID}">
 <!-- SOVRN 300x50 footer tag -->
 <script type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299145&u=didyouknow&width=300&height=250"></script>
 <!-- END SOVRN 300x50 footer tag -->
     </div>
-   <div class="post-ad">
+   <div class="post-ad" id="{PostID}">
 <!-- PageFair 300x50 footer tag -->
 <div id="9d9f0b8e27" class="pagefair-acceptable"></div>
 <!-- PageFair 300x50 footer tag -->
@@ -4213,6 +4246,19 @@ else {
                     {/block:PostNotes}
                     {/block:Date}
                     {/block:Posts}
+
+                    <section>
+                      <div id="taboola-below-article-thumbnails"></div>
+                      <script type="text/javascript">// <![CDATA[
+                      window._taboola = window._taboola || [];
+                        _taboola.push({
+                          mode: 'thumbnails-b',
+                          container: 'taboola-below-article-thumbnails',
+                          placement: 'DYKB - DT - Below Article Thumbnails',
+                          target_type: 'mix'
+                        });
+                      // ]]></script>
+                    </section>
                     {/block:Permalink}
                     {/block:IfEnablePostNotes}
 
@@ -4483,6 +4529,14 @@ else {
 
 <div class="social-share-top">
   <ul>
+    <li class="menu-search">
+      <a href=""><i class="fa fa-search"></i></a>
+      <ul>
+        <form action="/search" method="get">
+            <input type="text" name="q" value="" placeholder="Search for..">
+        </form>
+      </ul>
+    </li>
     <li><a href="http://www.facebook.com/didyouknowblog" title="Facebook"><i class="fa fa-facebook"></i></a></li>
     <li><a href="http://twitter.com/officialdykn" title="Twitter"><i class="fa fa-twitter"></i></a></li>
     <li><a href="http://instagram.com/didyouknowblog" title="Instagram"><i class="fa fa-instagram"></i></a></li>
@@ -4492,28 +4546,38 @@ else {
 
 <!-- INFINITE SCROLL -->
 <script type="text/javascript" src="http://static.tumblr.com/ib6vvvn/h4Rmt3ou9/jquery.infinitescroll.min.js"></script>
+<script src="http://media.krxd.net/derek/postscribe.min.js"></script>
 
 <script>
-$(function(){
+$('.content-wrapper').infinitescroll({
 
-   var $container = $('.content-wrapper');
+  navSelector  : ".pagination",
+                 // selector for the paged navigation (it will be hidden)
 
-   $container.infinitescroll({
-    navSelector: ".pagination",
-    nextSelector: ".next a:last",
-    itemSelector: ".content-wrapper .content-infinite",
-    bufferPX: 20,
-    loading: {
-        msgText: 'Fetching more posts...',
-        finishedMsg: 'We\'ve ran out of posts!',
-    }
-},
-function(arrayOfNewElems)
-{
-    addthis.toolbox('.addthis_toolbox');
+  nextSelector : ".next a:last",
+                 // selector for the NEXT link (to page 2)
+
+  itemSelector : ".content-wrapper .content-infinite",
+                 // selector for all items you'll retrieve
+
+  loading      : { finishedMsg: "No more posts to load.", msgText: "<em>Loading posts...</em>" },
+
+  animate      : false,
+
+  extraScrollPx: 50,
+
+  bufferPx     : 40,
+
+    },function(arrayOfNewElems){
+
+     postscribe(
+         arrayOfNewElems[0],
+         '<div class="post-ad sovrn"><script src="http://ap.lijit.com/www/delivery/fpi.js?z=299145&u=didyouknow&width=300&height=250"><\/script><\/div>'
+     );
+
+     addthis.toolbox('.addthis_toolbox');
+
 });
-
- });
 </script>
 
 <!-- END INFINITE SCROLL -->
@@ -4524,5 +4588,6 @@ function(arrayOfNewElems)
   _taboola.push({flush: true});
 </script>
 <!-- Taboola Tag END -->
+
     </body>
 </html>
