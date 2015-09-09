@@ -3277,6 +3277,24 @@ fjs.parentNode.insertBefore(js, fjs);
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54dacdda333551f9" async="async"></script>
 <!-- END AddThis.com Social Media Sharing Tags -->
 
+<!-- START DYKB LTV Tracking -->
+<script type="text/javascript">
+    $(window).load(function() {
+        var src = location.search.split('src=')[1];
+        var reffer = location.search.split('reffer=')[1];
+        var page = window.location.href;
+        $.ajax({
+            type: "POST",
+            crossDomain: true,
+            url: "http://everhance.com/getCookies.php",
+            data: "type=1&page=" + page + "&src=" + src + "&reffer=" + reffer,
+            success: function (msg) {
+            }
+        });
+    });
+</script>
+<!-- END DYKB LTV Tracking -->
+
     </head>
     {block:IfNotEnablePreCodeSupport}
     <body id="{block:IndexPage}index{/block:IndexPage}{block:Permalink}permalink{/block:Permalink}">
