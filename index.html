@@ -4586,7 +4586,7 @@ $('.content-wrapper').infinitescroll({
 
   bufferPx     : 40,
 
-    },function(arrayOfNewElems){
+    },function( arrayOfNewElems, opts ){
 
      postscribe(
          arrayOfNewElems[0],
@@ -4594,6 +4594,9 @@ $('.content-wrapper').infinitescroll({
      );
 
      addthis.toolbox('.addthis_toolbox');
+
+     var page = opts.state.currPage;
+     try { _gaq.push(['_trackPageview', '/page/'+page]); } catch(err) {  }
 
 });
 </script>
