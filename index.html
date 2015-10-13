@@ -699,6 +699,16 @@ fjs.parentNode.insertBefore(js, fjs);
                 margin-left:-260px;
             }
             {/block:IfEnableSidebarRight}
+            #infscr-loading{
+                margin-left:auto;
+                margin-right:auto;
+                text-align:center;
+            }
+            #infscr-loading div{
+                margin-left:auto;
+                margin-right:auto;
+                width:360px;
+            }
             .cover {
                 position:absolute;
                 opacity:0;
@@ -4590,7 +4600,7 @@ $('.content-wrapper').infinitescroll({
   itemSelector : ".content-wrapper .content-infinite",
                  // selector for all items you'll retrieve
 
-  loading      : { finishedMsg: "No more posts to load.", msgText: "<em>Loading posts...</em>" },
+  loading      : { img: "http://i.imgur.com/R3BV1cH.gif", finishedMsg: "No more posts to load.", msgText: "<em>Loading posts...</em>" },
 
   animate      : false,
 
