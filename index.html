@@ -4614,11 +4614,6 @@ $('.content-wrapper').infinitescroll({
 
     },function( arrayOfNewElems, opts ){
 
-     postscribe(
-         arrayOfNewElems[0],
-         '<iframe src="http://ads.pubsqrd.com/tt?id=5704804&cb=[CACHEBUSTER]" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>'
-     );
-
      addthis.toolbox('.addthis_toolbox');
 
      var page = opts.state.currPage;
@@ -4626,9 +4621,6 @@ $('.content-wrapper').infinitescroll({
      var num = +page;
      var div = "#ad-";
      var numdiv = div + num;
-
-     postscribe( numdiv , '<iframe src="http://ads.pubsqrd.com/tt?id=5704805&cb=[CACHEBUSTER]" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="50"></iframe>', {
-     });
 
      try { _gaq.push(['_trackPageview', '/page/'+page]); } catch(err) {  }
 
