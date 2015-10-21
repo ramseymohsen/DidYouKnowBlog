@@ -1047,6 +1047,10 @@ fjs.parentNode.insertBefore(js, fjs);
                 margin-left: 60px;
             }
 
+            .post-block img {
+                width: 100% !important;
+            }
+
             .post-block .title h2{
 				margin: 0 0 1em;
 				color: black;
@@ -2940,7 +2944,7 @@ fjs.parentNode.insertBefore(js, fjs);
             }
             @media screen and (min-width:980px) {
                 #main {
-                    width:900px;
+                    width:950px;
                     padding-left:0;
                     padding-right:0;
                     -moz-box-sizing:content-box;
@@ -2949,7 +2953,7 @@ fjs.parentNode.insertBefore(js, fjs);
                 }
 
                 header {
-                    width:820px;
+                    width: 950px;
                     padding: .5em 0;
                     -moz-box-sizing:content-box;
                     -webkit-box-sizing:content-box;
@@ -3133,9 +3137,9 @@ fjs.parentNode.insertBefore(js, fjs);
                     line-height:1.647059em;
                 }
                 #main {
-                    width:100%;
-                    padding-left:330px;
-                    padding-right:330px;
+                    width: 950px;
+                    padding-left:0px;
+                    padding-right:0px;
                     -webkit-box-sizing:border-box;
                     -moz-box-sizing:border-box;
                     box-sizing:border-box;
@@ -3214,10 +3218,10 @@ fjs.parentNode.insertBefore(js, fjs);
                 }
 
                 header {
-                    width:100%;
+                    width: 950px;
                     padding: .5em 0;
-                    padding-left:330px;
-                    padding-right:330px;
+                    padding-left:0px;
+                    padding-right:0px;
                     -webkit-box-sizing:border-box;
                     -moz-box-sizing:border-box;
                     box-sizing:border-box;
@@ -3664,10 +3668,10 @@ fjs.parentNode.insertBefore(js, fjs);
                         {block:Photo}
                         {LinkOpenTag}
                             {block:IfNotEnableImgReplacement}
-                            <img src="{PhotoURL-500}" alt="{PhotoAlt}" width="{PhotoWidth-100}" data-100w="{PhotoWidth-100}" data-250u="{PhotoURL-250}" data-250w="{PhotoWidth-250}" data-400u="{PhotoURL-400}" data-400w="{PhotoWidth-400}" data-500u="{PhotoURL-500}" data-500w="{PhotoWidth-500}" data-1280u="{block:HighRes}{PhotoURL-HighRes}{/block:HighRes}" data-1280w="{block:HighRes}{PhotoWidth-HighRes}{/block:HighRes}" data-lbox="{PhotoURL-500}" data-fix="false" data-set="false" data-gal="{PostID}" data-cap="{block:Caption}{PlainTextCaption}{/block:Caption}" class="better-photo lightbox"/>
+                            <img src="{PhotoURL-500}" alt="{PhotoAlt}" width="{PhotoWidth-500}" data-100w="{PhotoWidth-100}" data-250u="{PhotoURL-250}" data-250w="{PhotoWidth-250}" data-400u="{PhotoURL-400}" data-400w="{PhotoWidth-400}" data-500u="{PhotoURL-500}" data-500w="{PhotoWidth-500}" data-1280u="{block:HighRes}{PhotoURL-HighRes}{/block:HighRes}" data-1280w="{block:HighRes}{PhotoWidth-HighRes}{/block:HighRes}" data-lbox="{PhotoURL-500}" data-fix="false" data-set="false" data-gal="{PostID}" data-cap="{block:Caption}{PlainTextCaption}{/block:Caption}" class="better-photo lightbox"/>
                             {/block:IfNotEnableImgReplacement}
                             {block:IfEnableImgReplacement}
-                            <img src="{PhotoURL-100}" alt="{PhotoAlt}" width="{PhotoWidth-100}" data-100w="{PhotoWidth-100}" data-250u="{PhotoURL-250}" data-250w="{PhotoWidth-250}" data-400u="{PhotoURL-400}" data-400w="{PhotoWidth-400}" data-500u="{PhotoURL-500}" data-500w="{PhotoWidth-500}" data-1280u="{block:HighRes}{PhotoURL-HighRes}{/block:HighRes}" data-1280w="{block:HighRes}{PhotoWidth-HighRes}{/block:HighRes}" data-lbox="{PhotoURL-250}" data-fix="false" data-set="false" data-gal="{PostID}" data-cap="{block:Caption}{PlainTextCaption}{/block:Caption}" class="better-photo lightbox"/>
+                            <img src="{PhotoURL-100}" alt="{PhotoAlt}" width="{PhotoWidth-500}" data-100w="{PhotoWidth-100}" data-250u="{PhotoURL-250}" data-250w="{PhotoWidth-250}" data-400u="{PhotoURL-400}" data-400w="{PhotoWidth-400}" data-500u="{PhotoURL-500}" data-500w="{PhotoWidth-500}" data-1280u="{block:HighRes}{PhotoURL-HighRes}{/block:HighRes}" data-1280w="{block:HighRes}{PhotoWidth-HighRes}{/block:HighRes}" data-lbox="{PhotoURL-250}" data-fix="false" data-set="false" data-gal="{PostID}" data-cap="{block:Caption}{PlainTextCaption}{/block:Caption}" class="better-photo lightbox"/>
                             {/block:IfEnableImgReplacement}
                         {LinkCloseTag}
                         {block:Date}
