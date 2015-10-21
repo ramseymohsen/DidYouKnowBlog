@@ -967,6 +967,18 @@ fjs.parentNode.insertBefore(js, fjs);
                 text-align: left;
             }
 
+            #permalink.page .social-like {
+                width: 60px;
+            }
+
+            #permalink.page .social-like a{
+                padding-left: 10px;
+            }
+
+            #permalink.page .share-count a {
+                display: none;
+            }
+
             .social-bar .button {
               border-radius: 5px;
               padding: 10px;
@@ -3357,7 +3369,7 @@ fjs.parentNode.insertBefore(js, fjs);
 
     </head>
     {block:IfNotEnablePreCodeSupport}
-    <body id="{block:IndexPage}index{/block:IndexPage}{block:Permalink}permalink{/block:Permalink}">
+    <body id="{block:IndexPage}index{/block:IndexPage}{block:Permalink}permalink{/block:Permalink}" class="{block:Permalink}page{PostID}{/block:Permalink}">
     {/block:IfNotEnablePreCodeSupport}
     {block:IfEnablePreCodeSupport}
     <body lang="en" onload="prettyPrint()">
