@@ -992,7 +992,16 @@ fjs.parentNode.insertBefore(js, fjs);
             }
 
             #permalink .menu-transparent .menu-logo {
-                display: none;
+                width: auto;
+                margin-top: 3px;
+            }
+
+            #permalink .menu-transparent .logo h1 {
+                font-size: 20px !important;
+            }
+
+            #permalink .menu-transparent .logo p {
+                font-size: 7px;
             }
 
             #permalink .menu-transparent .addthis_toolbox {
@@ -1002,7 +1011,7 @@ fjs.parentNode.insertBefore(js, fjs);
             #permalink .menu-transparent .add-this a span {
                 width: 35px;
                 height: 35px;
-                margin-right: 20px;
+                margin-right: 10px;
                 border-radius: 3px;
             }
 
@@ -1018,7 +1027,7 @@ fjs.parentNode.insertBefore(js, fjs);
             #permalink .menu-transparent .next-button {
                 box-sizing: border-box;
                 display: block;
-                background: #f43d51;
+                background: #ff9900;
                 -webkit-border-radius: 3px;
                 -moz-border-radius: 3px;
                 border-radius: 3px;
@@ -1034,7 +1043,15 @@ fjs.parentNode.insertBefore(js, fjs);
             }
 
             #permalink .menu-transparent .next-button:hover {
-                background: #ef0e27;
+                background: #e68a00;
+            }
+
+            #permalink .menu-transparent .page-button.next-button {
+                display: none;
+            }
+
+            #permalink.page .menu-transparent .page-button.next-button {
+                display: block;
             }
 
             #permalink .content {
@@ -3154,6 +3171,19 @@ fjs.parentNode.insertBefore(js, fjs);
                     text-decoration: none;
                 }
 
+                #permalink .menu-transparent .menu-logo {
+                    display: block;
+                    margin-top: 0px;
+                }
+
+                #permalink .menu-transparent .logo h1 {
+                    font-size: 32px !important;
+                }
+
+                #permalink .menu-transparent .logo p {
+                    font-size: 11px;
+                }
+
                 #permalink .menu-transparent .addthis_toolbox {
                     float: left;
                 }
@@ -3176,7 +3206,7 @@ fjs.parentNode.insertBefore(js, fjs);
                 #permalink .menu-transparent .next-button {
                     box-sizing: border-box;
                     display: block;
-                    background: #f43d51;
+                    background: #ff9900;
                     -webkit-border-radius: 3px;
                     -moz-border-radius: 3px;
                     border-radius: 3px;
@@ -3192,7 +3222,7 @@ fjs.parentNode.insertBefore(js, fjs);
                 }
 
                 #permalink .menu-transparent .next-button:hover {
-                    background: #ef0e27;
+                    background: #e68a00;
                 }
 
                 #permalink .menu-transparent .container {
@@ -3598,6 +3628,7 @@ fjs.parentNode.insertBefore(js, fjs);
                         {block:PermalinkPagination}
                         {block:PreviousPost}  <a href="{PreviousPost}" class="button next-button">Next Post</a>{/block:PreviousPost}
                         {/block:PermalinkPagination}
+                        <a href="/random" class="button page-button next-button">Next Post</a>
                       </div>
                   </div>
               </div>
