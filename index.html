@@ -764,6 +764,10 @@ fjs.parentNode.insertBefore(js, fjs);
                 box-shadow:0 0 10px rgba(0,0,0,0.5);
             }
 
+            #permalink #header {
+                position: static;
+            }
+
             header {
                 margin:0 auto;
                 padding: .5em 0;
@@ -796,7 +800,7 @@ fjs.parentNode.insertBefore(js, fjs);
                 background-image: url('{image:LogoStandard}');
             }
             {/block:IfEnableImageOnlyLogo}
-            header .logo h1 {
+            header .logo h1, .menu-transparent .logo h1 {
 
                 margin:-.25em 0 0 0;
                 font-size:32px !important;
@@ -814,7 +818,7 @@ fjs.parentNode.insertBefore(js, fjs);
             }
             {/block:IfEnableFancyTextLogo}
             {block:IfEnableSubTextLogo}
-            header .logo p {
+            header .logo p, .menu-transparent .logo p {
                 font-size: 11px;
                 margin: -.5em 0 0 0;
                 color: #c1c1c1;
@@ -951,6 +955,10 @@ fjs.parentNode.insertBefore(js, fjs);
                 display: none;
             }
 
+            #index .menu-transparent {
+                display: none;
+            }
+
             #permalink .social-bar {
                 display: block;
                 position: fixed;
@@ -961,6 +969,72 @@ fjs.parentNode.insertBefore(js, fjs);
                 box-shadow:0 0 10px rgba(0,0,0,0.5);
                 padding: 15px 20px;
                 z-index: 9000;
+            }
+
+            #permalink .menu-transparent {
+                display: none;
+                position: fixed;
+                top: 0;
+                height: 40px;
+                width: 100%;
+                padding: 5px;
+                background: rgba(0,0,0,0.8);
+                z-index: 5000;
+            }
+
+            #permalink .menu-transparent a {
+                text-decoration: none;
+            }
+
+            #permalink .menu-transparent .container {
+                width: 100%;
+                margin: 0 auto;
+            }
+
+            #permalink .menu-transparent .menu-logo {
+                display: none;
+            }
+
+            #permalink .menu-transparent .addthis_toolbox {
+                float: left;
+            }
+
+            #permalink .menu-transparent .add-this a span {
+                width: 35px;
+                height: 35px;
+                margin-right: 20px;
+                border-radius: 3px;
+            }
+
+            #permalink .menu-transparent .at4-icon {
+                background-position: center !important;
+            }
+
+            #permalink .menu-transparent .bar-right {
+                float: right;
+                margin-right: 20px;
+            }
+
+            #permalink .menu-transparent .next-button {
+                box-sizing: border-box;
+                display: block;
+                background: #f43d51;
+                -webkit-border-radius: 3px;
+                -moz-border-radius: 3px;
+                border-radius: 3px;
+                text-decoration: none;
+                color: #ffffff;
+                font-weight: 700;
+                font-size: 14px;
+                line-height: inherit;
+                padding: .5em .75em;
+                margin: 0;
+                border: 0;
+                float: left;
+            }
+
+            #permalink .menu-transparent .next-button:hover {
+                background: #ef0e27;
             }
 
             #permalink .content {
@@ -2980,6 +3054,10 @@ fjs.parentNode.insertBefore(js, fjs);
                     box-shadow:0 0 10px rgba(0,0,0,0.5);
                 }
 
+                #permalink #header {
+                    position: static;
+                }
+
                 .header-top {
                    float: left;
                    width: auto;
@@ -3055,6 +3133,71 @@ fjs.parentNode.insertBefore(js, fjs);
                     padding: 10px 15px;
                     z-index: 5000;
                     font-size: 22px;
+                }
+
+                #permalink .social-share-top {
+                    position: absolute;
+                }
+
+                #permalink .menu-transparent {
+                    display: none;
+                    position: fixed;
+                    top: 0;
+                    height: 40px;
+                    width: 100%;
+                    padding: 10px 5px;
+                    background: rgba(0,0,0,0.8);
+                    z-index: 5000;
+                }
+
+                #permalink .menu-transparent a {
+                    text-decoration: none;
+                }
+
+                #permalink .menu-transparent .addthis_toolbox {
+                    float: left;
+                }
+
+                #permalink .menu-transparent .add-this a span {
+                    width: 40px;
+                    height: 40px;
+                    margin-right: 20px;
+                    border-radius: 3px;
+                }
+
+                #permalink .menu-transparent .at4-icon {
+                    background-position: center !important;
+                }
+
+                #permalink .menu-transparent .bar-right {
+                    float: right;
+                }
+
+                #permalink .menu-transparent .next-button {
+                    box-sizing: border-box;
+                    display: block;
+                    background: #f43d51;
+                    -webkit-border-radius: 3px;
+                    -moz-border-radius: 3px;
+                    border-radius: 3px;
+                    text-decoration: none;
+                    color: #ffffff;
+                    font-weight: 700;
+                    font-size: 14px;
+                    line-height: inherit;
+                    padding: .5em .75em;
+                    margin: 0;
+                    border: 0;
+                    float: left;
+                }
+
+                #permalink .menu-transparent .next-button:hover {
+                    background: #ef0e27;
+                }
+
+                #permalink .menu-transparent .container {
+                    width: 950px;
+                    margin: 0 auto;
                 }
 
                 .social-share-top a {
@@ -3428,6 +3571,49 @@ fjs.parentNode.insertBefore(js, fjs);
                   </li>
               </ul>
               </header>
+              {block:Permalink}
+              <div class="menu-transparent">
+                  <div class="container">
+                      <div class="menu-logo">
+                        <a href="/" title="{Title}" class="logo">
+                            {block:IfEnableSimpleTextLogo}
+                            <h1>{Title}</h1>
+                            {/block:IfEnableSimpleTextLogo}
+                            {block:IfEnableFancyTextLogo}
+                            <h1>{text:Logo Text}</h1>
+                            {/block:IfEnableFancyTextLogo}
+                            {block:IfEnableSubTextLogo}
+                            <p>{text:Logo Sub Text}</p>
+                            {/block:IfEnableSubTextLogo}
+                            {block:IfEnableImageOnlyLogo}
+                            <span class="img"></span>
+                            {/block:IfEnableImageOnlyLogo}
+                        </a>
+                      </div>
+                      <div class="bar-right">
+                          <div class="addthis_toolbox add-this" addthis:url="{Permalink}" addthis:title="Title">
+                              <a class="addthis_button_facebook"></a>
+                              <a class="addthis_button_twitter"></a>
+                          </div>
+                        {block:PermalinkPagination}
+                        {block:PreviousPost}  <a href="{PreviousPost}" class="button next-button">Next Post</a>{/block:PreviousPost}
+                        {/block:PermalinkPagination}
+                      </div>
+                  </div>
+              </div>
+
+              <script>
+              $(document).scroll(function () {
+                  var y = $(this).scrollTop();
+                  if (y > 80) {
+                      $('.menu-transparent').fadeIn();
+                  } else {
+                      $('.menu-transparent').fadeOut();
+                  }
+
+              });
+              </script>
+              {/block:Permalink}
             </div>
             <div id="wrapper">
 
@@ -3550,19 +3736,6 @@ fjs.parentNode.insertBefore(js, fjs);
                     </div>
                     </section>
                     <!-- End Sidebar -->
-
-
-
-                  <div class="social-bar">
-                    <div class="bar-left">
-                      <a class="button fb-button" href="javascript:fbshareCurrentPage()" target="_blank" alt="Share on Facebook">Share on Facebook</a>
-                    </div>
-                    <div class="bar-right">
-                      {block:PermalinkPagination}
-                      {block:PreviousPost}  <a href="{PreviousPost}" class="button next-button">Next Post</a>{/block:PreviousPost}
-                      {/block:PermalinkPagination}
-                    </div>
-                  </div>
 
                   <!-- Facebook Share tag -->
                   <script>
