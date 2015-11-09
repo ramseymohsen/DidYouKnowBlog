@@ -195,7 +195,8 @@ fjs.parentNode.insertBefore(js, fjs);
     })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
 </script>
 <!-- END Hotjar Tracking Code for didyouknowblog.com -->
-
+		<!-- Select Layout -->
+         <meta name="select:Layout" content="QA" title="QA">
         <!-- Filter Text -->
         <meta name="text:Filter Menu Tag 1" content="audio" />
         <meta name="text:Filter Menu Tag 2" content="chat" />
@@ -647,6 +648,12 @@ fjs.parentNode.insertBefore(js, fjs);
                 padding-bottom:30px;
             }
 
+/* add this block */
+#permalink #main{
+	padding-left: 0;
+	padding-right: 0;
+}
+/* end */
             .sidebar-left, .sidebar-right {
                 display: none;
             }
@@ -898,10 +905,6 @@ fjs.parentNode.insertBefore(js, fjs);
                 margin-top: 4px;
             }
 
-            .mobile-hidden {
-                display: none;
-            }
-
             .menu-bar {
                 background-color: {color:PaginationColour};
                 height: 2px;
@@ -1142,6 +1145,11 @@ fjs.parentNode.insertBefore(js, fjs);
                 margin-left: 60px;
             }
 
+/* add this block */
+#permalink .post-block {
+margin-left: 0;
+}
+/* end */
             .post-block img {
                 width: 100% !important;
             }
@@ -1149,7 +1157,8 @@ fjs.parentNode.insertBefore(js, fjs);
             .post-block .title h2{
 				margin: 0 0 1em;
 				color: black;
-				padding: 0px 15px 30px 15px;
+/* remove this line */ /* padding: 0px 15px 30px 15px; */
+/* add this line */ padding: 0px 15px 30px 15px;
 				margin-bottom: 30px;
 				line-height: 1.4;
 				background-color: white;
@@ -1175,7 +1184,8 @@ fjs.parentNode.insertBefore(js, fjs);
 				text-align: center;
 				height: auto;
 				margin: 15px auto;
-				padding: 0 30px;
+/* remove this line */ /* padding: 0 30px; */
+/* add this line */ padding: 0 15px;
 				display: block;
 			}
 
@@ -1183,7 +1193,8 @@ fjs.parentNode.insertBefore(js, fjs);
 				color: #FFF;
 				/*     font-size: 24px */;
 				font-size: 21px;
-				padding: 15px 30px;
+/* remove this line */ /* padding: 15px 30px; */
+/* add this line */ padding: 15px 15px;
 				line-height: 1.4;
 				margin: 0;
 				font-family: inherit;
@@ -1197,6 +1208,21 @@ fjs.parentNode.insertBefore(js, fjs);
                 width: 60px;
                 text-align: center;
             }
+
+/* add this block */
+.post .social-share {
+    float: none;
+    width: 60px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#permalink .post .social-share {
+    display: none;
+}
+/* end */
 
             .social-share a {
                 text-decoration: none;
@@ -1817,6 +1843,12 @@ fjs.parentNode.insertBefore(js, fjs);
                 overflow:hidden;
                 font-family:sans-serif!important;
             }
+/* add this block */
+#permalink #disqus_thread{
+	padding-left: 15px;
+	padding-right: 15px;
+}
+/* end */
             #disqus_thread a {
                 color:{color:DisqusThreadTrimColour};
             }
@@ -2505,7 +2537,7 @@ fjs.parentNode.insertBefore(js, fjs);
                     line-height:1.533333em;
                 }
                 #main {
-                    width:460px;
+/* Remove this line */ /*width:460px; */
                     padding-left:0;
                     padding-right:0;
                     -moz-box-sizing:content-box;
@@ -2960,10 +2992,11 @@ fjs.parentNode.insertBefore(js, fjs);
 
                  .articles {
                     float: left;
-                    min-width: 470px;
+/* removed this line */ /* min-width: 470px; */
                     margin-right: 320px;
                     border-right: 1px solid {color:SidebarTrimColour};
                     padding-right: 20px;
+/* added this line */ padding-left: 20px;
                 }
 
                 .sidebar-left {
@@ -3045,6 +3078,11 @@ fjs.parentNode.insertBefore(js, fjs);
                     -webkit-box-sizing:content-box;
                     box-sizing:content-box;
                 }
+ /* added this block */
+.articles {
+	padding-left: 0;
+}
+/* end */
 
                 header {
                     width: 950px;
@@ -3139,10 +3177,6 @@ fjs.parentNode.insertBefore(js, fjs);
 
                 .menu-social {
                     display: none;
-                }
-
-                .mobile-hidden {
-                    display: inline;
                 }
 
                 .menu-more {
@@ -4514,32 +4548,32 @@ fjs.parentNode.insertBefore(js, fjs);
                     {block:Post2}
                     {block:IndexPage}
 
-    <div class="post-ad" id="{PostID}">
-      <div class="sovrn-mobile" id="ad-{block:Pagination}{CurrentPage}{/block:Pagination}"></div>
+    <!-- <div class="post-ad" id="{PostID}"> -->
+      <!-- <div class="sovrn-mobile" id="ad-{block:Pagination}{CurrentPage}{/block:Pagination}"></div> -->
       <!-- BEGIN IFRAME TAG - DYK - MOB - BTF - 300x250 < - DO NOT MODIFY -->
-      <div class="ad-left-box-{block:Pagination}{CurrentPage}{/block:Pagination}">
+      <!-- <div class="ad-left-box">
           <iframe src="http://ads.pubsqrd.com/tt?id=5704804&cb=[CACHEBUSTER]" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>
-      </div>
+      </div> -->
       <!-- END IFRAME TAG - DYK - MOB - BTF - 300x250 < - DO NOT MODIFY -->
       <!-- SOVRN 320x50 in-between content tag -->
-      <div class="ad-right-box-{block:Pagination}{CurrentPage}{/block:Pagination}" id="ad-middle-right-{block:Pagination}{CurrentPage}{/block:Pagination}">
+      <!-- <div class="ad-right-box" id="ad-middle-right-{block:Pagination}{CurrentPage}{/block:Pagination}">
           <script type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299145&u=didyouknow&width=300&height=250"></script>
-      </div>
+      </div> -->
       <!-- END SOVRN 320x50 in-between content tag -->
-    </div>
+    <!-- </div> -->
                     {/block:IndexPage}
                     {/block:Post2}
                     {/block:Posts}
 
    <div class="post-ad sovrn" id="{PostID}">
        <!-- BEGIN IFRAME TAG - DYK - DT - Content1 - 300x250 in-between content tag -->
-       <div class="ad-left-box-{block:Pagination}{CurrentPage}{/block:Pagination}">
+       <div class="ad-left-box">
             <iframe src="http://ads.pubsqrd.com/tt?id=5704804&cb=[CACHEBUSTER]" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>
         </div>
        <!-- END IFRAME TAG - DYK - DT - Content1 - 300x250 in-between content tag -->
 
        <!-- SOVRN 300x250 footer tag -->
-       <div class="ad-right-box-{block:Pagination}{CurrentPage}{/block:Pagination}" id="ad-right-{block:Pagination}{CurrentPage}{/block:Pagination}">
+       <div class="ad-right-box" id="ad-right-{block:Pagination}{CurrentPage}{/block:Pagination}">
            <script type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299145&u=didyouknow&width=300&height=250"></script>
        </div>
        <!-- END SOVRN 300x250 footer tag -->
@@ -4905,12 +4939,6 @@ fjs.parentNode.insertBefore(js, fjs);
   </ul>
 </div>
 
-<script>
-$( document ).ready(function() {
-    $( ".ad-left-box-1" ).addClass( "mobile-hidden" );
-});
-</script>
-
 <!-- INFINITE SCROLL -->
 <script type="text/javascript" src="http://static.tumblr.com/ib6vvvn/h4Rmt3ou9/jquery.infinitescroll.min.js"></script>
 <script src="http://media.krxd.net/derek/postscribe.min.js"></script>
@@ -4947,20 +4975,22 @@ $('.content-wrapper').infinitescroll({
      var numdiv = div + num;
      var numdiv2 = div2 + num;
 
+/*
+     if(num % 2 == 0)
+     {
+       alert ('is even');
+     }
+     else
+     {
+       alert('is odd');
+     }
+*/
+
      postscribe( numdiv , '<script src=http://ap.lijit.com/www/delivery/fpi.js?z=299145&u=didyouknow&width=300&height=250><\/script>', {
      });
 
      postscribe( numdiv2 , '<script src=http://ap.lijit.com/www/delivery/fpi.js?z=299145&u=didyouknow&width=300&height=250><\/script>', {
      });
-
-     if(num % 2 == 0)
-     {
-       $( ".ad-right-box-" + num ).addClass( "mobile-hidden" );
-     }
-     else
-     {
-       $( ".ad-left-box-" + num ).addClass( "mobile-hidden" );
-     }
 
      try { _gaq.push(['_trackPageview', '/page/'+page]); } catch(err) {  }
 
