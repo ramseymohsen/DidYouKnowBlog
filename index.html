@@ -1136,6 +1136,10 @@ fjs.parentNode.insertBefore(js, fjs);
                 margin: 0 auto;
             }
 
+            .ad-box {
+                transform: scale(0.9);
+            }
+
             .post {
               width: 100%;
               float: left;
@@ -4538,13 +4542,13 @@ fjs.parentNode.insertBefore(js, fjs);
 
    <div class="post-ad sovrn" id="{PostID}">
        <!-- BEGIN IFRAME TAG - DYK - DT - Content1 - 300x250 in-between content tag -->
-       <div class="ad-left-box-{block:Pagination}{CurrentPage}{/block:Pagination}">
+       <div class="ad-left-box-{block:Pagination}{CurrentPage}{/block:Pagination} ad-box">
             <iframe src="http://ads.pubsqrd.com/tt?id=5704804&cb=[CACHEBUSTER]" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>
         </div>
        <!-- END IFRAME TAG - DYK - DT - Content1 - 300x250 in-between content tag -->
 
        <!-- SOVRN 300x250 footer tag -->
-       <div class="ad-right-box-{block:Pagination}{CurrentPage}{/block:Pagination}" id="ad-right-{block:Pagination}{CurrentPage}{/block:Pagination}">
+       <div class="ad-right-box-{block:Pagination}{CurrentPage}{/block:Pagination} ad-box" id="ad-right-{block:Pagination}{CurrentPage}{/block:Pagination}">
            <script type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299145&u=didyouknow&width=300&height=250"></script>
        </div>
        <!-- END SOVRN 300x250 footer tag -->
@@ -4958,12 +4962,10 @@ $('.content-wrapper').infinitescroll({
      if(num % 2 == 0)
      {
        $( ".ad-right-box-" + num ).addClass( "mobile-hidden" );
-       console.log(num + ' hello');
      }
      else
      {
        $( ".ad-left-box-" + num ).addClass( "mobile-hidden" );
-       console.log(num + ' hello');
      }
 
      try { _gaq.push(['_trackPageview', '/page/'+page]); } catch(err) {  }
