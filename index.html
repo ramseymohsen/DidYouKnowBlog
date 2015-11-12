@@ -348,6 +348,7 @@ fjs.parentNode.insertBefore(js, fjs);
         <meta name="if:Enable Search" content="1"/>
         <meta name="if:Enable Sidebar Left" content="0"/>
         <meta name="if:Enable Sidebar Right" content="1"/>
+        <meta name="if:Facebook Comments On" content="1" />
         <!-- Logo Options -->
         <meta name="if:Enable Simple Text Logo" content="0"/>
         <meta name="if:Enable Fancy Text Logo" content="1"/>
@@ -1825,6 +1826,12 @@ fjs.parentNode.insertBefore(js, fjs);
 
             .follow-links a {
                 padding: 0 .25em;
+            }
+
+            .fb-comments, , .fb_iframe_widget span, .fb-comments iframe[style] {width: 100% !important;}
+
+            #facebook_thread {
+                margin-bottom: 20px;
             }
 
             /* Disqus */
@@ -3794,13 +3801,6 @@ fjs.parentNode.insertBefore(js, fjs);
                     </section>
                     <!-- End Sidebar -->
 
-                  <!-- Facebook Share tag -->
-                  <script>
-                      function fbshareCurrentPage()
-                      {window.open("https://www.facebook.com/sharer/sharer.php?u="+escape(window.location.href)+"&t="+document.title, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false; }
-                  </script>
-                  <!-- END Facebook Share tag -->
-
                    <section class="articles">
                     {block:TagPage}
                     <article class="tagged">
@@ -3876,16 +3876,10 @@ fjs.parentNode.insertBefore(js, fjs);
 
                             {block:IfEnablePostDetails}
                             <ul class="float-left post-comments">
-                              {block:IfEnablePostCommentCount}
-                              {block:IfDisqusShortname}
                               <li class="comments">
                                 <i class="fa fa-comment"></i>
-                                  <a href="{Permalink}#disqus_thread" title="Comments" class="dsq-comment-count">0 Comments</a>
-                                  <a href="{Permalink}" title="Comments" class="comment-count">
-                                      0 Comments</a>
+                                  <span><a href="{Permalink}#facebook_thread"><fb:comments-count href="{Permalink}"></fb:comments-count> Comments</a></span>
                               </li>
-                              {/block:IfDisqusShortname}
-                              {/block:IfEnablePostCommentCount}
                             </ul>
 
                             <ul class="float-right">
@@ -3914,29 +3908,26 @@ fjs.parentNode.insertBefore(js, fjs);
                         {/block:PermalinkPage}
                         {/block:Text}
                         {block:Photo}
-                        {LinkOpenTag}
                             {block:IfNotEnableImgReplacement}
-                            <img src="{PhotoURL-500}" alt="{PhotoAlt}" width="{PhotoWidth-500}" data-100w="{PhotoWidth-100}" data-250u="{PhotoURL-250}" data-250w="{PhotoWidth-250}" data-400u="{PhotoURL-400}" data-400w="{PhotoWidth-400}" data-500u="{PhotoURL-500}" data-500w="{PhotoWidth-500}" data-1280u="{block:HighRes}{PhotoURL-HighRes}{/block:HighRes}" data-1280w="{block:HighRes}{PhotoWidth-HighRes}{/block:HighRes}" data-lbox="{PhotoURL-500}" data-fix="false" data-set="false" data-gal="{PostID}" data-cap="{block:Caption}{PlainTextCaption}{/block:Caption}" class="better-photo lightbox"/>
+                            <a href="{Permalink}" class="hello">
+                            <img src="{PhotoURL-500}" alt="{PhotoAlt}" width="{PhotoWidth-500}" data-100w="{PhotoWidth-100}" data-250u="{PhotoURL-250}" data-250w="{PhotoWidth-250}" data-400u="{PhotoURL-400}" data-400w="{PhotoWidth-400}" data-500u="{PhotoURL-500}" data-500w="{PhotoWidth-500}" data-1280u="{block:HighRes}{PhotoURL-HighRes}{/block:HighRes}" data-1280w="{block:HighRes}{PhotoWidth-HighRes}{/block:HighRes}" data-lbox="{PhotoURL-500}" data-fix="false" data-set="false" class="better-photo"/>
+                            </a>
                             {/block:IfNotEnableImgReplacement}
                             {block:IfEnableImgReplacement}
-                            <img src="{PhotoURL-100}" alt="{PhotoAlt}" width="{PhotoWidth-500}" data-100w="{PhotoWidth-100}" data-250u="{PhotoURL-250}" data-250w="{PhotoWidth-250}" data-400u="{PhotoURL-400}" data-400w="{PhotoWidth-400}" data-500u="{PhotoURL-500}" data-500w="{PhotoWidth-500}" data-1280u="{block:HighRes}{PhotoURL-HighRes}{/block:HighRes}" data-1280w="{block:HighRes}{PhotoWidth-HighRes}{/block:HighRes}" data-lbox="{PhotoURL-250}" data-fix="false" data-set="false" data-gal="{PostID}" data-cap="{block:Caption}{PlainTextCaption}{/block:Caption}" class="better-photo lightbox"/>
+                            <a href="{Permalink}" class="hello2">
+                            <img src="{PhotoURL-100}" alt="{PhotoAlt}" width="{PhotoWidth-500}" data-100w="{PhotoWidth-100}" data-250u="{PhotoURL-250}" data-250w="{PhotoWidth-250}" data-400u="{PhotoURL-400}" data-400w="{PhotoWidth-400}" data-500u="{PhotoURL-500}" data-500w="{PhotoWidth-500}" data-1280u="{block:HighRes}{PhotoURL-HighRes}{/block:HighRes}" data-1280w="{block:HighRes}{PhotoWidth-HighRes}{/block:HighRes}" data-lbox="{PhotoURL-250}" data-fix="false" data-set="false" class="better-photo"/>
+                            </a>
                             {/block:IfEnableImgReplacement}
-                        {LinkCloseTag}
-                        {block:Date}
+
+                        {/block:Photo}
                         <section class="details">
                             {block:IfEnablePostDetails}
 
                             <ul class="float-left post-comments">
-                              {block:IfEnablePostCommentCount}
-                              {block:IfDisqusShortname}
                               <li class="comments">
                                 <i class="fa fa-comment"></i>
-                                  <a href="{Permalink}#disqus_thread" title="Comments" class="dsq-comment-count">0 Comments</a>
-                                  <a href="{Permalink}" title="Comments" class="comment-count">
-                                      0 Comments</a>
+                                  <span><a href="{Permalink}#facebook_thread"><fb:comments-count href="{Permalink}"></fb:comments-count> Comments</a></span>
                               </li>
-                              {/block:IfDisqusShortname}
-                              {/block:IfEnablePostCommentCount}
                             </ul>
 
                             <ul class="float-right">
@@ -3984,16 +3975,15 @@ fjs.parentNode.insertBefore(js, fjs);
                             {/block:Date}
                         </section>
                         {/block:PermalinkPage}
-                        {/block:Photo}
                         {block:Photoset}
                         <ul class="photoset-grid {block:IfNotEnableImgReplacement}no-img-rep{/block:IfNotEnableImgReplacement}" data-grid-array="{PlaintextPhotosetLayout}" >
                             {block:Photos}
                             <li>
                                 {block:IfNotEnableImgReplacement}
-                                <img src="{PhotoURL-500}" alt="{PhotoAlt}" width="{PhotoWidth-250}" data-250w="{PhotoWidth-250}" data-250h="{PhotoHeight-250}" data-400u="{PhotoURL-400}" data-400w="{PhotoWidth-400}" data-400h="{PhotoHeight-400}" data-500u="{PhotoURL-500}" data-500w="{PhotoWidth-500}" data-500h="{PhotoHeight-500}" data-1280u="{block:HighRes}{PhotoURL-HighRes}{/block:HighRes}" data-1280w="{block:HighRes}{PhotoWidth-HighRes}{/block:HighRes}" data-1280h="{block:HighRes}{PhotoHeight-HighRes}{/block:HighRes}" data-lbox="{PhotoUrl-500}" data-cap="{block:Caption}{PlainTextCaption}{/block:Caption}" data-gal="{PostID}" data-fix="false" data-set="false" class="better-photo lightbox"/>
+                                <img src="{PhotoURL-500}" alt="{PhotoAlt}" width="{PhotoWidth-250}" data-250w="{PhotoWidth-250}" data-250h="{PhotoHeight-250}" data-400u="{PhotoURL-400}" data-400w="{PhotoWidth-400}" data-400h="{PhotoHeight-400}" data-500u="{PhotoURL-500}" data-500w="{PhotoWidth-500}" data-500h="{PhotoHeight-500}" data-1280u="{block:HighRes}{PhotoURL-HighRes}{/block:HighRes}" data-1280w="{block:HighRes}{PhotoWidth-HighRes}{/block:HighRes}" data-1280h="{block:HighRes}{PhotoHeight-HighRes}{/block:HighRes}" data-lbox="{PhotoUrl-500}" data-cap="{block:Caption}{PlainTextCaption}{/block:Caption}" data-gal="{PostID}" data-fix="false" data-set="false" class="better-photo"/>
                                 {/block:IfNotEnableImgReplacement}
                                 {block:IfEnableImgReplacement}
-                                <img src="{PhotoURL-250}" alt="{PhotoAlt}" width="{PhotoWidth-250}" data-250w="{PhotoWidth-250}" data-250h="{PhotoHeight-250}" data-400u="{PhotoURL-400}" data-400w="{PhotoWidth-400}" data-400h="{PhotoHeight-400}" data-500u="{PhotoURL-500}" data-500w="{PhotoWidth-500}" data-500h="{PhotoHeight-500}" data-1280u="{block:HighRes}{PhotoURL-HighRes}{/block:HighRes}" data-1280w="{block:HighRes}{PhotoWidth-HighRes}{/block:HighRes}" data-1280h="{block:HighRes}{PhotoHeight-HighRes}{/block:HighRes}" data-lbox="{PhotoUrl-250}" data-cap="{block:Caption}{PlainTextCaption}{/block:Caption}" data-gal="{PostID}" data-fix="false" data-set="false" class="better-photo lightbox"/>
+                                <img src="{PhotoURL-250}" alt="{PhotoAlt}" width="{PhotoWidth-250}" data-250w="{PhotoWidth-250}" data-250h="{PhotoHeight-250}" data-400u="{PhotoURL-400}" data-400w="{PhotoWidth-400}" data-400h="{PhotoHeight-400}" data-500u="{PhotoURL-500}" data-500w="{PhotoWidth-500}" data-500h="{PhotoHeight-500}" data-1280u="{block:HighRes}{PhotoURL-HighRes}{/block:HighRes}" data-1280w="{block:HighRes}{PhotoWidth-HighRes}{/block:HighRes}" data-1280h="{block:HighRes}{PhotoHeight-HighRes}{/block:HighRes}" data-lbox="{PhotoUrl-250}" data-cap="{block:Caption}{PlainTextCaption}{/block:Caption}" data-gal="{PostID}" data-fix="false" data-set="false" class="better-photo"/>
                                 {/block:IfEnableImgReplacement}
                             </li>
                             {/block:Photos}
@@ -4002,16 +3992,10 @@ fjs.parentNode.insertBefore(js, fjs);
                             {block:IfEnablePostDetails}
 
                             <ul class="float-left post-comments">
-                              {block:IfEnablePostCommentCount}
-                              {block:IfDisqusShortname}
                               <li class="comments">
                                 <i class="fa fa-comment"></i>
-                                  <a href="{Permalink}#disqus_thread" title="Comments" class="dsq-comment-count">0 Comments</a>
-                                  <a href="{Permalink}" title="Comments" class="comment-count">
-                                      0 Comments</a>
+                                  <span><a href="{Permalink}#facebook_thread"><fb:comments-count href="{Permalink}"></fb:comments-count> Comments</a></span>
                               </li>
-                              {/block:IfDisqusShortname}
-                              {/block:IfEnablePostCommentCount}
                             </ul>
                             <ul class="float-right">
                                 {block:IfEnablePostDate}
@@ -4092,14 +4076,12 @@ fjs.parentNode.insertBefore(js, fjs);
                                     </a>
                                 </li>
                                 {/block:IfEnablePostNotesCount}
-                                {block:IfEnablePostCommentCount}
-                                {block:IfDisqusShortname}
-                                <li class="comments">
-                                    <a href="{Permalink}#disqus_thread" title="Comments" class="dsq-comment-count">0 Comments</a>
-                                    <a href="{Permalink}" title="Comments" class="comment-count">0 Comments</a>
-                                </li>
-                                {/block:IfDisqusShortname}
-                                {/block:IfEnablePostCommentCount}
+                                <ul class="float-left post-comments">
+                                  <li class="comments">
+                                    <i class="fa fa-comment"></i>
+                                      <span><a href="{Permalink}#facebook_thread"><fb:comments-count href="{Permalink}"></fb:comments-count> Comments</a></span>
+                                  </li>
+                                </ul>
                                 {block:IfEnablePostSource}
                                 <li class="source">
                                     <a href="{Permalink}">Permalink / Fact Source</a>
@@ -4165,15 +4147,12 @@ fjs.parentNode.insertBefore(js, fjs);
                                     </a>
                                 </li>
                                 {/block:IfEnablePostNotesCount}
-                                {block:IfEnablePostCommentCount}
-                                {block:IfDisqusShortname}
-                                <li class="comments">
-                                    <a href="{Permalink}#disqus_thread" title="Comments" class="dsq-comment-count">0 Comments</a>
-                                    <a href="{Permalink}" title="Comments" class="comment-count">
-                                        0 Comments</a>
-                                </li>
-                                {/block:IfDisqusShortname}
-                                {/block:IfEnablePostCommentCount}
+                                <ul class="float-left post-comments">
+                                  <li class="comments">
+                                    <i class="fa fa-comment"></i>
+                                      <span><a href="{Permalink}#facebook_thread"><fb:comments-count href="{Permalink}"></fb:comments-count> Comments</a></span>
+                                  </li>
+                                </ul>
                                 {block:IfEnablePostSource}
                                 <li class="source">
                                     <a href="{Permalink}">Permalink / Fact Source</a>
@@ -4243,15 +4222,12 @@ fjs.parentNode.insertBefore(js, fjs);
                                     </a>
                                 </li>
                                 {/block:IfEnablePostNotesCount}
-                                {block:IfEnablePostCommentCount}
-                                {block:IfDisqusShortname}
-                                <li class="comments">
-                                    <a href="{Permalink}#disqus_thread" title="Comments" class="dsq-comment-count">0 Comments</a>
-                                    <a href="{Permalink}" title="Comments" class="comment-count">
-                                        0 Comments</a>
-                                </li>
-                                {/block:IfDisqusShortname}
-                                {/block:IfEnablePostCommentCount}
+                                <ul class="float-left post-comments">
+                                  <li class="comments">
+                                    <i class="fa fa-comment"></i>
+                                      <span><a href="{Permalink}#facebook_thread"><fb:comments-count href="{Permalink}"></fb:comments-count> Comments</a></span>
+                                  </li>
+                                </ul>
                                 {block:IfEnablePostSource}
                                 <li class="source">
                                     <a href="{Permalink}">Permalink / Fact Source</a>
@@ -4330,15 +4306,12 @@ fjs.parentNode.insertBefore(js, fjs);
                                     </a>
                                 </li>
                                 {/block:IfEnablePostNotesCount}
-                                {block:IfEnablePostCommentCount}
-                                {block:IfDisqusShortname}
-                                <li class="comments">
-                                    <a href="{Permalink}#disqus_thread" title="Comments" class="dsq-comment-count">0 Comments</a>
-                                    <a href="{Permalink}" title="Comments" class="comment-count">
-                                        0 Comments</a>
-                                </li>
-                                {/block:IfDisqusShortname}
-                                {/block:IfEnablePostCommentCount}
+                                <ul class="float-left post-comments">
+                                  <li class="comments">
+                                    <i class="fa fa-comment"></i>
+                                      <span><a href="{Permalink}#facebook_thread"><fb:comments-count href="{Permalink}"></fb:comments-count> Comments</a></span>
+                                  </li>
+                                </ul>
                                 {block:IfEnablePostSource}
                                 <li class="source">
                                     <a href="{Permalink}">Permalink / Fact Source</a>
@@ -4408,15 +4381,12 @@ fjs.parentNode.insertBefore(js, fjs);
                                     </a>
                                 </li>
                                 {/block:IfEnablePostNotesCount}
-                                {block:IfEnablePostCommentCount}
-                                {block:IfDisqusShortname}
-                                <li class="comments">
-                                    <a href="{Permalink}#disqus_thread" title="Comments" class="dsq-comment-count">0 Comments</a>
-                                    <a href="{Permalink}" title="Comments" class="comment-count">
-                                        0 Comments</a>
-                                </li>
-                                {/block:IfDisqusShortname}
-                                {/block:IfEnablePostCommentCount}
+                                <ul class="float-left post-comments">
+                                  <li class="comments">
+                                    <i class="fa fa-comment"></i>
+                                      <span><a href="{Permalink}#facebook_thread"><fb:comments-count href="{Permalink}"></fb:comments-count> Comments</a></span>
+                                  </li>
+                                </ul>
                                 {block:IfEnablePostSource}
                                 <li class="source">
                                     <a href="{Permalink}">Permalink / Fact Source</a>
@@ -4491,15 +4461,12 @@ fjs.parentNode.insertBefore(js, fjs);
                                     </a>
                                 </li>
                                 {/block:IfEnablePostNotesCount}
-                                {block:IfEnablePostCommentCount}
-                                {block:IfDisqusShortname}
-                                <li class="comments">
-                                    <a href="{Permalink}#disqus_thread" title="Comments" class="dsq-comment-count">0 Comments</a>
-                                    <a href="{Permalink}" title="Comments" class="comment-count">
-                                        0 Comments</a>
-                                </li>
-                                {/block:IfDisqusShortname}
-                                {/block:IfEnablePostCommentCount}
+                                <ul class="float-left post-comments">
+                                  <li class="comments">
+                                    <i class="fa fa-comment"></i>
+                                      <span><a href="{Permalink}#facebook_thread"><fb:comments-count href="{Permalink}"></fb:comments-count> Comments</a></span>
+                                  </li>
+                                </ul>
                                 {block:IfEnablePostSource}
                                 <li class="source">
                                     <a href="{Permalink}">Permalink / Fact Source</a>
@@ -4586,8 +4553,9 @@ fjs.parentNode.insertBefore(js, fjs);
                     {block:Permalink}
                     {block:Posts}
                     {block:Date}
-                    <section id="disqus_thread"></section>
-                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/">comments powered by Disqus.</a></noscript>
+                    <section id="facebook_thread">
+                        <div class="fb-comments" data-href="{Permalink}" data-num-posts="5" data-width="600"></div>
+                    </section>
                     {/block:Date}
                     {/block:Posts}
                     {/block:Permalink}
@@ -4761,27 +4729,6 @@ fjs.parentNode.insertBefore(js, fjs);
         <script type="text/javascript" src="/tweets.js"></script>
         {/block:Twitter}
         {/block:IfEnableTwitterFeed}
-        {block:IfEnableDribbbleFeed}
-        {block:IfDribbbleUsername}
-        <!-- Dribbble Feed JS -->
-        <script>
-            $(function () {
-                $.ajaxSetup({cache:true});
-                $.getScript('http://static.tumblr.com/g8b5dgd/B55lyos5n/jquery.jribbble.js', function(){
-                    $.jribbble.getShotsByPlayerId('{text:Dribbble Username}', function (playerShots) {
-                        var html = [];
-                        $.each(playerShots.shots, function (i, shot) {
-                            html.push('<li><a href="' + shot.url + '" target="_blank">');
-                            html.push('<img src="' + shot.image_teaser_url + '"/></a></li>');
-                        });
-                        $('.dribbble-pics').html(html.join(''));
-                        $('.dribbble-feed').find('p').remove();
-                    }, {page: 1, per_page: "{text:Dribbble Pics To Display}"});
-                });
-            });
-        </script>
-        {/block:IfDribbbleUsername}
-        {/block:IfEnableDribbbleFeed}
         {block:IfEnableInstagramFeed}
         {block:IfInstagramUserID}
         <!-- Instagram Feed JS -->
@@ -4800,49 +4747,6 @@ fjs.parentNode.insertBefore(js, fjs);
         </script>
         {/block:IfInstagramUserID}
         {/block:IfEnableInstagramFeed}
-        {block:IfEnableFlickrFeed}
-        {block:IfFlickrUserID}
-        <!-- Flickr Feed JS -->
-        <script>
-            (function($) {
-                $.fn.squarePreviews = function() {
-                    return this.each(function() {
-                        $img = $(this).find('img');
-                        $imgWidth = $img.width();
-                        $imgHeight = $img.height();
-                        $liWidth = $(this).width();
-                        $(this).css('height',$liWidth);
-                        if ($imgHeight > $liWidth) {
-                            $adjust = ($imgHeight - $liWidth) / 2;
-                            $img.css('margin-top',-$adjust);
-                        }
-                        if ($imgWidth > $liWidth) {
-                            $adjust = ($imgWidth - $liWidth) / 2;
-                            $img.css('margin-left',-$adjust);
-                        }
-                    });
-                };
-            })(jQuery);
-            $(function () {
-                $.ajaxSetup({cache:true});
-                var $count = {text:Flickr Pics To Display} - 1;
-                $.getJSON('http://api.flickr.com/services/feeds/photos_public.gne?id={text:Flickr User ID}&format=json&jsoncallback=?', function(data){
-                    $.each(data.items, function(i,item){
-                        $('<img/>').attr('src', item.media.m).prependTo('.flickr-pics').wrap('<li><a href="' + item.link + '" target=\"_blank\"></a></li>');
-                        if(i == $count) return false;
-                    });
-                    $('.flickr-feed').find('p').remove();
-                });
-            });
-            $(window).load(function() {
-                $('.flickr-feed li').squarePreviews();
-            });
-            $(window).resize(function() {
-                $('.flickr-feed li').squarePreviews();
-            });
-        </script>
-        {/block:IfFlickrUserID}
-        {/block:IfEnableFlickrFeed}
         {block:IfEnableSocialShare}
         <!-- Addthis Share JS -->
         <script>
@@ -4967,6 +4871,8 @@ $('.content-wrapper').infinitescroll({
      {
        $( ".ad-left-box-" + num ).addClass( "mobile-hidden" );
      }
+
+     FB.XFBML.parse();
 
      try { _gaq.push(['_trackPageview', '/page/'+page]); } catch(err) {  }
 
