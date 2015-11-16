@@ -13,6 +13,70 @@
 <meta name="slurp" content="noydir">
 <meta name="robots" content="noimageindex,nomediaindex" />
 <meta charset="utf-8"/>
+
+<!-- Facebook App -->
+<meta property="fb:app_id" content="849304505189414" />
+
+<meta property="og:site_name" content="{Title}"/>
+{block:IndexPage}
+        <meta property="og:title" content="{block:TagPage}&quot;{PlaintextTag}&quot; - {/block:TagPage}{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{Title}"/>
+        <meta property="og:url" content="{blogURL}{block:TagPage}tagged/{URLSafeTag}{/block:TagPage}"/>
+        <meta property="og:type" content="blog" />
+        <meta property="og:description" content="{MetaDescription} {block:TagPage}{PlaintextDescription}{/block:TagPage}"/>
+        <meta property="og:image" content="{PortraitURL-128}"/><!-- forewarning: Facebook will consider this image to be too small, I would recommend creating a higher res image (at least 200x200 according to them, but go much bigger) and linking to that through your own hosting or using tumblr static theme uploader -->
+{/block:IndexPage}
+{block:PermalinkPage}
+    <meta property="og:url" content="{Permalink}"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="{block:SearchPage}{lang:Search results for SearchQuery}{/block:SearchPage}{block:PostSummary}{PlaintextPostSummary}{/block:PostSummary}{block:IndexPage}{PlaintextDescription}{/block:IndexPage}"/>
+        {block:Posts}
+            {block:Text}
+                {block:Title}<meta property="og:title" content="{PlaintextTitle}"/>{/block:Title}
+                <meta property="og:description" content="{PlaintextBody}"/>
+                <meta property="og:image" content="{PortraitURL-128}"/>
+            {/block:Text}
+            {block:Photo}
+                <meta property="og:image" content="{PhotoURL-HighRes}"/>
+                {block:Caption}<meta property="og:description" content="{PlaintextCaption}"/>{/block:Caption}
+            {/block:Photo}
+            {block:Photoset}
+                {block:Photos}
+                <meta property="og:image" content="{PhotoURL-HighRes}"/>
+                {/block:Photos}
+                {block:Caption}<meta property="og:description" content="{PlaintextCaption}"/>{/block:Caption}
+            {/block:Photoset}
+            {block:Quote}
+                <meta property="og:title" content="{PlaintextQuote}"/>
+                <meta property="og:description" content="{PlaintextSource}"/>
+                <meta property="og:image" content="{PortraitURL-128}"/>
+            {/block:Quote}
+            {block:Link}
+                <meta property="og:title" content="{PlaintextName}"/>
+                <meta property="og:description" content="{PlaintextDescription}"/>
+                {block:Thumbnail}<meta property="og:image" content="{Thumbnail}"/>{/block:Thumbnail}
+            {/block:Link}
+            {block:Chat}
+                <meta property="og:title" content="{PlaintextTitle}"/>
+                <meta property="og:description" content="{block:Lines}{block:Label}{Label}: {/block:Label}{Line} &bull; {/block:Lines}"/>
+                <meta property="og:image" content="{PortraitURL-128}"/>
+            {/block:Chat}
+            {block:Audio}
+                <meta property="og:title" content="{block:Artist}{Artist} - {/block:Artist}{block:TrackName}{TrackName}{/block:TrackName}"/>
+                <meta property="og:description" content="{PlaintextCaption}"/>
+                {block:AlbumArt}<meta property="og:image" content="{AlbumArtURL}"/>{/block:AlbumArt}
+            {/block:Audio}
+            {block:Video}
+                {block:Caption}<meta property="og:description" content="{PlaintextCaption}"/>{/block:Caption}
+                {block:VideoThumbnail}<meta property="og:image" content="{VideoThumbnailURL}"/>{/block:VideoThumbnail}
+            {/block:Video}
+            {block:Answer}
+                <meta property="og:title" content="{PlaintextQuestion}"/>
+                <meta property="og:description" content="{PlaintextAnswer}"/>
+                <meta property="og:image" content="{PortraitURL-128}"/>
+            {/block:Answer}
+        {/block:Posts}
+{/block:PermalinkPage}
+
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta http-equiv="imagetoolbar" content="false">
@@ -195,9 +259,6 @@ fjs.parentNode.insertBefore(js, fjs);
     })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
 </script>
 <!-- END Hotjar Tracking Code for didyouknowblog.com -->
-
-        <!-- Facebook App -->
-        <meta property="fb:app_id" content="849304505189414" />
 
         <!-- Select Layout -->
         <meta name="select:Layout" content="QA" title="QA">
