@@ -13,6 +13,70 @@
 <meta name="slurp" content="noydir">
 <meta name="robots" content="noimageindex,nomediaindex" />
 <meta charset="utf-8"/>
+
+<!-- Facebook App -->
+<meta property="fb:app_id" content="849304505189414" />
+
+<meta property="og:site_name" content="{Title}"/>
+{block:IndexPage}
+        <meta property="og:title" content="{block:TagPage}&quot;{PlaintextTag}&quot; - {/block:TagPage}{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{Title}"/>
+        <meta property="og:url" content="{blogURL}{block:TagPage}tagged/{URLSafeTag}{/block:TagPage}"/>
+        <meta property="og:type" content="blog" />
+        <meta property="og:description" content="{MetaDescription} {block:TagPage}{PlaintextDescription}{/block:TagPage}"/>
+        <meta property="og:image" content="{PortraitURL-128}"/><!-- forewarning: Facebook will consider this image to be too small, I would recommend creating a higher res image (at least 200x200 according to them, but go much bigger) and linking to that through your own hosting or using tumblr static theme uploader -->
+{/block:IndexPage}
+{block:PermalinkPage}
+    <meta property="og:url" content="{Permalink}"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="{block:SearchPage}{lang:Search results for SearchQuery}{/block:SearchPage}{block:PostSummary}{PlaintextPostSummary}{/block:PostSummary}{block:IndexPage}{PlaintextDescription}{/block:IndexPage}"/>
+        {block:Posts}
+            {block:Text}
+                {block:Title}<meta property="og:title" content="{PlaintextTitle}"/>{/block:Title}
+                <meta property="og:description" content="{PlaintextBody}"/>
+                <meta property="og:image" content="{PortraitURL-128}"/>
+            {/block:Text}
+            {block:Photo}
+                <meta property="og:image" content="{PhotoURL-HighRes}"/>
+                {block:Caption}<meta property="og:description" content="{PlaintextCaption}"/>{/block:Caption}
+            {/block:Photo}
+            {block:Photoset}
+                {block:Photos}
+                <meta property="og:image" content="{PhotoURL-HighRes}"/>
+                {/block:Photos}
+                {block:Caption}<meta property="og:description" content="{PlaintextCaption}"/>{/block:Caption}
+            {/block:Photoset}
+            {block:Quote}
+                <meta property="og:title" content="{PlaintextQuote}"/>
+                <meta property="og:description" content="{PlaintextSource}"/>
+                <meta property="og:image" content="{PortraitURL-128}"/>
+            {/block:Quote}
+            {block:Link}
+                <meta property="og:title" content="{PlaintextName}"/>
+                <meta property="og:description" content="{PlaintextDescription}"/>
+                {block:Thumbnail}<meta property="og:image" content="{Thumbnail}"/>{/block:Thumbnail}
+            {/block:Link}
+            {block:Chat}
+                <meta property="og:title" content="{PlaintextTitle}"/>
+                <meta property="og:description" content="{block:Lines}{block:Label}{Label}: {/block:Label}{Line} &bull; {/block:Lines}"/>
+                <meta property="og:image" content="{PortraitURL-128}"/>
+            {/block:Chat}
+            {block:Audio}
+                <meta property="og:title" content="{block:Artist}{Artist} - {/block:Artist}{block:TrackName}{TrackName}{/block:TrackName}"/>
+                <meta property="og:description" content="{PlaintextCaption}"/>
+                {block:AlbumArt}<meta property="og:image" content="{AlbumArtURL}"/>{/block:AlbumArt}
+            {/block:Audio}
+            {block:Video}
+                {block:Caption}<meta property="og:description" content="{PlaintextCaption}"/>{/block:Caption}
+                {block:VideoThumbnail}<meta property="og:image" content="{VideoThumbnailURL}"/>{/block:VideoThumbnail}
+            {/block:Video}
+            {block:Answer}
+                <meta property="og:title" content="{PlaintextQuestion}"/>
+                <meta property="og:description" content="{PlaintextAnswer}"/>
+                <meta property="og:image" content="{PortraitURL-128}"/>
+            {/block:Answer}
+        {/block:Posts}
+{/block:PermalinkPage}
+
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta http-equiv="imagetoolbar" content="false">
@@ -196,6 +260,9 @@ fjs.parentNode.insertBefore(js, fjs);
 </script>
 <!-- END Hotjar Tracking Code for didyouknowblog.com -->
 
+        <!-- Select Layout -->
+        <meta name="select:Layout" content="QA" title="QA">
+
         <!-- Filter Text -->
         <meta name="text:Filter Menu Tag 1" content="audio" />
         <meta name="text:Filter Menu Tag 2" content="chat" />
@@ -345,6 +412,7 @@ fjs.parentNode.insertBefore(js, fjs);
         <meta name="if:Enable Search" content="1"/>
         <meta name="if:Enable Sidebar Left" content="0"/>
         <meta name="if:Enable Sidebar Right" content="1"/>
+        <meta name="if:Facebook Comments On" content="1" />
         <!-- Logo Options -->
         <meta name="if:Enable Simple Text Logo" content="0"/>
         <meta name="if:Enable Fancy Text Logo" content="1"/>
@@ -638,8 +706,8 @@ fjs.parentNode.insertBefore(js, fjs);
             #main {
                 margin:0 auto;
                 width:100%;
-                padding-left:5px;
-                padding-right:20px;
+                padding-left:10px;
+                padding-right:10px;
                 overflow:hidden;
                 -webkit-box-sizing:border-box;
                 -moz-box-sizing:border-box;
@@ -699,6 +767,16 @@ fjs.parentNode.insertBefore(js, fjs);
                 margin-left:-260px;
             }
             {/block:IfEnableSidebarRight}
+            #infscr-loading{
+                margin-left:auto;
+                margin-right:auto;
+                text-align:center;
+            }
+            #infscr-loading div{
+                margin-left:auto;
+                margin-right:auto;
+                width:360px;
+            }
             .cover {
                 position:absolute;
                 opacity:0;
@@ -754,6 +832,10 @@ fjs.parentNode.insertBefore(js, fjs);
                 box-shadow:0 0 10px rgba(0,0,0,0.5);
             }
 
+            #permalink #header {
+                position: static;
+            }
+
             header {
                 margin:0 auto;
                 padding: .5em 0;
@@ -786,7 +868,7 @@ fjs.parentNode.insertBefore(js, fjs);
                 background-image: url('{image:LogoStandard}');
             }
             {/block:IfEnableImageOnlyLogo}
-            header .logo h1 {
+            header .logo h1, .menu-transparent .logo h1 {
 
                 margin:-.25em 0 0 0;
                 font-size:32px !important;
@@ -804,7 +886,7 @@ fjs.parentNode.insertBefore(js, fjs);
             }
             {/block:IfEnableFancyTextLogo}
             {block:IfEnableSubTextLogo}
-            header .logo p {
+            header .logo p, .menu-transparent .logo p {
                 font-size: 11px;
                 margin: -.5em 0 0 0;
                 color: #c1c1c1;
@@ -884,6 +966,10 @@ fjs.parentNode.insertBefore(js, fjs);
                 margin-top: 4px;
             }
 
+            .mobile-hidden {
+                display: none;
+            }
+
             .menu-bar {
                 background-color: {color:PaginationColour};
                 height: 2px;
@@ -941,6 +1027,10 @@ fjs.parentNode.insertBefore(js, fjs);
                 display: none;
             }
 
+            #index .menu-transparent {
+                display: none;
+            }
+
             #permalink .social-bar {
                 display: block;
                 position: fixed;
@@ -951,6 +1041,105 @@ fjs.parentNode.insertBefore(js, fjs);
                 box-shadow:0 0 10px rgba(0,0,0,0.5);
                 padding: 15px 20px;
                 z-index: 9000;
+            }
+
+            #permalink .menu-transparent {
+                display: none;
+                position: fixed;
+                top: 0;
+                height: 40px;
+                width: 100%;
+                padding: 5px;
+                background: rgba(0,0,0,0.8);
+                z-index: 5000;
+            }
+
+            #permalink .menu-transparent a {
+                text-decoration: none;
+            }
+
+            #permalink .menu-transparent .container {
+                width: 100%;
+                margin: 0 auto;
+            }
+
+            #permalink .menu-transparent .menu-logo {
+                width: auto;
+                margin-top: 3px;
+            }
+
+            #permalink .menu-transparent .logo h1 {
+                font-size: 20px !important;
+            }
+
+            #permalink .menu-transparent .logo p {
+                font-size: 7px;
+            }
+
+            #permalink .menu-transparent .addthis_toolbox {
+                float: left;
+            }
+
+            #permalink .menu-transparent .add-this a span {
+                width: 35px;
+                height: 35px;
+                margin-right: 10px;
+                border-radius: 3px;
+            }
+
+            #permalink .menu-transparent .at4-icon {
+                background-position: center !important;
+            }
+
+            #permalink .menu-transparent .bar-right {
+                float: right;
+                margin-right: 20px;
+            }
+
+            #permalink .menu-transparent .next-button {
+                box-sizing: border-box;
+                display: block;
+                background: #ff9900;
+                -webkit-border-radius: 3px;
+                -moz-border-radius: 3px;
+                border-radius: 3px;
+                text-decoration: none;
+                color: #ffffff;
+                font-weight: 700;
+                font-size: 14px;
+                line-height: inherit;
+                padding: .5em .75em;
+                margin: 0;
+                border: 0;
+                float: left;
+            }
+
+            #permalink .menu-transparent .next-button:hover {
+                background: #e68a00;
+            }
+
+            #permalink .menu-transparent .page-button.next-button {
+                display: none;
+            }
+
+            #permalink.page .menu-transparent .page-button.next-button {
+                display: block;
+            }
+
+            #permalink .content {
+                text-align: left;
+            }
+
+            #permalink.page .social-like {
+                width: 60px;
+            }
+
+            #permalink.page .social-like a{
+                padding-left: 10px;
+            }
+
+            #permalink.page .share-count a {
+                display: none;
             }
 
             .social-bar .button {
@@ -1006,10 +1195,16 @@ fjs.parentNode.insertBefore(js, fjs);
 
             .post-ad {
                 text-align: center;
+                display: block;
+                clear: both;
             }
 
             .post-ad div {
                 margin: 0 auto;
+            }
+
+            .ad-box {
+                transform: scale(0.9);
             }
 
             .post {
@@ -1020,6 +1215,68 @@ fjs.parentNode.insertBefore(js, fjs);
             .post-block {
                 margin-left: 60px;
             }
+
+            .post-block img {
+                width: 100% !important;
+            }
+
+            .post-block .title h2{
+				margin: 0 0 1em;
+				color: black;
+				padding: 0px 15px 30px 15px;
+				margin-bottom: 30px;
+				line-height: 1.4;
+				background-color: white;
+				font-size: 46px;
+			    margin-bottom: 0;
+			}
+            .post-block .content {
+				text-align: left;
+				background-color: #000;
+				clear: both;
+				width: 100%;
+				padding: 15px 0;
+				margin-bottom: 20px;
+			}
+            .full-width {
+                width: 100%;
+                overflow: auto;
+            }
+            .full-width .content {
+				text-align: left;
+				background-color: #000;
+                padding: 15px;
+			}
+            .full-width .content p, .full-width .content b, .full-width .content strong, .full-width .content a {
+                color: #ffffff;
+            }
+			.post-block .content b, .post-block .content strong{
+                color:#FFFFFF;
+            }
+            .post.permalink .content .divider{
+                background:none;
+            }
+			.post-block figure {
+				width: auto;
+				text-align: center;
+				height: auto;
+				margin: 15px auto;
+				padding: 0 30px;
+				display: block;
+			}
+
+			.post-block p {
+				color: #FFF;
+				/*     font-size: 24px */;
+				font-size: 21px;
+				padding: 15px 30px;
+				line-height: 1.4;
+				margin: 0;
+				font-family: inherit;
+			}
+			.post-block a{
+				color: #FFFFFF;
+			}
 
             .social-share {
                 float: left;
@@ -1103,7 +1360,7 @@ fjs.parentNode.insertBefore(js, fjs);
                 display:block;
                 float:left;
                 height:1px;
-                background:#e9e9e7;
+                background:none;
                 margin-top:1.4em;
             }
 
@@ -1635,6 +1892,12 @@ fjs.parentNode.insertBefore(js, fjs);
 
             .follow-links a {
                 padding: 0 .25em;
+            }
+
+            .fb-comments, , .fb_iframe_widget span, .fb-comments iframe[style] {width: 100% !important;}
+
+            #facebook_thread {
+                margin-bottom: 20px;
             }
 
             /* Disqus */
@@ -2545,7 +2808,6 @@ fjs.parentNode.insertBefore(js, fjs);
                 }
 
                 .post-ad div {
-                    margin: 0 1em;
                     display: inline-block;
                 }
 
@@ -2868,7 +3130,7 @@ fjs.parentNode.insertBefore(js, fjs);
             }
             @media screen and (min-width:980px) {
                 #main {
-                    width:900px;
+                    width:950px;
                     padding-left:0;
                     padding-right:0;
                     -moz-box-sizing:content-box;
@@ -2877,7 +3139,7 @@ fjs.parentNode.insertBefore(js, fjs);
                 }
 
                 header {
-                    width:820px;
+                    width: 950px;
                     padding: .5em 0;
                     -moz-box-sizing:content-box;
                     -webkit-box-sizing:content-box;
@@ -2902,6 +3164,10 @@ fjs.parentNode.insertBefore(js, fjs);
                     -webkit-box-shadow:0 0 10px rgba(0,0,0,0.5);
                     -moz-box-shadow:0 0 10px rgba(0,0,0,0.5);
                     box-shadow:0 0 10px rgba(0,0,0,0.5);
+                }
+
+                #permalink #header {
+                    position: static;
                 }
 
                 .header-top {
@@ -2967,6 +3233,10 @@ fjs.parentNode.insertBefore(js, fjs);
                     display: none;
                 }
 
+                .mobile-hidden {
+                    display: inline;
+                }
+
                 .menu-more {
                     display: inline-block;
                 }
@@ -2979,6 +3249,84 @@ fjs.parentNode.insertBefore(js, fjs);
                     padding: 10px 15px;
                     z-index: 5000;
                     font-size: 22px;
+                }
+
+                #permalink .social-share-top {
+                    position: absolute;
+                }
+
+                #permalink .menu-transparent {
+                    display: none;
+                    position: fixed;
+                    top: 0;
+                    height: 40px;
+                    width: 100%;
+                    padding: 10px 5px;
+                    background: rgba(0,0,0,0.8);
+                    z-index: 5000;
+                }
+
+                #permalink .menu-transparent a {
+                    text-decoration: none;
+                }
+
+                #permalink .menu-transparent .menu-logo {
+                    display: block;
+                    margin-top: 0px;
+                }
+
+                #permalink .menu-transparent .logo h1 {
+                    font-size: 32px !important;
+                }
+
+                #permalink .menu-transparent .logo p {
+                    font-size: 11px;
+                }
+
+                #permalink .menu-transparent .addthis_toolbox {
+                    float: left;
+                }
+
+                #permalink .menu-transparent .add-this a span {
+                    width: 40px;
+                    height: 40px;
+                    margin-right: 20px;
+                    border-radius: 3px;
+                }
+
+                #permalink .menu-transparent .at4-icon {
+                    background-position: center !important;
+                }
+
+                #permalink .menu-transparent .bar-right {
+                    float: right;
+                }
+
+                #permalink .menu-transparent .next-button {
+                    box-sizing: border-box;
+                    display: block;
+                    background: #ff9900;
+                    -webkit-border-radius: 3px;
+                    -moz-border-radius: 3px;
+                    border-radius: 3px;
+                    text-decoration: none;
+                    color: #ffffff;
+                    font-weight: 700;
+                    font-size: 14px;
+                    line-height: inherit;
+                    padding: .5em .75em;
+                    margin: 0;
+                    border: 0;
+                    float: left;
+                }
+
+                #permalink .menu-transparent .next-button:hover {
+                    background: #e68a00;
+                }
+
+                #permalink .menu-transparent .container {
+                    width: 950px;
+                    margin: 0 auto;
                 }
 
                 .social-share-top a {
@@ -3061,9 +3409,9 @@ fjs.parentNode.insertBefore(js, fjs);
                     line-height:1.647059em;
                 }
                 #main {
-                    width:100%;
-                    padding-left:330px;
-                    padding-right:330px;
+                    width: 950px;
+                    padding-left:0px;
+                    padding-right:0px;
                     -webkit-box-sizing:border-box;
                     -moz-box-sizing:border-box;
                     box-sizing:border-box;
@@ -3142,10 +3490,10 @@ fjs.parentNode.insertBefore(js, fjs);
                 }
 
                 header {
-                    width:100%;
+                    width: 950px;
                     padding: .5em 0;
-                    padding-left:330px;
-                    padding-right:330px;
+                    padding-left:0px;
+                    padding-right:0px;
                     -webkit-box-sizing:border-box;
                     -moz-box-sizing:border-box;
                     box-sizing:border-box;
@@ -3277,9 +3625,27 @@ fjs.parentNode.insertBefore(js, fjs);
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54dacdda333551f9" async="async"></script>
 <!-- END AddThis.com Social Media Sharing Tags -->
 
+<!-- START DYKB LTV Tracking -->
+<script type="text/javascript">
+    $(window).load(function() {
+        var src = location.search.split('src=')[1];
+        var reffer = location.search.split('reffer=')[1];
+        var page = window.location.href;
+        $.ajax({
+            type: "POST",
+            crossDomain: true,
+            url: "http://everhance.com/getCookies.php",
+            data: "type=1&page=" + page + "&src=" + src + "&reffer=" + reffer,
+            success: function (msg) {
+            }
+        });
+    });
+</script>
+<!-- END DYKB LTV Tracking -->
+
     </head>
     {block:IfNotEnablePreCodeSupport}
-    <body id="{block:IndexPage}index{/block:IndexPage}{block:Permalink}permalink{/block:Permalink}">
+    <body id="{block:IndexPage}index{/block:IndexPage}{block:Permalink}permalink{/block:Permalink}" class="{block:Permalink}page{PostID}{/block:Permalink}">
     {/block:IfNotEnablePreCodeSupport}
     {block:IfEnablePreCodeSupport}
     <body lang="en" onload="prettyPrint()">
@@ -3320,7 +3686,7 @@ fjs.parentNode.insertBefore(js, fjs);
                   <li><a href="http://didyouknowblog.com/tagged/weird">Weird</a></li>
                   <li><a href="http://didyouknowblog.com/tagged/animals+%26+nature">Animals & Nature</a></li>
                   <li><a href="http://didyouknowblog.com/tagged/humor">Funny</a></li>
-                  <li><a href="http://didyouknowblog.com/tagged/history">History</a></li>
+                  <li><a href="http://didyouknowblog.com/tagged/historical">History</a></li>
                   <li><a href="http://didyouknowblog.com/tagged/society+&+laws">World Culture</a></li>
                   <li><a href="http://didyouknowblog.com/tagged/technology">Tech</a></li>
                   <li class="menu-more">
@@ -3334,23 +3700,67 @@ fjs.parentNode.insertBefore(js, fjs);
                   </li>
               </ul>
               </header>
+              {block:Permalink}
+              <div class="menu-transparent">
+                  <div class="container">
+                      <div class="menu-logo">
+                        <a href="/" title="{Title}" class="logo">
+                            {block:IfEnableSimpleTextLogo}
+                            <h1>{Title}</h1>
+                            {/block:IfEnableSimpleTextLogo}
+                            {block:IfEnableFancyTextLogo}
+                            <h1>{text:Logo Text}</h1>
+                            {/block:IfEnableFancyTextLogo}
+                            {block:IfEnableSubTextLogo}
+                            <p>{text:Logo Sub Text}</p>
+                            {/block:IfEnableSubTextLogo}
+                            {block:IfEnableImageOnlyLogo}
+                            <span class="img"></span>
+                            {/block:IfEnableImageOnlyLogo}
+                        </a>
+                      </div>
+                      <div class="bar-right">
+                          <div class="addthis_toolbox add-this" addthis:url="{Permalink}" addthis:title="Title">
+                              <a class="addthis_button_facebook"></a>
+                              <a class="addthis_button_twitter"></a>
+                          </div>
+                        {block:PermalinkPagination}
+                        {block:PreviousPost}  <a href="{PreviousPost}" class="button next-button">Next Post</a>{/block:PreviousPost}
+                        {/block:PermalinkPagination}
+                        <a href="/random" class="button page-button next-button">Next Post</a>
+                      </div>
+                  </div>
+              </div>
+
+              <script>
+              $(document).scroll(function () {
+                  var y = $(this).scrollTop();
+                  if (y > 80) {
+                      $('.menu-transparent').fadeIn();
+                  } else {
+                      $('.menu-transparent').fadeOut();
+                  }
+
+              });
+              </script>
+              {/block:Permalink}
             </div>
             <div id="wrapper">
 
                 <section id="main">
-                <!-- SOVRN 728/300 header tag -->
-                <div class="header-ad" id="header-google-ad">
-<script>
-if ( $(window).width() > 739) {
-     document.write('<scr'+'ipt type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299141&u=didyouknow&width=728&height=90"></scr'+'ipt>');
-}
-else {
+                    <!-- BEGIN JS TAG - DYK - DT - Leaderboard - 728x90 < - DO NOT MODIFY -->
+                    <div class="header-ad" id="header-google-ad">
+    <script>
+    if ( $(window).width() > 739) {
+         document.write('<iframe src="http://ads.pubsqrd.com/tt?id=5627652&cb=[CACHEBUSTER]" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="728" height="90"></iframe>');
+    }
+    else {
 
-    document.write('<scr'+'ipt type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299146&u=didyouknow&width=300&height=250"></scr'+'ipt>');
-}
-</script>
-</div>
-<!-- END SOVRN 728/300 header tag -->
+        document.write('<scr'+'ipt type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299146&u=didyouknow&width=300&height=250"></scr'+'ipt>');
+    }
+    </script>
+    </div>
+    <!-- END JS TAG - DYK - DT - Leaderboard - 728x90 < - DO NOT MODIFY -->
 
 <section class="sidebar-right">
 
@@ -3361,33 +3771,47 @@ else {
                     {block:PermalinkPage}
                    <!-- Permalink Page Sidebar Content -->
 
-<!-- SOVRN 300x250 sidebar tag -->
-<script type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299143&u=didyouknow&width=300&height=250"></script>
-<!-- END SOVRN 300x250 sidebar tag -->
-
+<!-- Facebook LIKE Widget -->
+                     <span class="ad-label">Like Us On Facebook:</span>
+<div class="fb-page" data-href="https://www.facebook.com/didyouknowblog" data-width="299" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/didyouknowblog"><a href="https://www.facebook.com/didyouknowblog">Did You Know</a></blockquote></div></div>
+<!-- Facebook LIKE Widget -->
+<br>
+<br>
+<!-- BEGIN IFRAME TAG - DYK - DT - RR2 - 300x250 sidebar tag -->
+<iframe src="http://ads.pubsqrd.com/tt?id=5627655&cb=[CACHEBUSTER]" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>
+<!-- END IFRAME TAG - DYK - DT - RR2 - 300x250 300x250 sidebar tag -->
+<br>
+<br>
                     <span class="ad-label">Sign up for Our Best Stuff:</span>
                      <!-- Begin VR Signup Form --> <form class="vr-signup-form" id="vr-signup-form-4398046512102"><input class="form_field"type="email" name="email_address" placeholder="enter your email" required><input type="submit" value="subscribe!" class="form_button"></form><script type="text/javascript" src="https://vr2.verticalresponse.com/signup_forms/signup_forms.embedded-1.js"></script> <script type="text/javascript">if (typeof VR !== "undefined" && typeof VR.SignupForm !== "undefined") { new VR.SignupForm({ id: "4398046512102", element: "vr-signup-form-4398046512102", endpoint: "https://vr2.verticalresponse.com/se/"}); }</script> <!-- End VR Signup Form -->
-                     <span class="ad-label">Like Us On Facebook:</span>
-                     <div class="fb-like" data-href="https://facebook.com/didyouknowblog" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
                      <br>
                      <br>
-                     <!-- SOVRN 300x250 sidebar tag -->
+                     <!-- RR-Native 1 Sidebar Content -->
+<div id="contentad85466"></div>
+<script type="text/javascript">
+    (function(d) {
+        var params =
+        {
+            id: "e92e62ac-96d7-48db-8272-178ae982a4cd",
+            d:  "ZGlkeW91a25vd2Jsb2cuY29t",
+            wid: "85466",
+            cb: (new Date()).getTime()
+        };
+
+        var qs=[];
+        for(var key in params) qs.push(key+'='+encodeURIComponent(params[key]));
+        var s = d.createElement('script');s.type='text/javascript';s.async=true;
+        var p = 'https:' == document.location.protocol ? 'https' : 'http';
+        s.src = p + "://api.content.ad/Scripts/widget2.aspx?" + qs.join('&');
+        d.getElementById("contentad85466").appendChild(s);
+    })(document);
+</script>
+                    <!-- END RR-Native 1 Sidebar Content -->
+                     <br>
+                     <br>
+                     <!-- SOVRN 300x250 sidebar footer tag -->
                      <script type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299144&u=didyouknow&width=300&height=250"></script>
-                     <!-- END SOVRN 300x250 sidebar tag -->
-                     <br>
-                     <br>
-                     <!-- Taboola Sidebar Content -->
-                     <div id="taboola-right-rail-thumbnails"></div>
-                     <script type="text/javascript">
-                       window._taboola = window._taboola || [];
-                       _taboola.push({
-                         mode: 'thumbnails-b',
-                         container: 'taboola-right-rail-thumbnails',
-                         placement: 'Right Rail Thumbnails',
-                         target_type: 'mix'
-                       });
-                     </script>
-                     <!-- End Taboola Sidebar Content -->
+                     <!-- END SOVRN 300x250 sidebar footer tag -->
 
                    <!-- End Permalink Page Sidebar Content -->
                     {/block:PermalinkPage}
@@ -3395,58 +3819,53 @@ else {
 
                     {block:IndexPage}
 
-<!-- SOVRN 300x250 sidebar tag -->
-<script type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299143&u=didyouknow&width=300&height=250"></script>
-<!-- END SOVRN 300x250 sidebar tag -->
+<!-- Facebook LIKE Widget -->
+                     <span class="ad-label">Like Us On Facebook:</span>
+<div class="fb-page" data-href="https://www.facebook.com/didyouknowblog" data-width="299" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/didyouknowblog"><a href="https://www.facebook.com/didyouknowblog">Did You Know</a></blockquote></div></div>
+<!-- Facebook LIKE Widget -->
+<br>
+<br>
+<!-- BEGIN IFRAME TAG - DYK - DT - RR2 - 300x250 sidebar tag -->
+<iframe src="http://ads.pubsqrd.com/tt?id=5627655&cb=[CACHEBUSTER]" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>
+<!-- BEGIN IFRAME TAG - DYK - DT - RR2 - 300x250 sidebar tag -->
+<br>
+<br>
+                    <span class="ad-label">Sign up for Our Best Stuff:</span>
+                     <!-- Begin VR Signup Form --> <form class="vr-signup-form" id="vr-signup-form-4398046512102"><input class="form_field"type="email" name="email_address" placeholder="enter your email" required><input type="submit" value="subscribe!" class="form_button"></form><script type="text/javascript" src="https://vr2.verticalresponse.com/signup_forms/signup_forms.embedded-1.js"></script> <script type="text/javascript">if (typeof VR !== "undefined" && typeof VR.SignupForm !== "undefined") { new VR.SignupForm({ id: "4398046512102", element: "vr-signup-form-4398046512102", endpoint: "https://vr2.verticalresponse.com/se/"}); }</script> <!-- End VR Signup Form -->
+                     <br>
+                     <br>
+                     <!-- RR-Native 1 Sidebar Content -->
+<div id="contentad85466"></div>
+<script type="text/javascript">
+    (function(d) {
+        var params =
+        {
+            id: "e92e62ac-96d7-48db-8272-178ae982a4cd",
+            d:  "ZGlkeW91a25vd2Jsb2cuY29t",
+            wid: "85466",
+            cb: (new Date()).getTime()
+        };
 
-      <span class="ad-label">Sign up for Our Best Stuff:</span>
-       <!-- Begin VR Signup Form --> <form class="vr-signup-form" id="vr-signup-form-4398046512102"><input class="form_field"type="email" name="email_address" placeholder="enter your email" required><input type="submit" value="subscribe!" class="form_button"></form><script type="text/javascript" src="https://vr2.verticalresponse.com/signup_forms/signup_forms.embedded-1.js"></script> <script type="text/javascript">if (typeof VR !== "undefined" && typeof VR.SignupForm !== "undefined") { new VR.SignupForm({ id: "4398046512102", element: "vr-signup-form-4398046512102", endpoint: "https://vr2.verticalresponse.com/se/"}); }</script> <!-- End VR Signup Form -->
-
-      <span class="ad-label">Like Us On Facebook:</span>
-      <div class="fb-like" data-href="https://facebook.com/didyouknowblog" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
-      <br>
-      <br>
-      <!-- SOVRN 300x250 sidebar tag -->
-      <script type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299144&u=didyouknow&width=300&height=250"></script>
-      <!-- END SOVRN 300x250 sidebar tag -->
-      <br>
-      <br>
-      <div id="taboola-right-rail-thumbnails"></div>
-      <script type="text/javascript">
-      window._taboola = window._taboola || [];
-      _taboola.push({
-      mode: 'thumbnails-b',
-      container: 'taboola-right-rail-thumbnails',
-      placement: 'Right Rail Thumbnails',
-      target_type: 'mix'
-      });
-      </script>
+        var qs=[];
+        for(var key in params) qs.push(key+'='+encodeURIComponent(params[key]));
+        var s = d.createElement('script');s.type='text/javascript';s.async=true;
+        var p = 'https:' == document.location.protocol ? 'https' : 'http';
+        s.src = p + "://api.content.ad/Scripts/widget2.aspx?" + qs.join('&');
+        d.getElementById("contentad85466").appendChild(s);
+    })(document);
+</script>
+                    <!-- END RR-Native 1 Sidebar Content -->
+                     <br>
+                     <br>
+                     <!-- SOVRN 300x250 sidebar footer tag -->
+                     <script type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299144&u=didyouknow&width=300&height=250"></script>
+                     <!-- END SOVRN 300x250 sidebar footer tag -->
 
 {/block:IndexPage}
 
                     </div>
                     </section>
                     <!-- End Sidebar -->
-
-
-
-                  <div class="social-bar">
-                    <div class="bar-left">
-                      <a class="button fb-button" href="javascript:fbshareCurrentPage()" target="_blank" alt="Share on Facebook">Share on Facebook</a>
-                    </div>
-                    <div class="bar-right">
-                      {block:PermalinkPagination}
-                      {block:PreviousPost}  <a href="{PreviousPost}" class="button next-button">Next Post</a>{/block:PreviousPost}
-                      {/block:PermalinkPagination}
-                    </div>
-                  </div>
-
-                  <!-- Facebook Share tag -->
-                  <script>
-                      function fbshareCurrentPage()
-                      {window.open("https://www.facebook.com/sharer/sharer.php?u="+escape(window.location.href)+"&t="+document.title, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false; }
-                  </script>
-                  <!-- END Facebook Share tag -->
 
                    <section class="articles">
                     {block:TagPage}
@@ -3523,16 +3942,10 @@ else {
 
                             {block:IfEnablePostDetails}
                             <ul class="float-left post-comments">
-                              {block:IfEnablePostCommentCount}
-                              {block:IfDisqusShortname}
                               <li class="comments">
                                 <i class="fa fa-comment"></i>
-                                  <a href="{Permalink}#disqus_thread" title="Comments" class="dsq-comment-count">0 Comments</a>
-                                  <a href="{Permalink}" title="Comments" class="comment-count">
-                                      0 Comments</a>
+                                  <span><a href="{Permalink}#facebook_thread"><fb:comments-count href="{Permalink}"></fb:comments-count> Comments</a></span>
                               </li>
-                              {/block:IfDisqusShortname}
-                              {/block:IfEnablePostCommentCount}
                             </ul>
 
                             <ul class="float-right">
@@ -3547,7 +3960,7 @@ else {
 
                                 {block:IfEnablePostSource}
                                 <li class="source">
-                                    <a href="{Permalink}">Permalink / Source</a>
+                                    <a href="{Permalink}">Permalink / Fact Source</a>
                                 </li>
                                 {/block:IfEnablePostSource}
 
@@ -3561,29 +3974,26 @@ else {
                         {/block:PermalinkPage}
                         {/block:Text}
                         {block:Photo}
-                        {LinkOpenTag}
                             {block:IfNotEnableImgReplacement}
-                            <img src="{PhotoURL-500}" alt="{PhotoAlt}" width="{PhotoWidth-100}" data-100w="{PhotoWidth-100}" data-250u="{PhotoURL-250}" data-250w="{PhotoWidth-250}" data-400u="{PhotoURL-400}" data-400w="{PhotoWidth-400}" data-500u="{PhotoURL-500}" data-500w="{PhotoWidth-500}" data-1280u="{block:HighRes}{PhotoURL-HighRes}{/block:HighRes}" data-1280w="{block:HighRes}{PhotoWidth-HighRes}{/block:HighRes}" data-lbox="{PhotoURL-500}" data-fix="false" data-set="false" data-gal="{PostID}" data-cap="{block:Caption}{PlainTextCaption}{/block:Caption}" class="better-photo lightbox"/>
+                            <a href="{Permalink}" class="hello">
+                            <img src="{PhotoURL-500}" alt="{PhotoAlt}" width="{PhotoWidth-500}" data-100w="{PhotoWidth-100}" data-250u="{PhotoURL-250}" data-250w="{PhotoWidth-250}" data-400u="{PhotoURL-400}" data-400w="{PhotoWidth-400}" data-500u="{PhotoURL-500}" data-500w="{PhotoWidth-500}" data-1280u="{block:HighRes}{PhotoURL-HighRes}{/block:HighRes}" data-1280w="{block:HighRes}{PhotoWidth-HighRes}{/block:HighRes}" data-lbox="{PhotoURL-500}" data-fix="false" data-set="false" class="better-photo"/>
+                            </a>
                             {/block:IfNotEnableImgReplacement}
                             {block:IfEnableImgReplacement}
-                            <img src="{PhotoURL-100}" alt="{PhotoAlt}" width="{PhotoWidth-100}" data-100w="{PhotoWidth-100}" data-250u="{PhotoURL-250}" data-250w="{PhotoWidth-250}" data-400u="{PhotoURL-400}" data-400w="{PhotoWidth-400}" data-500u="{PhotoURL-500}" data-500w="{PhotoWidth-500}" data-1280u="{block:HighRes}{PhotoURL-HighRes}{/block:HighRes}" data-1280w="{block:HighRes}{PhotoWidth-HighRes}{/block:HighRes}" data-lbox="{PhotoURL-250}" data-fix="false" data-set="false" data-gal="{PostID}" data-cap="{block:Caption}{PlainTextCaption}{/block:Caption}" class="better-photo lightbox"/>
+                            <a href="{Permalink}" class="hello2">
+                            <img src="{PhotoURL-100}" alt="{PhotoAlt}" width="{PhotoWidth-500}" data-100w="{PhotoWidth-100}" data-250u="{PhotoURL-250}" data-250w="{PhotoWidth-250}" data-400u="{PhotoURL-400}" data-400w="{PhotoWidth-400}" data-500u="{PhotoURL-500}" data-500w="{PhotoWidth-500}" data-1280u="{block:HighRes}{PhotoURL-HighRes}{/block:HighRes}" data-1280w="{block:HighRes}{PhotoWidth-HighRes}{/block:HighRes}" data-lbox="{PhotoURL-250}" data-fix="false" data-set="false" class="better-photo"/>
+                            </a>
                             {/block:IfEnableImgReplacement}
-                        {LinkCloseTag}
-                        {block:Date}
+
+                        {/block:Photo}
                         <section class="details">
                             {block:IfEnablePostDetails}
 
                             <ul class="float-left post-comments">
-                              {block:IfEnablePostCommentCount}
-                              {block:IfDisqusShortname}
                               <li class="comments">
                                 <i class="fa fa-comment"></i>
-                                  <a href="{Permalink}#disqus_thread" title="Comments" class="dsq-comment-count">0 Comments</a>
-                                  <a href="{Permalink}" title="Comments" class="comment-count">
-                                      0 Comments</a>
+                                  <span><a href="{Permalink}#facebook_thread"><fb:comments-count href="{Permalink}"></fb:comments-count> Comments</a></span>
                               </li>
-                              {/block:IfDisqusShortname}
-                              {/block:IfEnablePostCommentCount}
                             </ul>
 
                             <ul class="float-right">
@@ -3598,7 +4008,7 @@ else {
 
                                 {block:IfEnablePostSource}
                                 <li class="source">
-                                    <a href="{Permalink}">Permalink / Source</a>
+                                    <a href="{Permalink}">Permalink / Fact Source</a>
                                 </li>
                                 {/block:IfEnablePostSource}
 
@@ -3607,6 +4017,8 @@ else {
                         </section>
                         {/block:Date}
                         {block:PermalinkPage}
+                    </div>
+                    <div class="full-width">
                         <section class="content">
                             {block:Caption}
                             {Caption}
@@ -3629,16 +4041,15 @@ else {
                             {/block:Date}
                         </section>
                         {/block:PermalinkPage}
-                        {/block:Photo}
                         {block:Photoset}
                         <ul class="photoset-grid {block:IfNotEnableImgReplacement}no-img-rep{/block:IfNotEnableImgReplacement}" data-grid-array="{PlaintextPhotosetLayout}" >
                             {block:Photos}
                             <li>
                                 {block:IfNotEnableImgReplacement}
-                                <img src="{PhotoURL-500}" alt="{PhotoAlt}" width="{PhotoWidth-250}" data-250w="{PhotoWidth-250}" data-250h="{PhotoHeight-250}" data-400u="{PhotoURL-400}" data-400w="{PhotoWidth-400}" data-400h="{PhotoHeight-400}" data-500u="{PhotoURL-500}" data-500w="{PhotoWidth-500}" data-500h="{PhotoHeight-500}" data-1280u="{block:HighRes}{PhotoURL-HighRes}{/block:HighRes}" data-1280w="{block:HighRes}{PhotoWidth-HighRes}{/block:HighRes}" data-1280h="{block:HighRes}{PhotoHeight-HighRes}{/block:HighRes}" data-lbox="{PhotoUrl-500}" data-cap="{block:Caption}{PlainTextCaption}{/block:Caption}" data-gal="{PostID}" data-fix="false" data-set="false" class="better-photo lightbox"/>
+                                <img src="{PhotoURL-500}" alt="{PhotoAlt}" width="{PhotoWidth-250}" data-250w="{PhotoWidth-250}" data-250h="{PhotoHeight-250}" data-400u="{PhotoURL-400}" data-400w="{PhotoWidth-400}" data-400h="{PhotoHeight-400}" data-500u="{PhotoURL-500}" data-500w="{PhotoWidth-500}" data-500h="{PhotoHeight-500}" data-1280u="{block:HighRes}{PhotoURL-HighRes}{/block:HighRes}" data-1280w="{block:HighRes}{PhotoWidth-HighRes}{/block:HighRes}" data-1280h="{block:HighRes}{PhotoHeight-HighRes}{/block:HighRes}" data-lbox="{PhotoUrl-500}" data-cap="{block:Caption}{PlainTextCaption}{/block:Caption}" data-gal="{PostID}" data-fix="false" data-set="false" class="better-photo"/>
                                 {/block:IfNotEnableImgReplacement}
                                 {block:IfEnableImgReplacement}
-                                <img src="{PhotoURL-250}" alt="{PhotoAlt}" width="{PhotoWidth-250}" data-250w="{PhotoWidth-250}" data-250h="{PhotoHeight-250}" data-400u="{PhotoURL-400}" data-400w="{PhotoWidth-400}" data-400h="{PhotoHeight-400}" data-500u="{PhotoURL-500}" data-500w="{PhotoWidth-500}" data-500h="{PhotoHeight-500}" data-1280u="{block:HighRes}{PhotoURL-HighRes}{/block:HighRes}" data-1280w="{block:HighRes}{PhotoWidth-HighRes}{/block:HighRes}" data-1280h="{block:HighRes}{PhotoHeight-HighRes}{/block:HighRes}" data-lbox="{PhotoUrl-250}" data-cap="{block:Caption}{PlainTextCaption}{/block:Caption}" data-gal="{PostID}" data-fix="false" data-set="false" class="better-photo lightbox"/>
+                                <img src="{PhotoURL-250}" alt="{PhotoAlt}" width="{PhotoWidth-250}" data-250w="{PhotoWidth-250}" data-250h="{PhotoHeight-250}" data-400u="{PhotoURL-400}" data-400w="{PhotoWidth-400}" data-400h="{PhotoHeight-400}" data-500u="{PhotoURL-500}" data-500w="{PhotoWidth-500}" data-500h="{PhotoHeight-500}" data-1280u="{block:HighRes}{PhotoURL-HighRes}{/block:HighRes}" data-1280w="{block:HighRes}{PhotoWidth-HighRes}{/block:HighRes}" data-1280h="{block:HighRes}{PhotoHeight-HighRes}{/block:HighRes}" data-lbox="{PhotoUrl-250}" data-cap="{block:Caption}{PlainTextCaption}{/block:Caption}" data-gal="{PostID}" data-fix="false" data-set="false" class="better-photo"/>
                                 {/block:IfEnableImgReplacement}
                             </li>
                             {/block:Photos}
@@ -3647,16 +4058,10 @@ else {
                             {block:IfEnablePostDetails}
 
                             <ul class="float-left post-comments">
-                              {block:IfEnablePostCommentCount}
-                              {block:IfDisqusShortname}
                               <li class="comments">
                                 <i class="fa fa-comment"></i>
-                                  <a href="{Permalink}#disqus_thread" title="Comments" class="dsq-comment-count">0 Comments</a>
-                                  <a href="{Permalink}" title="Comments" class="comment-count">
-                                      0 Comments</a>
+                                  <span><a href="{Permalink}#facebook_thread"><fb:comments-count href="{Permalink}"></fb:comments-count> Comments</a></span>
                               </li>
-                              {/block:IfDisqusShortname}
-                              {/block:IfEnablePostCommentCount}
                             </ul>
                             <ul class="float-right">
                                 {block:IfEnablePostDate}
@@ -3669,7 +4074,7 @@ else {
                                 {/block:IfEnablePostDate}
                                 {block:IfEnablePostSource}
                                 <li class="source">
-                                    <a href="{Permalink}">Permalink / Source</a>
+                                    <a href="{Permalink}">Permalink / Fact Source</a>
                                 </li>
                                 {/block:IfEnablePostSource}
 
@@ -3737,17 +4142,15 @@ else {
                                     </a>
                                 </li>
                                 {/block:IfEnablePostNotesCount}
-                                {block:IfEnablePostCommentCount}
-                                {block:IfDisqusShortname}
-                                <li class="comments">
-                                    <a href="{Permalink}#disqus_thread" title="Comments" class="dsq-comment-count">0 Comments</a>
-                                    <a href="{Permalink}" title="Comments" class="comment-count">0 Comments</a>
-                                </li>
-                                {/block:IfDisqusShortname}
-                                {/block:IfEnablePostCommentCount}
+                                <ul class="float-left post-comments">
+                                  <li class="comments">
+                                    <i class="fa fa-comment"></i>
+                                      <span><a href="{Permalink}#facebook_thread"><fb:comments-count href="{Permalink}"></fb:comments-count> Comments</a></span>
+                                  </li>
+                                </ul>
                                 {block:IfEnablePostSource}
                                 <li class="source">
-                                    <a href="{Permalink}">Permalink / Source</a>
+                                    <a href="{Permalink}">Permalink / Fact Source</a>
                                 </li>
                                 {/block:IfEnablePostSource}
 
@@ -3810,18 +4213,15 @@ else {
                                     </a>
                                 </li>
                                 {/block:IfEnablePostNotesCount}
-                                {block:IfEnablePostCommentCount}
-                                {block:IfDisqusShortname}
-                                <li class="comments">
-                                    <a href="{Permalink}#disqus_thread" title="Comments" class="dsq-comment-count">0 Comments</a>
-                                    <a href="{Permalink}" title="Comments" class="comment-count">
-                                        0 Comments</a>
-                                </li>
-                                {/block:IfDisqusShortname}
-                                {/block:IfEnablePostCommentCount}
+                                <ul class="float-left post-comments">
+                                  <li class="comments">
+                                    <i class="fa fa-comment"></i>
+                                      <span><a href="{Permalink}#facebook_thread"><fb:comments-count href="{Permalink}"></fb:comments-count> Comments</a></span>
+                                  </li>
+                                </ul>
                                 {block:IfEnablePostSource}
                                 <li class="source">
-                                    <a href="{Permalink}">Permalink / Source</a>
+                                    <a href="{Permalink}">Permalink / Fact Source</a>
                                 </li>
                                 {/block:IfEnablePostSource}
 
@@ -3888,18 +4288,15 @@ else {
                                     </a>
                                 </li>
                                 {/block:IfEnablePostNotesCount}
-                                {block:IfEnablePostCommentCount}
-                                {block:IfDisqusShortname}
-                                <li class="comments">
-                                    <a href="{Permalink}#disqus_thread" title="Comments" class="dsq-comment-count">0 Comments</a>
-                                    <a href="{Permalink}" title="Comments" class="comment-count">
-                                        0 Comments</a>
-                                </li>
-                                {/block:IfDisqusShortname}
-                                {/block:IfEnablePostCommentCount}
+                                <ul class="float-left post-comments">
+                                  <li class="comments">
+                                    <i class="fa fa-comment"></i>
+                                      <span><a href="{Permalink}#facebook_thread"><fb:comments-count href="{Permalink}"></fb:comments-count> Comments</a></span>
+                                  </li>
+                                </ul>
                                 {block:IfEnablePostSource}
                                 <li class="source">
-                                    <a href="{Permalink}">Permalink / Source</a>
+                                    <a href="{Permalink}">Permalink / Fact Source</a>
                                 </li>
                                 {/block:IfEnablePostSource}
 
@@ -3975,18 +4372,15 @@ else {
                                     </a>
                                 </li>
                                 {/block:IfEnablePostNotesCount}
-                                {block:IfEnablePostCommentCount}
-                                {block:IfDisqusShortname}
-                                <li class="comments">
-                                    <a href="{Permalink}#disqus_thread" title="Comments" class="dsq-comment-count">0 Comments</a>
-                                    <a href="{Permalink}" title="Comments" class="comment-count">
-                                        0 Comments</a>
-                                </li>
-                                {/block:IfDisqusShortname}
-                                {/block:IfEnablePostCommentCount}
+                                <ul class="float-left post-comments">
+                                  <li class="comments">
+                                    <i class="fa fa-comment"></i>
+                                      <span><a href="{Permalink}#facebook_thread"><fb:comments-count href="{Permalink}"></fb:comments-count> Comments</a></span>
+                                  </li>
+                                </ul>
                                 {block:IfEnablePostSource}
                                 <li class="source">
-                                    <a href="{Permalink}">Permalink / Source</a>
+                                    <a href="{Permalink}">Permalink / Fact Source</a>
                                 </li>
                                 {/block:IfEnablePostSource}
 
@@ -4053,18 +4447,15 @@ else {
                                     </a>
                                 </li>
                                 {/block:IfEnablePostNotesCount}
-                                {block:IfEnablePostCommentCount}
-                                {block:IfDisqusShortname}
-                                <li class="comments">
-                                    <a href="{Permalink}#disqus_thread" title="Comments" class="dsq-comment-count">0 Comments</a>
-                                    <a href="{Permalink}" title="Comments" class="comment-count">
-                                        0 Comments</a>
-                                </li>
-                                {/block:IfDisqusShortname}
-                                {/block:IfEnablePostCommentCount}
+                                <ul class="float-left post-comments">
+                                  <li class="comments">
+                                    <i class="fa fa-comment"></i>
+                                      <span><a href="{Permalink}#facebook_thread"><fb:comments-count href="{Permalink}"></fb:comments-count> Comments</a></span>
+                                  </li>
+                                </ul>
                                 {block:IfEnablePostSource}
                                 <li class="source">
-                                    <a href="{Permalink}">Permalink / Source</a>
+                                    <a href="{Permalink}">Permalink / Fact Source</a>
                                 </li>
                                 {/block:IfEnablePostSource}
 
@@ -4136,18 +4527,15 @@ else {
                                     </a>
                                 </li>
                                 {/block:IfEnablePostNotesCount}
-                                {block:IfEnablePostCommentCount}
-                                {block:IfDisqusShortname}
-                                <li class="comments">
-                                    <a href="{Permalink}#disqus_thread" title="Comments" class="dsq-comment-count">0 Comments</a>
-                                    <a href="{Permalink}" title="Comments" class="comment-count">
-                                        0 Comments</a>
-                                </li>
-                                {/block:IfDisqusShortname}
-                                {/block:IfEnablePostCommentCount}
+                                <ul class="float-left post-comments">
+                                  <li class="comments">
+                                    <i class="fa fa-comment"></i>
+                                      <span><a href="{Permalink}#facebook_thread"><fb:comments-count href="{Permalink}"></fb:comments-count> Comments</a></span>
+                                  </li>
+                                </ul>
                                 {block:IfEnablePostSource}
                                 <li class="source">
-                                    <a href="{Permalink}">Permalink / Source</a>
+                                    <a href="{Permalink}">Permalink / Fact Source</a>
                                 </li>
                                 {/block:IfEnablePostSource}
 
@@ -4175,37 +4563,28 @@ else {
                         </section>
                         {/block:PermalinkPage}
                         {/block:Answer}
-
-                        <div id="pd_rating_holder_8230359_{PostID}"></div>
-                        <script type="text/javascript">
-                         PDRTJS_settings_8230359_{PostID} = {
-                        "id" : "8230359",
-                        "unique_id" : "8230359_{PostID}",
-                        "title" : "{Title}",
-                        "permalink" : "{Permalink}",
-                        "item_id" : "_{PostID}"
-                        };
-                        </script>
-                        <script type="text/javascript" src="http://i0.poll.fm/js/rating/rating.js"></script>
-
                       </div>
                     </article>
                     {block:Post2}
                     {block:IndexPage}
 
-    <div class="post-ad" id="{PostID}">
-  <!-- SOVRN 300x50 in-between content tag -->
-<script type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299148&u=didyouknow&width=320&height=50"></script>
- <!-- END SOVRN 300x50 in-between content tag -->
-    </div>
+
                     {/block:IndexPage}
                     {/block:Post2}
                     {/block:Posts}
 
    <div class="post-ad sovrn" id="{PostID}">
-<!-- SOVRN 300x50 footer tag -->
-<script type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299145&u=didyouknow&width=300&height=250"></script>
-<!-- END SOVRN 300x50 footer tag -->
+       <!-- BEGIN IFRAME TAG - DYK - DT - Content1 - 300x250 in-between content tag -->
+       <div class="ad-left-box-{block:Pagination}{CurrentPage}{/block:Pagination} ad-box">
+            <iframe src="http://ads.pubsqrd.com/tt?id=5704804&cb=[CACHEBUSTER]" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>
+        </div>
+       <!-- END IFRAME TAG - DYK - DT - Content1 - 300x250 in-between content tag -->
+
+       <!-- SOVRN 300x250 footer tag -->
+       <div class="ad-right-box-{block:Pagination}{CurrentPage}{/block:Pagination} ad-box" id="ad-right-{block:Pagination}{CurrentPage}{/block:Pagination}">
+           <script type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299145&u=didyouknow&width=300&height=250"></script>
+       </div>
+       <!-- END SOVRN 300x250 footer tag -->
     </div>
    <div class="post-ad" id="{PostID}">
 <!-- PageFair 300x50 footer tag -->
@@ -4240,8 +4619,9 @@ else {
                     {block:Permalink}
                     {block:Posts}
                     {block:Date}
-                    <section id="disqus_thread"></section>
-                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/">comments powered by Disqus.</a></noscript>
+                    <section id="facebook_thread">
+                        <div class="fb-comments" data-href="{Permalink}" data-num-posts="5" data-width="600"></div>
+                    </section>
                     {/block:Date}
                     {/block:Posts}
                     {/block:Permalink}
@@ -4261,16 +4641,27 @@ else {
                     {/block:Posts}
 
                     <section>
-                      <div id="taboola-below-article-thumbnails"></div>
-                      <script type="text/javascript">// <![CDATA[
-                      window._taboola = window._taboola || [];
-                        _taboola.push({
-                          mode: 'thumbnails-b',
-                          container: 'taboola-below-article-thumbnails',
-                          placement: 'DYKB - DT - Below Article Thumbnails',
-                          target_type: 'mix'
-                        });
-                      // ]]></script>
+                    <!-- START - DYK - DT - Below Content -->
+<div id="contentad85465"></div>
+<script type="text/javascript">
+    (function(d) {
+        var params =
+        {
+            id: "a3a377cb-a0da-46a4-8b4d-4a13cae563f6",
+            d:  "ZGlkeW91a25vd2Jsb2cuY29t",
+            wid: "85465",
+            cb: (new Date()).getTime()
+        };
+
+        var qs=[];
+        for(var key in params) qs.push(key+'='+encodeURIComponent(params[key]));
+        var s = d.createElement('script');s.type='text/javascript';s.async=true;
+        var p = 'https:' == document.location.protocol ? 'https' : 'http';
+        s.src = p + "://api.content.ad/Scripts/widget2.aspx?" + qs.join('&');
+        d.getElementById("contentad85465").appendChild(s);
+    })(document);
+</script>
+                    <!-- END - DYK - DT - Below Content -->
                     </section>
                     {/block:Permalink}
                     {/block:IfEnablePostNotes}
@@ -4404,27 +4795,6 @@ else {
         <script type="text/javascript" src="/tweets.js"></script>
         {/block:Twitter}
         {/block:IfEnableTwitterFeed}
-        {block:IfEnableDribbbleFeed}
-        {block:IfDribbbleUsername}
-        <!-- Dribbble Feed JS -->
-        <script>
-            $(function () {
-                $.ajaxSetup({cache:true});
-                $.getScript('http://static.tumblr.com/g8b5dgd/B55lyos5n/jquery.jribbble.js', function(){
-                    $.jribbble.getShotsByPlayerId('{text:Dribbble Username}', function (playerShots) {
-                        var html = [];
-                        $.each(playerShots.shots, function (i, shot) {
-                            html.push('<li><a href="' + shot.url + '" target="_blank">');
-                            html.push('<img src="' + shot.image_teaser_url + '"/></a></li>');
-                        });
-                        $('.dribbble-pics').html(html.join(''));
-                        $('.dribbble-feed').find('p').remove();
-                    }, {page: 1, per_page: "{text:Dribbble Pics To Display}"});
-                });
-            });
-        </script>
-        {/block:IfDribbbleUsername}
-        {/block:IfEnableDribbbleFeed}
         {block:IfEnableInstagramFeed}
         {block:IfInstagramUserID}
         <!-- Instagram Feed JS -->
@@ -4443,49 +4813,6 @@ else {
         </script>
         {/block:IfInstagramUserID}
         {/block:IfEnableInstagramFeed}
-        {block:IfEnableFlickrFeed}
-        {block:IfFlickrUserID}
-        <!-- Flickr Feed JS -->
-        <script>
-            (function($) {
-                $.fn.squarePreviews = function() {
-                    return this.each(function() {
-                        $img = $(this).find('img');
-                        $imgWidth = $img.width();
-                        $imgHeight = $img.height();
-                        $liWidth = $(this).width();
-                        $(this).css('height',$liWidth);
-                        if ($imgHeight > $liWidth) {
-                            $adjust = ($imgHeight - $liWidth) / 2;
-                            $img.css('margin-top',-$adjust);
-                        }
-                        if ($imgWidth > $liWidth) {
-                            $adjust = ($imgWidth - $liWidth) / 2;
-                            $img.css('margin-left',-$adjust);
-                        }
-                    });
-                };
-            })(jQuery);
-            $(function () {
-                $.ajaxSetup({cache:true});
-                var $count = {text:Flickr Pics To Display} - 1;
-                $.getJSON('http://api.flickr.com/services/feeds/photos_public.gne?id={text:Flickr User ID}&format=json&jsoncallback=?', function(data){
-                    $.each(data.items, function(i,item){
-                        $('<img/>').attr('src', item.media.m).prependTo('.flickr-pics').wrap('<li><a href="' + item.link + '" target=\"_blank\"></a></li>');
-                        if(i == $count) return false;
-                    });
-                    $('.flickr-feed').find('p').remove();
-                });
-            });
-            $(window).load(function() {
-                $('.flickr-feed li').squarePreviews();
-            });
-            $(window).resize(function() {
-                $('.flickr-feed li').squarePreviews();
-            });
-        </script>
-        {/block:IfFlickrUserID}
-        {/block:IfEnableFlickrFeed}
         {block:IfEnableSocialShare}
         <!-- Addthis Share JS -->
         <script>
@@ -4557,6 +4884,12 @@ else {
   </ul>
 </div>
 
+<script>
+$( document ).ready(function() {
+    $( ".ad-left-box-1" ).addClass( "mobile-hidden" );
+});
+</script>
+
 <!-- INFINITE SCROLL -->
 <script type="text/javascript" src="http://static.tumblr.com/ib6vvvn/h4Rmt3ou9/jquery.infinitescroll.min.js"></script>
 <script src="http://media.krxd.net/derek/postscribe.min.js"></script>
@@ -4573,7 +4906,7 @@ $('.content-wrapper').infinitescroll({
   itemSelector : ".content-wrapper .content-infinite",
                  // selector for all items you'll retrieve
 
-  loading      : { finishedMsg: "No more posts to load.", msgText: "<em>Loading posts...</em>" },
+  loading      : { img: "http://i.imgur.com/R3BV1cH.gif", finishedMsg: "No more posts to load.", msgText: "<em>Loading posts...</em>" },
 
   animate      : false,
 
@@ -4581,14 +4914,33 @@ $('.content-wrapper').infinitescroll({
 
   bufferPx     : 40,
 
-    },function(arrayOfNewElems){
-
-     postscribe(
-         arrayOfNewElems[0],
-         '<div class="post-ad sovrn"><script src="http://ap.lijit.com/www/delivery/fpi.js?z=299145&u=didyouknow&width=300&height=250"><\/script><\/div>'
-     );
+    },function( arrayOfNewElems, opts ){
 
      addthis.toolbox('.addthis_toolbox');
+
+     var page = opts.state.currPage;
+
+     var num = +page;
+     var div = "#ad-right-";
+     var div2 = "#ad-middle-right-";
+     var numdiv = div + num;
+     var numdiv2 = div2 + num;
+
+     postscribe( numdiv , '<script src=http://ap.lijit.com/www/delivery/fpi.js?z=299145&u=didyouknow&width=300&height=250><\/script>', {
+     });
+
+     if(num % 2 == 0)
+     {
+       $( ".ad-right-box-" + num ).addClass( "mobile-hidden" );
+     }
+     else
+     {
+       $( ".ad-left-box-" + num ).addClass( "mobile-hidden" );
+     }
+
+     FB.XFBML.parse();
+
+     try { _gaq.push(['_trackPageview', '/page/'+page]); } catch(err) {  }
 
 });
 </script>
