@@ -1229,6 +1229,7 @@ fjs.parentNode.insertBefore(js, fjs);
 
             .post-block {
                 margin-left: 60px;
+                display: block;
             }
 
             .post-block img {
@@ -1259,7 +1260,7 @@ fjs.parentNode.insertBefore(js, fjs);
             }
             .full-width .content {
 				text-align: left;
-				background-color: #000;
+				background: none;
                 padding: 15px;
 			}
             .full-width .content p, .full-width .content b, .full-width .content strong, .full-width .content a {
@@ -1275,8 +1276,8 @@ fjs.parentNode.insertBefore(js, fjs);
 				width: auto;
 				text-align: center;
 				height: auto;
-				margin: 15px auto;
-				padding: 0 30px;
+				margin: 0px auto;
+				padding: 0 15px;
 				display: block;
 			}
 
@@ -1284,7 +1285,7 @@ fjs.parentNode.insertBefore(js, fjs);
 				color: #FFF;
 				/*     font-size: 24px */;
 				font-size: 21px;
-				padding: 15px 30px;
+				padding: 15px;
 				line-height: 1.4;
 				margin: 0;
 				font-family: inherit;
@@ -1294,9 +1295,11 @@ fjs.parentNode.insertBefore(js, fjs);
 			}
 
             .social-share {
-                float: left;
                 width: 60px;
                 text-align: center;
+                position: absolute;
+                left: 0;
+                top: 0;
             }
 
             .social-share a {
