@@ -645,15 +645,6 @@ fjs.parentNode.insertBefore(js, fjs);
                 font-weight:700;
                 color:{color:ParagraphColour};
             }
-            a, .form_button {
-                color:{color:AnchorColour};
-                text-decoration:underline;
-                word-wrap:break-word;
-                -webkit-transition:color .2s ease-in-out,background-color .2s ease-in-out;
-                -moz-transition:color .2s ease-in-out,background-color .2s ease-in-out;
-                -o-transition:color .2s ease-in-out,background-color .2s ease-in-out;
-                transition:color .2s ease-in-out,background-color .2s ease-in-out;
-            }
             a:hover {
                 color:{color:AnchorHoverColour};
             }
@@ -841,7 +832,7 @@ fjs.parentNode.insertBefore(js, fjs);
                 position: fixed;
                 background: #000000;
                 width:100%;
-                z-index: 3;
+                z-index: 300;
                 -webkit-box-shadow:0 0 10px rgba(0,0,0,0.5);
                 -moz-box-shadow:0 0 10px rgba(0,0,0,0.5);
                 box-shadow:0 0 10px rgba(0,0,0,0.5);
@@ -1044,6 +1035,32 @@ fjs.parentNode.insertBefore(js, fjs);
 
             #index .menu-transparent {
                 display: none;
+            }
+
+            #permalink .next-page-button {
+                margin-right: 20px;
+            }
+
+            #permalink .page .next-button-large {
+                display: none;
+            }
+
+            #permalink .next-button-large {
+                background: #e68a00;
+                color: #fff;
+                padding: 10px;
+                font-size: 24px;
+                font-weight: 700;
+                text-transform: uppercase;
+                text-decoration: none;
+                text-align: center;
+                width: 100%;
+                display: block;
+                border-radius: 5px;
+            }
+
+            #permalink .next-button-large i {
+                font-size: 20px;
             }
 
             #permalink .social-bar {
@@ -3192,7 +3209,7 @@ fjs.parentNode.insertBefore(js, fjs);
                     position: fixed;
                     background: #000000;
                     width:100%;
-                    z-index: 3;
+                    z-index: 300;
                     -webkit-box-shadow:0 0 10px rgba(0,0,0,0.5);
                     -moz-box-shadow:0 0 10px rgba(0,0,0,0.5);
                     box-shadow:0 0 10px rgba(0,0,0,0.5);
@@ -4625,6 +4642,13 @@ fjs.parentNode.insertBefore(js, fjs);
 <!-- PageFair 300x50 footer tag -->
     </div>
   </div>
+
+  <div class="next-page-button">
+      {block:PermalinkPagination}
+      {block:PreviousPost}  <a href="{PreviousPost}" class="next-button-large">Next Page <i class="fa fa-chevron-right"></i></a>{/block:PreviousPost}
+      {/block:PermalinkPagination}
+  </div>
+
 </div>
                     {block:Pagination}
                     <section class="pagination">
