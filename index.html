@@ -1257,6 +1257,82 @@ fjs.parentNode.insertBefore(js, fjs);
                 width: 100% !important;
             }
 
+            /* QA styles */
+           	.question-wrap{
+           	display: table;
+           	background-color: black;
+           	color: white;
+           	text-align: center;
+           	padding: 10px;
+           	font-size: 27px;
+           	}
+           	.question-wrap .question{
+           	font-size: 46px;
+           	}
+           	.question-wrap ol{
+           	display: table;
+           	margin: 25px auto 0;
+           	text-align: left;
+           	list-style-type: upper-alpha;
+           	}
+           	.question-wrap ol li{
+           	font-size: 24px;
+           	}
+           	.answer{
+           	display: none;
+           	}
+           	.answer header {
+           	width: 100%;
+           	padding: 0;
+           	}
+           	.answer h3 {
+           	text-align: center;
+           	margin: 0;
+           	color: white;
+           	font-size: 46px;
+           	line-height: 1;
+           	margin-top: 10px;
+           	}
+           	.answer h3 small {
+           	font-size: 28px;
+           	margin: 20px 0 10px;
+           	display: block;
+           	}
+           	#show-answer{
+           	text-decoration: none;
+           	-moz-box-sizing: border-box;
+           	-webkit-box-sizing: border-box;
+           	box-sizing: border-box;
+           	background: #39383d;
+           	-webkit-border-radius: 3px;
+           	-moz-border-radius: 3px;
+           	border-radius: 3px;
+           	text-decoration: none;
+           	color: #ffffff;
+           	font-weight: 700;
+           	font-size: inherit;
+           	line-height: inherit;
+           	padding: .75em .75em;
+           	margin: 0 auto 20px;
+           	border: 0;
+           	width: auto;
+           	display: table;
+           	}
+           	#show-answer:hover{
+           	text-decoration: none;
+           	color: #ffffff;
+           	background: #56BC8A;
+           	}
+           	.answer .image-wrap{
+           	background-color: white;
+           	padding-top: 20px;
+           	margin-bottom: 30px;
+           	}
+           	.post-block .title h2.QA{
+           	padding: 0;
+           	}
+            /* END QA styles code */
+
             .post-block .title h2{
 				margin: 0 0 1em;
 				color: black;
@@ -5001,6 +5077,18 @@ $('.content-wrapper').infinitescroll({
   _taboola.push({flush: true});
 </script>
 <!-- Taboola Tag END -->
+
+<!-- QA show answer script -->
+    <script type="text/javascript">
+        $('#show-answer').click(function(){
+		    $(this).closest('.answer-wrap').find('.answer').slideToggle(500);
+		    $(this).hide();
+		});
+        $( document ).ready(function() {
+            $( ".question-wrap" ).closest('h2').addClass('QA');
+        });
+    </script>
+<!-- /QA show answer -->
 
     </body>
 </html>
