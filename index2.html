@@ -173,6 +173,21 @@ window._fbq.push(['track', '6017292471093', {'value':'0.00','currency':'USD'}]);
 </noscript>
 <!-- End comScore Tag -->
 
+<!-- Facebook Instagram Conversions Pixel Tracking Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','//connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '1100063113346730');
+fbq('track', "PageView");</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1100063113346730&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Instagram Conversions Pixel Tracking Code -->
+
 <!-- Quantcast Tag -->
 <script type="text/javascript">
 var _qevents = _qevents || [];
@@ -630,15 +645,6 @@ fjs.parentNode.insertBefore(js, fjs);
                 font-weight:700;
                 color:{color:ParagraphColour};
             }
-            a, .form_button {
-                color:{color:AnchorColour};
-                text-decoration:underline;
-                word-wrap:break-word;
-                -webkit-transition:color .2s ease-in-out,background-color .2s ease-in-out;
-                -moz-transition:color .2s ease-in-out,background-color .2s ease-in-out;
-                -o-transition:color .2s ease-in-out,background-color .2s ease-in-out;
-                transition:color .2s ease-in-out,background-color .2s ease-in-out;
-            }
             a:hover {
                 color:{color:AnchorHoverColour};
             }
@@ -826,7 +832,7 @@ fjs.parentNode.insertBefore(js, fjs);
                 position: fixed;
                 background: #000000;
                 width:100%;
-                z-index: 3;
+                z-index: 300;
                 -webkit-box-shadow:0 0 10px rgba(0,0,0,0.5);
                 -moz-box-shadow:0 0 10px rgba(0,0,0,0.5);
                 box-shadow:0 0 10px rgba(0,0,0,0.5);
@@ -1031,6 +1037,36 @@ fjs.parentNode.insertBefore(js, fjs);
                 display: none;
             }
 
+            #permalink .next-page-button {
+                margin-right: 20px;
+            }
+
+            #permalink .page .next-button-large {
+                display: none;
+            }
+
+            #permalink .next-button-large {
+                background: #ff9900;
+                color: #fff;
+                padding: 10px;
+                font-size: 24px;
+                font-weight: 700;
+                text-transform: uppercase;
+                text-decoration: none;
+                text-align: center;
+                width: 100%;
+                display: block;
+                border-radius: 5px;
+            }
+
+            #permalink .next-button-large:hover {
+                background: #e68a00;
+            }
+
+            #permalink .next-button-large i {
+                font-size: 20px;
+            }
+
             #permalink .social-bar {
                 display: block;
                 position: fixed;
@@ -1212,13 +1248,94 @@ fjs.parentNode.insertBefore(js, fjs);
               float: left;
             }
 
+            .permalink .post-block {
+                margin-left: 0px;
+            }
+
             .post-block {
                 margin-left: 60px;
+                display: block;
             }
 
             .post-block img {
                 width: 100% !important;
             }
+
+            /* QA styles */
+           	.question-wrap{
+           	display: table;
+           	background-color: black;
+           	color: white;
+           	text-align: center;
+           	padding: 10px;
+           	font-size: 27px;
+           	}
+           	.question-wrap .question{
+           	font-size: 46px;
+           	}
+           	.question-wrap ol{
+           	display: table;
+           	margin: 25px auto 0;
+           	text-align: left;
+           	list-style-type: upper-alpha;
+           	}
+           	.question-wrap ol li{
+           	font-size: 24px;
+           	}
+           	.answer{
+           	display: none;
+           	}
+           	.answer header {
+           	width: 100%;
+           	padding: 0;
+           	}
+           	.answer h3 {
+           	text-align: center;
+           	margin: 0;
+           	color: white;
+           	font-size: 46px;
+           	line-height: 1;
+           	margin-top: 10px;
+           	}
+           	.answer h3 small {
+           	font-size: 28px;
+           	margin: 20px 0 10px;
+           	display: block;
+           	}
+           	#show-answer{
+           	text-decoration: none;
+           	-moz-box-sizing: border-box;
+           	-webkit-box-sizing: border-box;
+           	box-sizing: border-box;
+           	background: #39383d;
+           	-webkit-border-radius: 3px;
+           	-moz-border-radius: 3px;
+           	border-radius: 3px;
+           	text-decoration: none;
+           	color: #ffffff;
+           	font-weight: 700;
+           	font-size: inherit;
+           	line-height: inherit;
+           	padding: .75em .75em;
+           	margin: 0 auto 20px;
+           	border: 0;
+           	width: auto;
+           	display: table;
+           	}
+           	#show-answer:hover{
+           	text-decoration: none;
+           	color: #ffffff;
+           	background: #56BC8A;
+           	}
+           	.answer .image-wrap{
+           	background-color: white;
+           	padding-top: 20px;
+           	margin-bottom: 30px;
+           	}
+           	.post-block .title h2.QA{
+           	padding: 0;
+           	}
+            /* END QA styles code */
 
             .post-block .title h2{
 				margin: 0 0 1em;
@@ -1242,9 +1359,12 @@ fjs.parentNode.insertBefore(js, fjs);
                 width: 100%;
                 overflow: auto;
             }
+            .page .full-width {
+                display: none;
+            }
             .full-width .content {
 				text-align: left;
-				background-color: #000;
+				background: #000;
                 padding: 15px;
 			}
             .full-width .content p, .full-width .content b, .full-width .content strong, .full-width .content a {
@@ -1260,8 +1380,8 @@ fjs.parentNode.insertBefore(js, fjs);
 				width: auto;
 				text-align: center;
 				height: auto;
-				margin: 15px auto;
-				padding: 0 30px;
+				margin: 0px auto;
+				padding: 0 15px;
 				display: block;
 			}
 
@@ -1269,7 +1389,7 @@ fjs.parentNode.insertBefore(js, fjs);
 				color: #FFF;
 				/*     font-size: 24px */;
 				font-size: 21px;
-				padding: 15px 30px;
+				padding: 15px;
 				line-height: 1.4;
 				margin: 0;
 				font-family: inherit;
@@ -1278,10 +1398,17 @@ fjs.parentNode.insertBefore(js, fjs);
 				color: #FFFFFF;
 			}
 
+            .permalink .social-share {
+                position: relative;
+                width: auto;
+            }
+
             .social-share {
-                float: left;
                 width: 60px;
                 text-align: center;
+                position: absolute;
+                left: 0;
+                top: 0;
             }
 
             .social-share a {
@@ -1295,10 +1422,11 @@ fjs.parentNode.insertBefore(js, fjs);
             }
 
             .social-share .share-number {
-                font-size: 18px;
+                font-size: 16px;
                 margin-bottom: -6px;
                 color: #20a605;
                 font-weight: bold;
+                width: 60px;
             }
 
             .social-share .share-description {
@@ -1898,6 +2026,7 @@ fjs.parentNode.insertBefore(js, fjs);
 
             #facebook_thread {
                 margin-bottom: 20px;
+                padding-top: 60px;
             }
 
             /* Disqus */
@@ -3160,7 +3289,7 @@ fjs.parentNode.insertBefore(js, fjs);
                     position: fixed;
                     background: #000000;
                     width:100%;
-                    z-index: 3;
+                    z-index: 300;
                     -webkit-box-shadow:0 0 10px rgba(0,0,0,0.5);
                     -moz-box-shadow:0 0 10px rgba(0,0,0,0.5);
                     box-shadow:0 0 10px rgba(0,0,0,0.5);
@@ -3196,6 +3325,7 @@ fjs.parentNode.insertBefore(js, fjs);
                   margin-left: -5px;
                   padding: 2px 5px;
                   background: #000000;
+                  z-index: 9999;
                 }
 
                 header ul li:hover > ul {
@@ -3620,6 +3750,18 @@ fjs.parentNode.insertBefore(js, fjs);
         <style>
         {CustomCSS}
         </style>
+
+        <!-- /*<style type=”text/css”>
+.back, .next {
+font-size:70px;
+
+font-family:arial;
+color: #000;
+position:fixed;
+-webkit-transition-duration: 0.8s; -moz-transition-duration: 0.8s;
+transition-duration: 0.8s; -o-transition-duration: 0.8s;}
+
+.next {float:right; bottom: 5px; right: 5px;}*/ -->
 
         <!-- AddThis.com Social Media Sharing Tags -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54dacdda333551f9" async="async"></script>
@@ -4592,6 +4734,13 @@ fjs.parentNode.insertBefore(js, fjs);
 <!-- PageFair 300x50 footer tag -->
     </div>
   </div>
+
+  <div class="next-page-button">
+      {block:PermalinkPagination}
+      {block:PreviousPost}  <a href="{PreviousPost}" class="next-button-large">Next Page <i class="fa fa-chevron-right"></i></a>{/block:PreviousPost}
+      {/block:PermalinkPagination}
+  </div>
+
 </div>
                     {block:Pagination}
                     <section class="pagination">
@@ -4641,27 +4790,18 @@ fjs.parentNode.insertBefore(js, fjs);
                     {/block:Posts}
 
                     <section>
-                    <!-- START - DYK - DT - Below Content -->
-<div id="contentad85465"></div>
-<script type="text/javascript">
-    (function(d) {
-        var params =
-        {
-            id: "a3a377cb-a0da-46a4-8b4d-4a13cae563f6",
-            d:  "ZGlkeW91a25vd2Jsb2cuY29t",
-            wid: "85465",
-            cb: (new Date()).getTime()
-        };
-
-        var qs=[];
-        for(var key in params) qs.push(key+'='+encodeURIComponent(params[key]));
-        var s = d.createElement('script');s.type='text/javascript';s.async=true;
-        var p = 'https:' == document.location.protocol ? 'https' : 'http';
-        s.src = p + "://api.content.ad/Scripts/widget2.aspx?" + qs.join('&');
-        d.getElementById("contentad85465").appendChild(s);
-    })(document);
-</script>
-                    <!-- END - DYK - DT - Below Content -->
+                    <!-- START - DYKB - DT - Below Article Thumbnails -->
+                    <div id="taboola-below-article-thumbnails"></div>
+                    <script type="text/javascript">// <![CDATA[
+                    window._taboola = window._taboola || [];
+                        _taboola.push({
+                            mode: 'thumbnails-b',
+                            container: 'taboola-below-article-thumbnails',
+                            placement: 'DYKB - DT - Below Article Thumbnails',
+                            target_type: 'mix'
+                        });
+                    // ]]></script>
+                    <!-- END - DYKB - DT - Below Article Thumbnails -->
                     </section>
                     {/block:Permalink}
                     {/block:IfEnablePostNotes}
@@ -4953,6 +5093,18 @@ $('.content-wrapper').infinitescroll({
   _taboola.push({flush: true});
 </script>
 <!-- Taboola Tag END -->
+
+<!-- QA show answer script -->
+    <script type="text/javascript">
+        $('#show-answer').click(function(){
+		    $(this).closest('.answer-wrap').find('.answer').slideToggle(500);
+		    $(this).hide();
+		});
+        $( document ).ready(function() {
+            $( ".question-wrap" ).closest('h2').addClass('QA');
+        });
+    </script>
+<!-- /QA show answer -->
 
     </body>
 </html>
