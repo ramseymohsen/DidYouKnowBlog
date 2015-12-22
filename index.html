@@ -209,6 +209,7 @@
 
         #permalink .navbar-transparent .add-this li {
             display: inline-block;
+            margin-right: 10px;
         }
 
         #permalink .navbar-transparent .at-icon {
@@ -232,6 +233,10 @@
         }
 
         @media (max-width: 750px) {
+            #permalink .navbar-transparent .add-this li {
+                display: inline-block;
+                margin-right: 0px;
+            }
             #permalink .navbar-transparent .at-icon-wrapper {
                 width: 30px !important;
                 height: 40px !important;
@@ -374,12 +379,8 @@
             display: inline-block;
         }
 
-        .post-ad div:first-child {
-            margin: 5px 10px 5px 5px;
-        }
-
-        .post-ad div:last-child {
-            margin: 5px 5px 5px 10px;
+        .post-ad .ad-box {
+            transform: scale(0.9);
         }
 
         @media (max-width: 750px) {
@@ -557,21 +558,21 @@
 
         </style>
 
-        <!-- Facebook SDK -->
-        <div id="fb-root"></div>
-        <script>(function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=224225897620610&version=v2.3";
-        fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
-        <!-- End Facebook SDK tag -->
-
         <script>window.jQuery || document.write('<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"><\/script>')</script>
 
     </head>
     <body id="{block:IndexPage}index{/block:IndexPage}{block:Permalink}permalink{/block:Permalink}" class="{block:IndexPage}index{/block:IndexPage}{block:Permalink}page{PostID}{/block:Permalink}">
+
+        <!-- Google Tag Manager -->
+        <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5V3KXV"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5V3KXV');</script>
+        <!-- End Google Tag Manager -->
+
         <nav class="navbar navbar-fixed-top navbar-inverse navbar-main">
             <div class="container">
                 <div class="navbar-header">
@@ -698,7 +699,7 @@
 
                             <div class="post-body">
 
-                                <div class="social-share {block:IndexPage}col-sm-2 col-lg-1{/block:IndexPage}{block:Permalink}col-sm-12{/block:Permalink}">
+                                <div class="social-share {block:IndexPage}col-sm-2 col-md-1 col-lg-1{/block:IndexPage}{block:Permalink}col-sm-12{/block:Permalink}">
                                     <div class="share-count">
                                         <a href="{Permalink}" title="{block:NoteCount}{NoteCount} Shares{/block:NoteCount}">
                                             <p class="share-number">{NoteCount}</p>
@@ -725,7 +726,7 @@
                                 {/block:Title}
 
                                 {block:Photo}
-                                <div class="post-content {block:IndexPage}col-sm-10 col-lg-11{/block:IndexPage}{block:Permalink}col-sm-12{/block:Permalink}">
+                                <div class="post-content {block:IndexPage}col-sm-10 col-md-11 col-lg-11{/block:IndexPage}{block:Permalink}col-sm-12{/block:Permalink}">
                                     <a href="{Permalink}"><img src="{PhotoURL-500}" alt="{PhotoAlt}"></a>
 
                                     <div class="post-footer">
@@ -787,17 +788,23 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="post-ad" id="{PostID}">
-                                <!-- BEGIN IFRAME TAG - DYK - DT - Content1 - 300x250 in-between content tag -->
-                                <div class="ad-left-box-{block:Pagination}{CurrentPage}{/block:Pagination} ad-box" id="ad-left-{block:Pagination}{CurrentPage}{/block:Pagination}">
-                                     <iframe src="http://ads.pubsqrd.com/tt?id=5704804&cb=[CACHEBUSTER]" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>
-                                 </div>
-                                <!-- END IFRAME TAG - DYK - DT - Content1 - 300x250 in-between content tag -->
+                                <div class="row">
+                                    <!-- BEGIN IFRAME TAG - DYK - DT - Content1 - 300x250 in-between content tag -->
+                                    <div class="col-sm-6">
+                                        <div class="ad-left-box-{block:Pagination}{CurrentPage}{/block:Pagination} ad-box" id="ad-left-{block:Pagination}{CurrentPage}{/block:Pagination}">
+                                             <iframe src="http://ads.pubsqrd.com/tt?id=5704804&cb=[CACHEBUSTER]" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>
+                                         </div>
+                                    </div>
+                                    <!-- END IFRAME TAG - DYK - DT - Content1 - 300x250 in-between content tag -->
 
-                                <!-- SOVRN 300x250 footer tag -->
-                                <div class="ad-right-box-{block:Pagination}{CurrentPage}{/block:Pagination} ad-box" id="ad-right-{block:Pagination}{CurrentPage}{/block:Pagination}">
-                                    <script type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299145&u=didyouknow&width=300&height=250"></script>
+                                    <!-- SOVRN 300x250 footer tag -->
+                                    <div class="col-sm-6">
+                                        <div class="ad-right-box-{block:Pagination}{CurrentPage}{/block:Pagination} ad-box" id="ad-right-{block:Pagination}{CurrentPage}{/block:Pagination}">
+                                            <script type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299145&u=didyouknow&width=300&height=250"></script>
+                                        </div>
+                                    </div>
+                                    <!-- END SOVRN 300x250 footer tag -->
                                 </div>
-                                <!-- END SOVRN 300x250 footer tag -->
                              </div>
                         </div>
                     </div><!--/Post Ads-->
@@ -1025,13 +1032,6 @@
     </script>
 
     <!-- END INFINITE SCROLL -->
-
-    <!-- Taboola Tag -->
-    <script type="text/javascript">
-      window._taboola = window._taboola || [];
-      _taboola.push({flush: true});
-    </script>
-    <!-- Taboola Tag END -->
 
     <!-- QA show answer script -->
     <script type="text/javascript">
