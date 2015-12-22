@@ -58,10 +58,6 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
         <!-- DYK Custom CSS -->
-        <!-- /*<style>
-            {CustomCSS}
-        </style>
-        <link rel="stylesheet" href="./custom.css">*/ -->
         <style>
         html {
             -webkit-font-smoothing: antialiased;
@@ -116,6 +112,10 @@
 
         a:hover.title {
             text-decoration: none;
+        }
+
+        .header-ad {
+            text-align: center;
         }
 
         .navbar-inverse {
@@ -184,6 +184,63 @@
 
             .navbar-brand .site-description {
                 font-size: 0.5em;
+            }
+        }
+
+        #permalink .navbar-main {
+            position: absolute !important;
+        }
+
+        #permalink .navbar-transparent {
+            display: none;
+            background: rgba(0,0,0,0.8);
+            border: 0px;
+        }
+
+        #permalink .navbar-transparent .float-right {
+            margin-top: 5px;
+        }
+
+        #permalink .navbar-transparent .add-this {
+            display: inline-block;
+            float: left;
+            margin-right: 5px;
+        }
+
+        #permalink .navbar-transparent .add-this li {
+            display: inline-block;
+        }
+
+        #permalink .navbar-transparent .at-icon {
+            margin-top: 12px;
+        }
+
+        #permalink .navbar-transparent .at-icon-wrapper {
+            width: 40px !important;
+            height: 40px !important;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        #permalink .navbar-transparent .next-button {
+            background: #ff9900;
+            color: #fff;
+            font-weight: bold;
+            float: left;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 750px) {
+            #permalink .navbar-transparent .at-icon-wrapper {
+                width: 30px !important;
+                height: 40px !important;
+                text-align: center;
+                border-radius: 5px;
+            }
+            #permalink .navbar-transparent .next-button {
+                padding: 10px 5px;
+                margin-right: 5px;
             }
         }
 
@@ -396,6 +453,16 @@
             background-position: center center !important;
         }
 
+        .at-icon {
+            margin-top: 5px;
+        }
+
+        .at-icon-wrapper {
+            width: 26px !important;
+            height: 26px !important;
+            text-align: center;
+        }
+
         .social-share .social-like {
             display: inline-block;
         }
@@ -501,9 +568,11 @@
         }(document, 'script', 'facebook-jssdk'));</script>
         <!-- End Facebook SDK tag -->
 
+        <script>window.jQuery || document.write('<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"><\/script>')</script>
+
     </head>
     <body id="{block:IndexPage}index{/block:IndexPage}{block:Permalink}permalink{/block:Permalink}" class="{block:IndexPage}index{/block:IndexPage}{block:Permalink}page{PostID}{/block:Permalink}">
-        <nav class="navbar navbar-fixed-top navbar-inverse">
+        <nav class="navbar navbar-fixed-top navbar-inverse navbar-main">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -538,11 +607,77 @@
                     <div class="fb-like" data-href="http://www.facebook.com/didyouknowblog" data-layout="button" data-action="like" data-show-faces="true" data-share="false"></div>
                 </div>
             </div><!-- /.container -->
+
+            <div class="social-share-top hidden-xs">
+                <nav class="navbar navbar-inverse">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search"></i></a>
+                            <ul class="dropdown-menu">
+                                <form action="/search" method="get">
+                                    <input type="text" name="q" value="" placeholder="Search for..">
+                                </form>
+                            </ul>
+                        </li>
+                        <li><a href="http://www.facebook.com/didyouknowblog" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="http://twitter.com/officialdykn" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="http://instagram.com/didyouknowblog" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="http://did-you-kno.tumblr.com/" title="Tumblr"><i class="fa fa-tumblr"></i></a></li>
+                    </ul>
+                </nav>
+            </div>
         </nav><!-- /.navbar -->
+
+        {block:PermalinkPage}
+
+        <script>
+        $(document).scroll(function () {
+            var y = $(this).scrollTop();
+            if (y > 80) {
+                $('.navbar-transparent').fadeIn();
+            } else {
+                $('.navbar-transparent').fadeOut();
+            }
+
+        });
+        </script>
+
+        <nav class="navbar navbar-fixed-top navbar-inverse navbar-transparent">
+            <div class="container">
+                <div class="navbar-header float-left">
+                    <a class="navbar-brand" href="{BlogURL}"><span class="site-name">{Title}</span><br><span class="site-description">Improving your knowledge daily.</span></a>
+                </div>
+                <div id="navbar-transparent">
+                    <ul class="nav navbar-nav float-right">
+                        <div class="addthis_toolbox add-this" addthis:url="{Permalink}" addthis:title="Title">
+                            <li><a class="addthis_button_facebook"></a></li>
+                            <li><a class="addthis_button_twitter"></a></li>
+                        </div>
+                        <a href="/random" class="next-button">Next Post</a>
+                    </ul>
+                </div><!-- /.nav-collapse -->
+            </div><!-- /.container -->
+        </nav><!-- /.navbar -->
+
+        {/block:PermalinkPage}
 
     <div class="container">
 
         <div class="row">
+
+            <!-- BEGIN JS TAG - DYK - DT - Leaderboard - 728x90 < - DO NOT MODIFY -->
+            <div class="header-ad" id="header-google-ad">
+            <script>
+            if ( $(window).width() > 739) {
+             document.write('<iframe src="http://ads.pubsqrd.com/tt?id=5627652&cb=[CACHEBUSTER]" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="728" height="90"></iframe>');
+            }
+            else {
+
+            document.write('<scr'+'ipt type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299146&u=didyouknow&width=300&height=250"></scr'+'ipt>');
+            }
+            </script>
+            </div>
+            <!-- END JS TAG - DYK - DT - Leaderboard - 728x90 < - DO NOT MODIFY -->
 
             <hr>
 
@@ -553,6 +688,7 @@
                         <h2>Posts tagged "{Tag}"</h2><br>
                     {/block:TagPage}
 
+                    <div class="content-infinite">
                     {block:Posts}
                     {block:NotReblog}
 
@@ -650,21 +786,22 @@
 
                     <div class="row">
                         <div class="col-sm-12">
-                            <div class="post-ad">
-                                <!-- SOVRN 300x250 footer tag -->
-                                <div class="ad-left-box-{block:Pagination}{CurrentPage}{/block:Pagination} ad-box" id="ad-right-{block:Pagination}{CurrentPage}{/block:Pagination}">
-                                    <script type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299145&u=didyouknow&width=300&height=250"></script>
-                                </div>
-                                <!-- END SOVRN 300x250 footer tag -->
+                            <div class="post-ad" id="{PostID}">
+                                <!-- BEGIN IFRAME TAG - DYK - DT - Content1 - 300x250 in-between content tag -->
+                                <div class="ad-left-box-{block:Pagination}{CurrentPage}{/block:Pagination} ad-box" id="ad-left-{block:Pagination}{CurrentPage}{/block:Pagination}">
+                                     <iframe src="http://ads.pubsqrd.com/tt?id=5704804&cb=[CACHEBUSTER]" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>
+                                 </div>
+                                <!-- END IFRAME TAG - DYK - DT - Content1 - 300x250 in-between content tag -->
 
                                 <!-- SOVRN 300x250 footer tag -->
                                 <div class="ad-right-box-{block:Pagination}{CurrentPage}{/block:Pagination} ad-box" id="ad-right-{block:Pagination}{CurrentPage}{/block:Pagination}">
                                     <script type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299145&u=didyouknow&width=300&height=250"></script>
                                 </div>
                                 <!-- END SOVRN 300x250 footer tag -->
-                            </div>
+                             </div>
                         </div>
                     </div><!--/Post Ads-->
+                    </div>
 
                     {block:PermalinkPage}
 
@@ -677,6 +814,19 @@
                         <div id="facebook_thread">
                             <div class="fb-comments" data-href="{Permalink}" data-num-posts="5" data-width="600"></div>
                         </div><!--/Post Comments-->
+
+                        <!-- START - DYKB - DT - Below Article Thumbnails -->
+                        <div id="taboola-below-article-thumbnails"></div>
+                        <script type="text/javascript">// <![CDATA[
+                        window._taboola = window._taboola || [];
+                            _taboola.push({
+                                mode: 'thumbnails-b',
+                                container: 'taboola-below-article-thumbnails',
+                                placement: 'DYKB - DT - Below Article Thumbnails',
+                                target_type: 'mix'
+                            });
+                        // ]]></script>
+                        <!-- END - DYKB - DT - Below Article Thumbnails -->
 
                     {/block:PermalinkPage}
                 </div><!--/.content-wrapper-->
@@ -693,10 +843,46 @@
                     </div>
 
                     <div class="row">
+                        <!-- BEGIN IFRAME TAG - DYK - DT - RR2 - 300x250 sidebar tag -->
+                        <iframe src="http://ads.pubsqrd.com/tt?id=5627655&cb=[CACHEBUSTER]" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>
+                        <!-- END IFRAME TAG - DYK - DT - RR2 - 300x250 300x250 sidebar tag -->
+                    </div>
+
+                    <div class="row">
                         <!-- Begin VR Signup Form -->
                         <span class="sidebar-label">Sign Up For Our Best Stuff:</span>
                         <form class="vr-signup-form" id="vr-signup-form-4398046512102"><div class="form-group"><input class="form_field form-control" type="email" name="email_address" placeholder="enter your email" required><input type="submit" value="subscribe!" class="form_button btn btn-dark"></div></form><script type="text/javascript" src="https://vr2.verticalresponse.com/signup_forms/signup_forms.embedded-1.js"></script> <script type="text/javascript">if (typeof VR !== "undefined" && typeof VR.SignupForm !== "undefined") { new VR.SignupForm({ id: "4398046512102", element: "vr-signup-form-4398046512102", endpoint: "https://vr2.verticalresponse.com/se/"}); }</script>
                         <!-- End VR Signup Form -->
+                     </div>
+
+                     <div class="row">
+                         <!-- RR-Native 1 Sidebar Content -->
+                         <div id="contentad85466"></div>
+                         <script type="text/javascript">
+                         (function(d) {
+                         var params =
+                         {
+                         id: "e92e62ac-96d7-48db-8272-178ae982a4cd",
+                         d:  "ZGlkeW91a25vd2Jsb2cuY29t",
+                         wid: "85466",
+                         cb: (new Date()).getTime()
+                         };
+
+                         var qs=[];
+                         for(var key in params) qs.push(key+'='+encodeURIComponent(params[key]));
+                         var s = d.createElement('script');s.type='text/javascript';s.async=true;
+                         var p = 'https:' == document.location.protocol ? 'https' : 'http';
+                         s.src = p + "://api.content.ad/Scripts/widget2.aspx?" + qs.join('&');
+                         d.getElementById("contentad85466").appendChild(s);
+                         })(document);
+                         </script>
+                         <!-- END RR-Native 1 Sidebar Content -->
+                     </div>
+
+                     <div class="row">
+                         <!-- SOVRN 300x250 sidebar footer tag -->
+                         <script type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299144&u=didyouknow&width=300&height=250"></script>
+                         <!-- END SOVRN 300x250 sidebar footer tag -->
                      </div>
                  </div>
 
@@ -752,8 +938,6 @@
 
     <!-- DYK Scripts -->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
     <!-- AddThis.com Social Media Sharing Tags -->
@@ -779,10 +963,15 @@
         }
     </script>
 
-    {block:IndexPage}
+    <script>
+    $( document ).ready(function() {
+        $( ".ad-left-box-1" ).addClass( "hidden-xs" );
+    });
+    </script>
+
     <!-- INFINITE SCROLL -->
     <script type="text/javascript" src="http://static.tumblr.com/ib6vvvn/h4Rmt3ou9/jquery.infinitescroll.min.js"></script>
-    <script src="http://media.krxd.net/derek/postscribe.min.js"></script>
+    <script src="http://static.tumblr.com/oa7pmzw/2tenzq9pi/postscribe.min.js"></script>
 
     <script>
     $('.content-wrapper').infinitescroll({
@@ -793,7 +982,7 @@
       nextSelector : ".next a:last",
                      // selector for the NEXT link (to page 2)
 
-      itemSelector : ".content-wrapper .post-box",
+      itemSelector : ".content-wrapper .content-infinite",
                      // selector for all items you'll retrieve
 
       loading      : { img: "http://i.imgur.com/R3BV1cH.gif", finishedMsg: "No more posts to load.", msgText: "<em>Loading posts...</em>" },
@@ -812,7 +1001,12 @@
 
          var num = +page;
          var div = "#ad-right-";
+         var div2 = "#ad-middle-right-";
          var numdiv = div + num;
+         var numdiv2 = div2 + num;
+
+         postscribe( numdiv , '<script src=http://ap.lijit.com/www/delivery/fpi.js?z=299145&u=didyouknow&width=300&height=250><\/script>', {
+         });
 
          if(num % 2 == 0)
          {
@@ -830,32 +1024,26 @@
     });
     </script>
 
-    {/block:IndexPage}
+    <!-- END INFINITE SCROLL -->
 
-    <script>
-    $( document ).ready(function() {
-        $( ".ad-left-box-1" ).addClass( "hidden-xs" );
-    });
+    <!-- Taboola Tag -->
+    <script type="text/javascript">
+      window._taboola = window._taboola || [];
+      _taboola.push({flush: true});
     </script>
+    <!-- Taboola Tag END -->
 
-    <div class="social-share-top hidden-xs">
-        <nav class="navbar navbar-inverse">
-            <ul class="nav navbar-nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search"></i></a>
-                    <ul class="dropdown-menu">
-                        <form action="/search" method="get">
-                            <input type="text" name="q" value="" placeholder="Search for..">
-                        </form>
-                    </ul>
-                </li>
-                <li><a href="http://www.facebook.com/didyouknowblog" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="http://twitter.com/officialdykn" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="http://instagram.com/didyouknowblog" title="Instagram"><i class="fa fa-instagram"></i></a></li>
-                <li><a href="http://did-you-kno.tumblr.com/" title="Tumblr"><i class="fa fa-tumblr"></i></a></li>
-            </ul>
-        </nav>
-    </div>
+    <!-- QA show answer script -->
+    <script type="text/javascript">
+        $('#show-answer').click(function(){
+            $(this).closest('.answer-wrap').find('.answer').slideToggle(500);
+            $(this).hide();
+        });
+        $( document ).ready(function() {
+            $( ".question-wrap" ).closest('h2').addClass('QA');
+        });
+    </script>
+    <!-- /QA show answer -->
 
     </body>
 
