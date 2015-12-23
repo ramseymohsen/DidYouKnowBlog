@@ -94,6 +94,12 @@
             padding: 0px 10px;
         }
 
+        @media (max-width: 750px) {
+            .content-wrapper {
+                padding: 0px;
+            }
+        }
+
         .post-footer {
             overflow: auto;
         }
@@ -104,6 +110,10 @@
 
         .float-right {
             float: right;
+        }
+
+        .margin-bottom {
+            margin-bottom: 15px;
         }
 
         a.title {
@@ -144,6 +154,8 @@
         .navbar-toggle {
             float: left;
             margin-left: 15px;
+            position: relative;
+            z-index: 9000;
         }
 
         .navbar-social {
@@ -176,6 +188,13 @@
         @media (max-width: 750px) {
             .navbar-brand {
                 margin-top: -5px;
+            }
+
+            .navbar-main .navbar-brand {
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
             }
 
             .navbar-brand .site-name {
@@ -257,6 +276,16 @@
             text-align: center;
         }
 
+        #index .share-container {
+            width: 35px;
+        }
+
+        @media (max-width: 750px) {
+            #index .share-container {
+                width: 100%;
+            }
+        }
+
         #permalink .post-body .social-share {
             text-align: left;
         }
@@ -300,6 +329,14 @@
             border-radius: 5px;
         }
 
+        .post-body h1 {
+            font-size: 46px;
+            font-weight: 700;
+            color: #000000;
+            letter-spacing: 0.04em;
+            margin-bottom: 1em;
+        }
+
         .post-footer {
             margin: 10px 0;
         }
@@ -311,13 +348,13 @@
             float: right;
         }
 
+        .post-permalink a {
+            color: #888;
+        }
+
         @media (max-width: 750px) {
             .post-permalink {
-                float: left;
-                width: 100%;
-            }
-            .post-permalink {
-                width: 100%;
+                font-size: 0.9em;
             }
         }
 
@@ -326,26 +363,29 @@
             margin: 0;
             padding: 0;
             float: left;
+            font-size: 16px;
         }
 
         .post-comments a {
             color: #11819e;
-            font-size: 16px;
             font-weight: bold;
         }
 
-        .post-permalink a {
-            color: #888;
+        @media (max-width: 750px) {
+            .post-comments {
+                font-size: 0.9em;
+            }
         }
 
         .post-copy, .page .page-copy {
             color: #fff;
             background: #000;
             padding: 15px;
+            font-size: 1.1em;
         }
 
         .post-copy p, .page .page-copy p {
-            font-size: 1.1em;
+            font-size: 1.2em;
             line-height: 1.625;
             margin: 0 0 1.625em;
         }
@@ -362,21 +402,29 @@
             height: auto;
         }
 
-        .post-ad {
-            text-align: center;
-            display: block;
-            clear: both;
-            margin: 10px 0px;
+        .post-copy img, .page .page-copy img {
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
         }
 
-        @media (max-width: 750px) {
-            .post-ad {
-                margin: 0px -10px;
-            }
+        .post-ad {
+            text-align: center;
+            margin: 10px 0px;
         }
 
         .post-ad div {
             display: inline-block;
+        }
+
+        @media (max-width: 750px) {
+            .post-ad {
+                margin: 0px -15px;
+            }
+
+            .post-ad div {
+                display: inherit;
+            }
         }
 
         .post-ad .ad-box {
@@ -385,11 +433,11 @@
 
         @media (max-width: 750px) {
             .post-ad div:first-child {
-                margin: 5px 0px 5px 0px;
+                margin: 0px;
             }
 
             .post-ad div:last-child {
-                margin: 5px 0px 5px 0px;
+                margin: 0px;
             }
 
             .post-ad .ad-box, .post-ad .ad-box iframe[style], .post-ad .ad-box span, .post-ad .ad-box img, .post-ad .ad-box iframe div, .post-ad .ad-box iframe img {
@@ -536,6 +584,78 @@
             font-size: 20px;
         }
 
+        /* QA styles */
+        .question-wrap{
+            display: table;
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 27px;
+        }
+        .question-wrap .question {
+            font-size: 46px;
+        }
+        .question-wrap ol {
+            display: table;
+            margin: 25px auto 0;
+            text-align: left;
+            list-style-type: upper-alpha;
+        }
+        .question-wrap ol li {
+            font-size: 24px;
+        }
+        .answer {
+            display: none;
+        }
+        .answer header {
+            width: 100%;
+            padding: 0;
+        }
+        .answer h3 {
+            text-align: center;
+            margin: 0;
+            color: white;
+            font-size: 46px;
+            line-height: 1;
+            margin-top: 10px;
+        }
+        .answer h3 small {
+            font-size: 28px;
+            margin: 20px 0 10px;
+            display: block;
+        }
+        #show-answer {
+            text-decoration: none;
+            box-sizing: border-box;
+            background: #39383d;
+            border-radius: 3px;
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: inherit;
+            line-height: inherit;
+            padding: .75em .75em;
+            margin: 0 auto 20px;
+            border: 0;
+            width: auto;
+            display: table;
+        }
+        #show-answer:hover {
+            text-decoration: none;
+            color: #ffffff;
+            background: #56BC8A;
+        }
+        .answer .image-wrap {
+            background-color: white;
+            padding: 20px;
+            margin: 30px 0px;
+        }
+        .post-block .title h2.QA {
+            padding: 0;
+        }
+        /* END QA styles code */
+
         footer {
             text-align: center;
         }
@@ -609,7 +729,7 @@
                 </div>
             </div><!-- /.container -->
 
-            <div class="social-share-top hidden-xs">
+            <div class="social-share-top hidden-xs hidden-sm">
                 <nav class="navbar navbar-inverse">
                     <ul class="nav navbar-nav">
                         <li class="dropdown">
@@ -684,83 +804,91 @@
 
             <div class="col-xs-12 col-sm-9 col-md-8 col-left">
 
-                <div class="content-wrapper">
-                    {block:TagPage}
-                        <h2>Posts tagged "{Tag}"</h2><br>
-                    {/block:TagPage}
+                <div class="content-area">
+
+                    <div class="content-wrapper">
+                        {block:TagPage}
+                            <h2>Posts tagged "{Tag}"</h2><br>
+                        {/block:TagPage}
+                    </div>
 
                     <div class="content-infinite">
                     {block:Posts}
                     {block:NotReblog}
+                    <div class="content-wrapper">
 
-                    <div class="post-box {PostType} {block:IndexPage}index{/block:IndexPage}{block:Permalink}permalink{/block:Permalink} {TagsAsClasses}" id="{PostID}">
+                        <div class="post-box {PostType} {block:IndexPage}index{/block:IndexPage}{block:Permalink}permalink{/block:Permalink} {TagsAsClasses}" id="{PostID}">
 
-                        <div class="row">
+                            <div class="row">
 
-                            <div class="post-body">
+                                <div class="post-body">
 
-                                <div class="social-share {block:IndexPage}col-sm-2 col-md-1 col-lg-1{/block:IndexPage}{block:Permalink}col-sm-12{/block:Permalink}">
-                                    <div class="share-count">
-                                        <a href="{Permalink}" title="{block:NoteCount}{NoteCount} Shares{/block:NoteCount}">
-                                            <p class="share-number">{NoteCount}</p>
-                                            <p class="share-description">Shares</p>
-                                        </a>
+                                    <div class="social-share {block:IndexPage}col-sm-2 col-md-1 col-lg-1{/block:IndexPage}{block:Permalink}col-sm-12{/block:Permalink}">
+                                        <div class="share-container">
+                                            <div class="share-count">
+                                                <a href="{Permalink}" title="{block:NoteCount}{NoteCount} Shares{/block:NoteCount}">
+                                                    <p class="share-number">{NoteCount}</p>
+                                                    <p class="share-description">Shares</p>
+                                                </a>
+                                            </div>
+                                            <div class="addthis_toolbox add-this" addthis:url="{Permalink}" addthis:title="Title">
+                                                <ul>
+                                                    <li><a class="addthis_button_facebook"></a></li>
+                                                    <li><a class="addthis_button_twitter"></a></li>
+                                                    <li><a class="addthis_button_pinterest_share"></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="social-like">
+                                                <ul>
+                                                    <li>{ReblogButton color="grey" size="25"}</li>
+                                                    <li>{LikeButton color="grey" size="25"}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="addthis_toolbox add-this" addthis:url="{Permalink}" addthis:title="Title">
-                                        <ul>
-                                            <li><a class="addthis_button_facebook"></a></li>
-                                            <li><a class="addthis_button_twitter"></a></li>
-                                            <li><a class="addthis_button_pinterest_share"></a></li>
-                                        </ul>
+
+                                    {block:Title}
+                                        <h1>{Title}</h1>
+                                    {/block:Title}
+
+                                    {block:Photo}
+                                    <div class="post-content {block:IndexPage}col-sm-10 col-md-11 col-lg-11{/block:IndexPage}{block:Permalink}col-sm-12{/block:Permalink}">
+                                        <a href="{Permalink}"><img src="{PhotoURL-500}" alt="{PhotoAlt}"></a>
+
+                                        <div class="post-footer">
+
+                                            <ul class="post-comments">
+                                                <li class="comments">
+                                                    <span><a href="{Permalink}#facebook_thread"><i class="fa fa-comment"></i> <fb:comments-count href="{Permalink}"></fb:comments-count> Comments</a></span>
+                                                </li>
+                                            </ul>
+
+                                            <ul class="post-permalink">
+                                                <li class="source">
+                                                    <a href="{Permalink}">Permalink / Fact Source</a>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <div class="social-like">
-                                        <ul>
-                                            <li>{ReblogButton color="grey" size="25"}</li>
-                                            <li>{LikeButton color="grey" size="25"}</li>
-                                        </ul>
-                                    </div>
+                                    {/block:Photo}
+
+                                    {block:PermalinkPage}
+                                        <div class="page-copy">
+                                            {Body}
+                                        </div>
+                                    {/block:PermalinkPage}
+
                                 </div>
-
-                                {block:Title}
-                                    <h1>{Title}</h1>
-                                {/block:Title}
-
-                                {block:Photo}
-                                <div class="post-content {block:IndexPage}col-sm-10 col-md-11 col-lg-11{/block:IndexPage}{block:Permalink}col-sm-12{/block:Permalink}">
-                                    <a href="{Permalink}"><img src="{PhotoURL-500}" alt="{PhotoAlt}"></a>
-
-                                    <div class="post-footer">
-
-                                        <ul class="post-comments">
-                                            <li class="comments">
-                                                <span><a href="{Permalink}#facebook_thread"><i class="fa fa-comment"></i> <fb:comments-count href="{Permalink}"></fb:comments-count> Comments</a></span>
-                                            </li>
-                                        </ul>
-
-                                        <ul class="post-permalink">
-                                            <li class="source">
-                                                <a href="{Permalink}">Permalink / Fact Source</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                {/block:Photo}
-
-                                {block:PermalinkPage}
-                                    <div class="page-copy">
-                                        {Body}
-                                    </div>
-                                {/block:PermalinkPage}
 
                             </div>
 
-                        </div>
+                            <hr>
 
-                        <hr>
-
-                    </div><!--/.post-box-->
+                        </div><!--/.post-box-->
+                    </div><!--/.content-wrapper-->
 
                     {block:PermalinkPage}
+                    <div class="content-wrapper">
 
                         <div class="row">
                             <div class="col-sm-12">
@@ -772,45 +900,47 @@
                             </div>
                         </div><!--/Post Copy-->
 
+                    </div><!--/.content-wrapper-->
+
                     {/block:PermalinkPage}
 
                     {/block:NotReblog}
                     {/block:Posts}
 
                     {block:SearchPage}
+                    <div class="content-wrapper">
                         <h1>Search "{SearchQuery}" ({SearchResultCount} results)</h1>
 
                         {block:NoSearchResults}
                         <h3>No Results Found</h3>
                         {/block:NoSearchResults}
+                    </div><!--/.content-wrapper-->
                     {/block:SearchPage}
 
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="post-ad" id="{PostID}">
-                                <div class="row">
-                                    <!-- BEGIN IFRAME TAG - DYK - DT - Content1 - 300x250 in-between content tag -->
-                                    <div class="col-sm-6">
-                                        <div class="ad-left-box-{block:Pagination}{CurrentPage}{/block:Pagination} ad-box" id="ad-left-{block:Pagination}{CurrentPage}{/block:Pagination}">
-                                             <iframe src="http://ads.pubsqrd.com/tt?id=5704804&cb=[CACHEBUSTER]" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>
-                                         </div>
-                                    </div>
-                                    <!-- END IFRAME TAG - DYK - DT - Content1 - 300x250 in-between content tag -->
-
-                                    <!-- SOVRN 300x250 footer tag -->
-                                    <div class="col-sm-6">
-                                        <div class="ad-right-box-{block:Pagination}{CurrentPage}{/block:Pagination} ad-box" id="ad-right-{block:Pagination}{CurrentPage}{/block:Pagination}">
-                                            <script type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299145&u=didyouknow&width=300&height=250"></script>
-                                        </div>
-                                    </div>
-                                    <!-- END SOVRN 300x250 footer tag -->
+                        <div class="post-ad" id="{PostID}">
+                            <div class="row">
+                                <!-- BEGIN IFRAME TAG - DYK - DT - Content1 - 300x250 in-between content tag -->
+                                <div class="col-sm-6">
+                                    <div class="ad-left-box-{block:Pagination}{CurrentPage}{/block:Pagination} ad-box" id="ad-left-{block:Pagination}{CurrentPage}{/block:Pagination}">
+                                         <iframe src="http://ads.pubsqrd.com/tt?id=5704804&cb=[CACHEBUSTER]" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>
+                                     </div>
                                 </div>
-                             </div>
-                        </div>
-                    </div><!--/Post Ads-->
-                    </div>
+                                <!-- END IFRAME TAG - DYK - DT - Content1 - 300x250 in-between content tag -->
+
+                                <!-- SOVRN 300x250 footer tag -->
+                                <div class="col-sm-6">
+                                    <div class="ad-right-box-{block:Pagination}{CurrentPage}{/block:Pagination} ad-box" id="ad-right-{block:Pagination}{CurrentPage}{/block:Pagination}">
+                                        <script type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299145&u=didyouknow&width=300&height=250"></script>
+                                    </div>
+                                </div>
+                                <!-- END SOVRN 300x250 footer tag -->
+                            </div>
+                         </div><!--/Post Ads-->
+
+                    </div><!--/.content-infinite-->
 
                     {block:PermalinkPage}
+                    <div class="content-wrapper">
 
                         <div class="next-page-button">
                             {block:PermalinkPagination}
@@ -835,34 +965,36 @@
                         // ]]></script>
                         <!-- END - DYKB - DT - Below Article Thumbnails -->
 
+                    </div><!--/.content-wrapper-->
+
                     {/block:PermalinkPage}
-                </div><!--/.content-wrapper-->
+                </div><!--/.content-area-->
 
             </div><!--/.col-left-->
 
             <div class="hidden-xs col-sm-3 col-md-4 col-right" id="sidebar">
                 <div class="sidebar-wrapper">
-                    <div class="row">
+                    <div class="row margin-bottom">
                         <!-- Facebook LIKE Widget -->
                         <span class="sidebar-label">Like Us On Facebook:</span>
                         <div class="fb-like"><div class="fb-page" data-href="https://www.facebook.com/didyouknowblog" data-small-header="false" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/didyouknowblog"><a href="https://www.facebook.com/didyouknowblog">Did You Know</a></blockquote></div></div></div>
                         <!-- End Facebook LIKE Widget -->
                     </div>
 
-                    <div class="row">
+                    <div class="row margin-bottom">
                         <!-- BEGIN IFRAME TAG - DYK - DT - RR2 - 300x250 sidebar tag -->
                         <iframe src="http://ads.pubsqrd.com/tt?id=5627655&cb=[CACHEBUSTER]" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>
                         <!-- END IFRAME TAG - DYK - DT - RR2 - 300x250 300x250 sidebar tag -->
                     </div>
 
-                    <div class="row">
+                    <div class="row margin-bottom">
                         <!-- Begin VR Signup Form -->
                         <span class="sidebar-label">Sign Up For Our Best Stuff:</span>
                         <form class="vr-signup-form" id="vr-signup-form-4398046512102"><div class="form-group"><input class="form_field form-control" type="email" name="email_address" placeholder="enter your email" required><input type="submit" value="subscribe!" class="form_button btn btn-dark"></div></form><script type="text/javascript" src="https://vr2.verticalresponse.com/signup_forms/signup_forms.embedded-1.js"></script> <script type="text/javascript">if (typeof VR !== "undefined" && typeof VR.SignupForm !== "undefined") { new VR.SignupForm({ id: "4398046512102", element: "vr-signup-form-4398046512102", endpoint: "https://vr2.verticalresponse.com/se/"}); }</script>
                         <!-- End VR Signup Form -->
                      </div>
 
-                     <div class="row">
+                     <div class="row margin-bottom">
                          <!-- RR-Native 1 Sidebar Content -->
                          <div id="contentad85466"></div>
                          <script type="text/javascript">
@@ -981,7 +1113,7 @@
     <script src="http://static.tumblr.com/oa7pmzw/2tenzq9pi/postscribe.min.js"></script>
 
     <script>
-    $('.content-wrapper').infinitescroll({
+    $('.content-area').infinitescroll({
 
       navSelector  : ".pagination",
                      // selector for the paged navigation (it will be hidden)
@@ -989,7 +1121,7 @@
       nextSelector : ".next a:last",
                      // selector for the NEXT link (to page 2)
 
-      itemSelector : ".content-wrapper .content-infinite",
+      itemSelector : ".content-area .content-infinite",
                      // selector for all items you'll retrieve
 
       loading      : { img: "http://i.imgur.com/R3BV1cH.gif", finishedMsg: "No more posts to load.", msgText: "<em>Loading posts...</em>" },
