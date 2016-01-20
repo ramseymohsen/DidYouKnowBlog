@@ -982,6 +982,10 @@
 
                     </div><!--/.content-wrapper-->
 
+                    <div id="facebook_thread">
+                        <div class="fb-comments" data-href="{Permalink}" data-num-posts="5" data-width="600"></div>
+                    </div><!--/Post Comments-->
+
                     {/block:PermalinkPage}
 
                     {/block:NotReblog}
@@ -1027,10 +1031,6 @@
                             {block:PreviousPost}  <a href="{PreviousPost}" class="next-button-large">Next Page <i class="fa fa-chevron-right"></i></a>{/block:PreviousPost}
                             {/block:PermalinkPagination}
                         </div>
-
-                        <div id="facebook_thread">
-                            <div class="fb-comments" data-href="{Permalink}" data-num-posts="5" data-width="600"></div>
-                        </div><!--/Post Comments-->
 
                         <!-- START - DYKB - DT - Below Article Thumbnails -->
                         <div id="taboola-below-article-thumbnails"></div>
@@ -1256,8 +1256,6 @@
          var div2 = "#ad-middle-right-";
          var numdiv = div + num;
          var numdiv2 = div2 + num;
-
-         console.log('/page/'+page);
 
          postscribe( numdiv , '<script src=http://ap.lijit.com/www/delivery/fpi.js?z=299145&u=didyouknow&width=300&height=250><\/script>', {
          });
