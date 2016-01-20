@@ -21,8 +21,6 @@
 
         <meta property="og:site_name" content="{Title}"/>
         <meta property="og:locale" content="en_US" />
-        <meta property="article:author" content="https://www.facebook.com/didyouknowblog"/>
-        <meta property="article:publisher" content="https://www.facebook.com/didyouknowblog"/>
 
         {block:IndexPage}
             <meta property="og:title" content="{block:TagPage}&quot;{PlaintextTag}&quot; - {/block:TagPage}{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{Title}"/>
@@ -35,6 +33,8 @@
             <meta property="og:url" content="{Permalink}"/>
             <meta property="og:type" content="website"/>
             <meta property="og:title" content="{block:SearchPage}{lang:Search results for SearchQuery}{/block:SearchPage}{block:PostSummary}{PlaintextPostSummary}{/block:PostSummary}{block:IndexPage}{PlaintextDescription}{/block:IndexPage}"/>
+            <meta property="article:author" content="https://www.facebook.com/didyouknowblog"/>
+            <meta property="article:publisher" content="https://www.facebook.com/didyouknowblog"/>
                 {block:Posts}
                     {block:Text}
                         {block:Title}<meta property="og:title" content="{PlaintextTitle}"/>{/block:Title}
@@ -747,15 +747,17 @@
 
         <!-- Google Analytics JS -->
         <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-52636076-1', 'auto');
-        ga('send', 'pageview');
-
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-52636076-1']);
+            _gaq.push(['_trackPageview']);
+            _gaq.push(['_setDomainName', ''+document.domain+'']);
+            (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
         </script>
+
         <!-- End Google Analytics JS -->
 
     </head>
@@ -1129,7 +1131,7 @@
 
                      <div class="row">
                          <!-- DYK Featured Sidebar Content -->
-                         <div class="featured-content">
+                         <!-- <div class="featured-content">
                              <ul>
                                  <li>
                                      <a href="http://didyouknowblog.com/dogs-watch-tv?utm_source=Facebook&utm_medium=Partner&utm_campaign=Siderail_Dogs-Watch-TV">
@@ -1156,7 +1158,7 @@
                                      </a>
                                  </li>
                              </ul>
-                         </div>
+                         </div> -->
                          <!-- END DYK Featured Sidebar Content -->
                      </div>
                  </div>
@@ -1254,6 +1256,8 @@
          var div2 = "#ad-middle-right-";
          var numdiv = div + num;
          var numdiv2 = div2 + num;
+
+         console.log('/page/'+page);
 
          postscribe( numdiv , '<script src=http://ap.lijit.com/www/delivery/fpi.js?z=299145&u=didyouknow&width=300&height=250><\/script>', {
          });
