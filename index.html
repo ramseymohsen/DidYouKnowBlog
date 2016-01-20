@@ -17,19 +17,23 @@
         {/block:PermalinkPage}
 
         <!-- Facebook App -->
-        <meta property="fb:app_id" content="849304505189414" />
+        <meta property="fb:app_id" content="849304505189414"/>
 
         <meta property="og:site_name" content="{Title}"/>
+        <meta property="og:locale" content="en_US" />
+        <meta property="article:author" content="https://www.facebook.com/didyouknowblog"/>
+        <meta property="article:publisher" content="https://www.facebook.com/didyouknowblog"/>
+
         {block:IndexPage}
             <meta property="og:title" content="{block:TagPage}&quot;{PlaintextTag}&quot; - {/block:TagPage}{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{Title}"/>
             <meta property="og:url" content="{blogURL}{block:TagPage}tagged/{URLSafeTag}{/block:TagPage}"/>
-            <meta property="og:type" content="blog" />
+            <meta property="og:type" content="website"/>
             <meta property="og:description" content="{MetaDescription} {block:TagPage}{PlaintextDescription}{/block:TagPage}"/>
             <meta property="og:image" content="http://56.media.tumblr.com/cd5cb3cf2cef2f12d07f581eba188d57/tumblr_inline_o0szh2NwcF1qz6ue3_500.jpg"/>
         {/block:IndexPage}
         {block:PermalinkPage}
             <meta property="og:url" content="{Permalink}"/>
-            <meta property="og:type" content="article"/>
+            <meta property="og:type" content="website"/>
             <meta property="og:title" content="{block:SearchPage}{lang:Search results for SearchQuery}{/block:SearchPage}{block:PostSummary}{PlaintextPostSummary}{/block:PostSummary}{block:IndexPage}{PlaintextDescription}{/block:IndexPage}"/>
                 {block:Posts}
                     {block:Text}
