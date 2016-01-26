@@ -1305,8 +1305,11 @@
 
          $( ".modal-overlay" ).css( "display", "none" );
          $( ".modal-overlay" ).css( 'visibility', 'hidden' );
+         $( ".modal-box" ).css( "display", "none" );
          $( ".modal-box" ).css( "visibility", "hidden" );
+         $( ".modal-box-content" ).css( "display", "none" );
          $( ".modal-box-content" ).css( "visibility", "hidden" );
+         $( ".modal-ad" ).css( "display", "none" );
          $( ".modal-ad" ).css( "visibility", "hidden" );
 
          if(num % 2 == 0)
@@ -1343,8 +1346,11 @@
     $(".modal-close .close-button").click(function(e){
         $(".modal-overlay").css('display', 'none'),
         $(".modal-overlay").css('visibility', 'hidden'),
+        $(".modal-box").css('display', 'none'),
         $(".modal-box").css('visibility', 'hidden'),
+        $(".modal-box-content").css('display', 'none'),
         $(".modal-box-content").css('visibility', 'hidden'),
+        $(".modal-ad").css('display', 'none'),
         $(".modal-ad").css('visibility', 'hidden'),
         e.preventDefault();
     });
