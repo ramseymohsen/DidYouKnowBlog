@@ -649,6 +649,36 @@
             display: inline-block;
         }
 
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 9000;
+            background: rgba(0,0,0,0.8);
+        }
+
+        .modal-overlay .modal-box {
+            width: 310px;
+            margin: 25% auto;
+        }
+
+        .modal-overlay .modal-ad {
+            transform: scale(0.9);
+        }
+
+        .modal-overlay .modal-close {
+            text-align: right;
+            font-size: 1.5em;
+            color: #fff;
+            padding: 0 1em;
+        }
+
+        .modal-overlay .modal-close a, .modal-overlay .modal-close a:hover{
+            color: #fff;
+        }
+
         /* QA styles */
         .question-wrap{
             display: table;
@@ -772,6 +802,19 @@
         '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-5V3KXV');</script>
         <!-- End Google Tag Manager -->
+
+        <div id="ad-modal" class="modal-overlay visible-xs">
+            <div class="modal-box">
+                <div class="modal-close">
+                    <a href="" class="close-button"><i class="fa fa-times"></i></a>
+                </div>
+                <div class="modal-box-content">
+                    <div class="modal-ad">
+                        <script type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299143&u=didyouknow&width=300&height=250"></script>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <nav class="navbar navbar-fixed-top navbar-inverse navbar-main">
             <div class="container">
@@ -1260,6 +1303,12 @@
          postscribe( numdiv , '<script src=http://ap.lijit.com/www/delivery/fpi.js?z=299145&u=didyouknow&width=300&height=250><\/script>', {
          });
 
+         $( ".modal-overlay" ).css( "display", "none" );
+         $( ".modal-overlay" ).css( 'visibility', 'hidden' );
+         $( ".modal-box" ).css( "visibility", "hidden" );
+         $( ".modal-box-content" ).css( "visibility", "hidden" );
+         $( ".modal-ad" ).css( "visibility", "hidden" );
+
          if(num % 2 == 0)
          {
            $( ".ad-right-box-" + num ).addClass( "hidden-xs" );
@@ -1289,6 +1338,17 @@
         });
     </script>
     <!-- /QA show answer -->
+
+    <script>
+    $(".modal-close .close-button").click(function(e){
+        $(".modal-overlay").css('display', 'none'),
+        $(".modal-overlay").css('visibility', 'hidden'),
+        $(".modal-box").css('visibility', 'hidden'),
+        $(".modal-box-content").css('visibility', 'hidden'),
+        $(".modal-ad").css('visibility', 'hidden'),
+        e.preventDefault();
+    });
+    </script>
 
     </body>
 
