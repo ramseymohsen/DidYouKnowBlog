@@ -22,6 +22,10 @@
         <meta property="og:site_name" content="{Title}"/>
         <meta property="og:locale" content="en_US" />
 
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@officialdykn">
+        <meta name="twitter:creator" content="@officialdykn">
+
         {block:IndexPage}
             <meta property="og:title" content="{block:TagPage}&quot;{PlaintextTag}&quot; - {/block:TagPage}{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{Title}"/>
             <meta property="og:url" content="{blogURL}{block:TagPage}tagged/{URLSafeTag}{/block:TagPage}"/>
@@ -33,17 +37,21 @@
             <meta property="og:url" content="{Permalink}"/>
             <meta property="og:type" content="website"/>
             <meta property="og:title" content="{block:SearchPage}{lang:Search results for SearchQuery}{/block:SearchPage}{block:PostSummary}{PlaintextPostSummary}{/block:PostSummary}{block:IndexPage}{PlaintextDescription}{/block:IndexPage}"/>
+            <meta property="twitter:title" content="{block:SearchPage}{lang:Search results for SearchQuery}{/block:SearchPage}{block:PostSummary}{PlaintextPostSummary}{/block:PostSummary}{block:IndexPage}{PlaintextDescription}{/block:IndexPage}"/>
             <meta property="article:author" content="https://www.facebook.com/didyouknowblog"/>
             <meta property="article:publisher" content="https://www.facebook.com/didyouknowblog"/>
                 {block:Posts}
                     {block:Text}
                         {block:Title}<meta property="og:title" content="{PlaintextTitle}"/>{/block:Title}
+                        {block:Title}<meta property="twitter:title" content="{PlaintextTitle}"/>{/block:Title}
                         <meta property="og:description" content="{PlaintextBody}"/>
                         <meta property="og:image" content="http://56.media.tumblr.com/cd5cb3cf2cef2f12d07f581eba188d57/tumblr_inline_o0szh2NwcF1qz6ue3_500.jpg"/>
                     {/block:Text}
                     {block:Photo}
                         <meta property="og:image" content="{PhotoURL-HighRes}"/>
+                        <meta name="twitter:image" content="{PhotoURL-HighRes}">
                         {block:Caption}<meta property="og:description" content="{PlaintextCaption}"/>{/block:Caption}
+                        {block:Caption}<meta property="twitter:description" content="{PlaintextCaption}"/>{/block:Caption}
                     {/block:Photo}
                 {/block:Posts}
         {/block:PermalinkPage}
