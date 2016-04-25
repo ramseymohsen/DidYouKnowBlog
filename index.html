@@ -143,6 +143,26 @@
             text-align: center;
         }
 
+        .header-ad .desktop {
+            display: none;
+        }
+
+        @media (min-width: 740px) {
+            .header-ad .desktop {
+                display: block;
+            }
+        }
+
+        .header-ad .mobile {
+            display: none;
+        }
+
+        @media (max-width: 739px) {
+            .header-ad .mobile {
+                display: block;
+            }
+        }
+
         .navbar-inverse {
             background-color: #000;
             border-color: #000;
@@ -1028,19 +1048,6 @@
 
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
-        <div id="ad-modal" class="modal-overlay visible-xs">
-            <div class="modal-box">
-                <div class="modal-close">
-                    <a href="" class="close-button">skip <i class="fa fa-times"></i></a>
-                </div>
-                <div class="modal-box-content">
-                    <div class="modal-ad">
-                        <script type="text/javascript" src="//ap.lijit.com/www/delivery/fpi.js?z=299143&u=didyouknow&width=300&height=250"></script>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <nav class="navbar navbar-fixed-top navbar-inverse navbar-main">
             <div class="container">
                 <div class="navbar-header">
@@ -1136,15 +1143,21 @@
 
             <!-- BEGIN JS TAG - DYK - DT - Leaderboard - 728x90 < - DO NOT MODIFY -->
             <div class="header-ad" id="header-google-ad">
-            <script>
-            if ( $(window).width() > 739) {
-             document.write('<div id="538263152_3" style="width:728px;height:90px;margin:0 auto;padding:0;text-align:center;"><iframe id="0d0350cec9" name="0d0350cec9" src="//bumpclick-d.openx.net/w/1.0/afr?auid=538263152&cb=3" frameborder="0" scrolling="no" width="728" height="90"><a href="//bumpclick-d.openx.net/w/1.0/rc?cs=0d0350cec9&cb=3" ><img src="//bumpclick-d.openx.net/w/1.0/ai?auid=538263152&cs=0d0350cec9&cb=3" border="0" alt=""></a></iframe></div>');
-            }
-            else {
-
-            document.write('<scr'+'ipt type="text/javascript" src="//ap.lijit.com/www/delivery/fpi.js?z=299146&u=didyouknow&width=300&height=250"></scr'+'ipt>');
-            }
-            </script>
+                <div class="desktop">
+                    <div id="538263152_Leaderboard" style="width:728px;height:90px;margin:0;padding:0">
+                      <noscript><iframe id="0d0350cec9" name="0d0350cec9" src="//bumpclick-d.openx.net/w/1.0/afr?auid=538263152&cb=5" frameborder="0" scrolling="no" width="728" height="90"><a href="//bumpclick-d.openx.net/w/1.0/rc?cs=0d0350cec9&cb=5" ><img src="//bumpclick-d.openx.net/w/1.0/ai?auid=538263152&cs=0d0350cec9&cb=5" border="0" alt=""></a></iframe></noscript>
+                    </div>
+                    <script type="text/javascript">
+                      var OX_ads = OX_ads || [];
+                      OX_ads.push({
+                         slot_id: "538263152_Leaderboard",
+                         auid: "538263152"
+                      });
+                    </script>
+                </div>
+                <div class="mobile">
+                    <script type="text/javascript" src="//ap.lijit.com/www/delivery/fpi.js?z=299146&u=didyouknow&width=300&height=250"></script>
+                </div>
             </div>
             <!-- END JS TAG - DYK - DT - Leaderboard - 728x90 < - DO NOT MODIFY -->
 
@@ -1366,8 +1379,8 @@
                                 <!-- BEGIN IFRAME TAG - DYK - DT - Content1 - 300x250 in-between content tag -->
                                 <div class="col-sm-6">
                                     <div class="ad-left-box-{block:Pagination}{CurrentPage}{/block:Pagination} ad-box" id="ad-left-{block:Pagination}{CurrentPage}{/block:Pagination}">
-                                        <div id="538263149_2" style="width:300px;height:250px;margin:0 auto;padding:0">
-                                            <iframe id="f80ee35536" name="f80ee35536" src="//bumpclick-d.openx.net/w/1.0/afr?auid=538263149&cb=2" frameborder="0" scrolling="no" width="300" height="250"><a href="//bumpclick-d.openx.net/w/1.0/rc?cs=f80ee35536&cb=2" ><img src="//bumpclick-d.openx.net/w/1.0/ai?auid=538263149&cs=f80ee35536&cb=2" border="0" alt=""></a></iframe>
+                                        <div id="538263149_BetweenContent_{block:Pagination}{CurrentPage}{/block:Pagination}" style="width:300px;height:250px;margin:0;padding:0">
+                                          <iframe id="f80ee35536" name="f80ee35536" src="//bumpclick-d.openx.net/w/1.0/afr?auid=538263149&cb=4{block:Pagination}{CurrentPage}{/block:Pagination}" frameborder="0" scrolling="no" width="300" height="250"><a href="//bumpclick-d.openx.net/w/1.0/rc?cs=f80ee35536&cb=4{block:Pagination}{CurrentPage}{/block:Pagination}" ><img src="//bumpclick-d.openx.net/w/1.0/ai?auid=538263149&cs=f80ee35536&cb=4{block:Pagination}{CurrentPage}{/block:Pagination}" border="0" alt=""></a></iframe>
                                         </div>
                                      </div>
                                 </div>
@@ -1488,9 +1501,16 @@
 
                      <div class="row margin-bottom">
                          <!-- 300x250 sidebar footer tag -->
-                         <div id="538263138_2" style="width:300px;height:250px;margin:0 auto;padding:0">
-                           <iframe id="31f6656744" name="31f6656744" src="//bumpclick-d.openx.net/w/1.0/afr?auid=538263138&cb=2" frameborder="0" scrolling="no" width="300" height="250"><a href="//bumpclick-d.openx.net/w/1.0/rc?cs=31f6656744&cb=2" ><img src="//bumpclick-d.openx.net/w/1.0/ai?auid=538263138&cs=31f6656744&cb=2" border="0" alt=""></a></iframe>
+                         <div id="538263138_Footer" style="width:300px;height:250px;margin:0;padding:0">
+                           <noscript><iframe id="31f6656744" name="31f6656744" src="//bumpclick-d.openx.net/w/1.0/afr?auid=538263138&cb=3" frameborder="0" scrolling="no" width="300" height="250"><a href="//bumpclick-d.openx.net/w/1.0/rc?cs=31f6656744&cb=3" ><img src="//bumpclick-d.openx.net/w/1.0/ai?auid=538263138&cs=31f6656744&cb=3" border="0" alt=""></a></iframe></noscript>
                          </div>
+                         <script type="text/javascript">
+                           var OX_ads = OX_ads || [];
+                           OX_ads.push({
+                              slot_id: "538263138_Footer",
+                              auid: "538263138"
+                           });
+                         </script>
                          <!-- END 300x250 sidebar footer tag -->
                      </div>
                  </div>
@@ -1519,6 +1539,28 @@
         </div>
 
     </div><!--/.container-->
+
+    <!-- START - Answer Media Mobile Slider Outstream -->
+    <div id="vm_inline"></div>
+    <script>
+        window._videomosh = window._videomosh || [];
+        !function (e, f, u) {
+            e.async = 1;
+            e.src = u;
+            f.parentNode.insertBefore(e, f);
+        }(document.createElement('script'),
+                document.getElementsByTagName('script')[0],
+                'http://player.videomosh.com/players/loader/loader_final4.js');
+        _videomosh.push({
+            publisher_key: "everhance",
+            mode: "slider",
+            container: "vm_inline",
+            incontent_mobile_id: "26489",
+            incontent_desktop_id: "37615",
+            target_type: "mix"
+           });
+    </script>
+    <!-- END - Answer Media Mobile Slider Outstream -->
 
     <!-- DYK Scripts -->
 
@@ -1643,6 +1685,9 @@
          var numdiv2 = div2 + num;
 
          postscribe( numdiv , '<script src=//ap.lijit.com/www/delivery/fpi.js?z=299145&u=didyouknow&width=300&height=250><\/script>', {
+         });
+
+         postscribe( numdiv2 , '<script src=//ap.lijit.com/www/delivery/fpi.js?z=299145&u=didyouknow&width=300&height=250><\/script>', {
          });
 
          $( ".modal-overlay" ).css( "display", "none" );
