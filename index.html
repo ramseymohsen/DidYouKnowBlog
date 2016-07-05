@@ -513,10 +513,6 @@
             width: 100% !important;
         }
 
-        #sidebar {
-            min-height: 3000px;
-        }
-
         #sidebar .sidebar-wrapper {
             padding: 0px 20px;
         }
@@ -684,12 +680,13 @@
         .pagination {
             text-align: center;
             width: 100%;
+            font-size: 1.5em;
         }
 
         .pagination a {
             background: #000;
             color: #fff;
-            padding: 5px 8px;
+            padding: 5px 12px;
             border-radius: 4px;
             display: inline-block;
         }
@@ -701,6 +698,10 @@
 
         .pagination .next, .pagination .prev {
             display: inline-block;
+        }
+
+        .pagination .current {
+            padding: 5px 8px;
         }
 
         .modal-overlay {
@@ -1648,77 +1649,6 @@
         el.style.paddingBottom = height / width * 100 + '%';
     });
     </script>
-
-    <!-- INFINITE SCROLL -->
-    <script type="text/javascript" src="http://static.tumblr.com/ib6vvvn/h4Rmt3ou9/jquery.infinitescroll.min.js"></script>
-    <script type="text/javascript" src="http://static.tumblr.com/oa7pmzw/2tenzq9pi/postscribe.min.js"></script>
-
-    <script>
-    $('.content-area').infinitescroll({
-
-      navSelector  : ".pagination",
-                     // selector for the paged navigation (it will be hidden)
-
-      nextSelector : ".next a:last",
-                     // selector for the NEXT link (to page 2)
-
-      itemSelector : ".content-area .content-infinite",
-                     // selector for all items you'll retrieve
-
-      loading      : { img: "http://i.imgur.com/R3BV1cH.gif", finishedMsg: "No more posts to load.", msgText: "<em>Loading posts...</em>" },
-
-      animate      : false,
-
-      extraScrollPx: 50,
-
-      bufferPx     : 40,
-
-        },function( arrayOfNewElems, opts ){
-
-         addthis.toolbox('.addthis_toolbox');
-
-         var page = opts.state.currPage;
-
-         var num = +page;
-         var div = "#ad-right-";
-         var div2 = "#ad-middle-right-";
-         var numdiv = div + num;
-         var numdiv2 = div2 + num;
-
-         postscribe( numdiv , '<script src=//ap.lijit.com/www/delivery/fpi.js?z=299145&u=didyouknow&width=300&height=250><\/script>', {
-         });
-
-         postscribe( numdiv2 , '<script src=//ap.lijit.com/www/delivery/fpi.js?z=299145&u=didyouknow&width=300&height=250><\/script>', {
-         });
-
-         $( ".modal-overlay" ).css( "display", "none" );
-         $( ".modal-overlay" ).css( 'visibility', 'hidden' );
-         $( ".modal-box" ).css( "display", "none" );
-         $( ".modal-box" ).css( "visibility", "hidden" );
-         $( ".modal-box-content" ).css( "display", "none" );
-         $( ".modal-box-content" ).css( "visibility", "hidden" );
-         $( ".modal-ad" ).css( "display", "none" );
-         $( ".modal-ad" ).css( "visibility", "hidden" );
-
-         if(num % 2 == 0)
-         {
-           $( ".ad-right-box-" + num ).addClass( "hidden-xs" );
-         }
-         else
-         {
-           $( ".ad-left-box-" + num ).addClass( "hidden-xs" );
-         }
-
-         FB.XFBML.parse();
-
-         try { _gaq.push(['_trackPageview', '/page/'+page]); } catch(err) {  }
-
-         (adsbygoogle = window.adsbygoogle || []).push({});
-
-    });
-    </script>
-
-    <!-- END INFINITE SCROLL -->
 
     <!-- QA show answer script -->
     <script type="text/javascript">
