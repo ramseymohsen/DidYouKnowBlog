@@ -92,6 +92,10 @@
             display: none;
         }
 
+        .content-area .reblog {
+            display: none !important;
+        }
+
         .col-left {
             border-right: 1px solid #eee;
         }
@@ -107,7 +111,7 @@
         }
 
         .content-wrapper {
-            padding: 0px 10px;
+            padding: 0px;
         }
 
         @media (max-width: 750px) {
@@ -144,22 +148,27 @@
             text-align: center;
         }
 
-        .header-ad .desktop {
+        .footer-ad {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .header-ad .desktop, .footer-ad .desktop {
             display: none;
         }
 
         @media (min-width: 740px) {
-            .header-ad .desktop {
+            .header-ad .desktop, .footer-ad .desktop {
                 display: block;
             }
         }
 
-        .header-ad .mobile {
+        .header-ad .mobile, .footer-ad .mobile {
             display: none;
         }
 
         @media (max-width: 739px) {
-            .header-ad .mobile {
+            .header-ad .mobile, .footer-ad .mobile {
                 display: block;
             }
         }
@@ -170,21 +179,47 @@
         }
 
         .navbar-inverse .nav>li>a {
-            padding: 10px 10px;
+            padding: 7px 10px;
         }
 
         .navbar-inverse .navbar-nav>li>a {
             background: #272b27;
             color: #fff;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            border-radius: 5px;
-            font-weight: bold;
-            margin: 6px 2px;
+            border-radius: 0;
+            font-weight: 700;
+            margin: 10px 0;
         }
 
         .navbar-inverse .navbar-nav>li>a:hover {
             background: #13d120;
+            padding: 10px 10px;
+            margin: 6px 0;
+            transition: .2s;
+        }
+
+        .navbar-inverse .navbar-nav a.science {
+            background: #a4d705 !important;
+        }
+
+        .navbar-inverse .navbar-nav a.weird {
+            background: #2db79c! important;
+        }
+
+        .navbar-inverse .navbar-nav a.animals-nature {
+            background: #2ecc71 !important;
+        }
+
+        .navbar-inverse .navbar-nav a.funny {
+            background: #f1c40f !important;
+        }
+
+        .navbar-inverse .navbar-nav a.dropdown-toggle {
+            background: none !important;
+        }
+
+        .navbar-inverse .navbar-nav>li>a.dropdown-toggle:hover {
+            padding: 7px 10px;
+            margin: 10px 0;
         }
 
         .navbar-toggle {
@@ -302,10 +337,6 @@
                 padding: 10px 5px;
                 margin-right: 5px;
             }
-        }
-
-        .post-box {
-            margin-bottom: 25px;
         }
 
         .post-body .social-share {
@@ -677,31 +708,377 @@
             font-size: 20px;
         }
 
-        .pagination {
+        .pagination-nav {
             text-align: center;
             width: 100%;
             font-size: 1.5em;
+            font-weight: 600;
+            background: #000;
+            margin: 10px 0 0 0;
         }
 
-        .pagination a {
-            background: #000;
-            color: #fff;
-            padding: 5px 12px;
-            border-radius: 4px;
+        .pagination-nav ul {
+            list-style: none;
+            margin: 0 0 -7px 0;
+            padding: 0;
             display: inline-block;
         }
 
-        .pagination a:hover {
+        .pagination-nav ul li {
+            float: left;
+            border-right: 1px solid rgba(255,255,255,0.4);
+        }
+
+        .pagination-nav ul li:last-child {
+            border-right: 0px;
+        }
+
+        .pagination-nav a {
+            background: #000;
+            color: #fff;
+            padding: 15px 50px;
+            display: block;
+        }
+
+        @media (max-width: 750px) {
+            .pagination-nav a, .pagination-nav .current span {
+                display: none;
+                padding: 10px 20px;
+            }
+
+            .pagination-nav .prev a {
+                display: block;
+            }
+
+            .pagination-nav .next a {
+                display: block;
+                float: right;
+            }
+        }
+
+        .pagination-nav a:hover {
             background: #13d120;
             text-decoration: none;
         }
 
-        .pagination .next, .pagination .prev {
-            display: inline-block;
+        .pagination-nav .current span {
+            padding: 15px 50px;
+            float: left;
         }
 
-        .pagination .current {
-            padding: 5px 8px;
+        .category-section {
+            background: #eeeeee;
+            padding: 20px;
+            margin-bottom: 20px;
+            overflow: auto;
+        }
+
+        @media (max-width: 750px) {
+            .category-section {
+                padding: 0px;
+            }
+        }
+
+        .category-section h2 {
+            text-align: center;
+            font-size: 3em;
+        }
+
+        @media (max-width: 750px) {
+            .category-section h2 {
+                font-size: 2.5em;
+            }
+        }
+
+        .category-section ul {
+            list-style: none;
+            padding: 20px;
+            display: block;
+            overflow: auto;
+        }
+
+        @media (max-width: 750px) {
+            .category-section ul {
+                padding: 0px;
+            }
+        }
+
+        .category-section ul li {
+            float: left;
+            width: 25%;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 1.4em;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 750px) {
+            .category-section ul li {
+                width: 50%;
+            }
+        }
+
+        .category-section ul li a {
+            color: #000;
+            position: relative;
+        }
+
+        .category-section ul li a span {
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 750px) {
+            .category-section ul li a span {
+                font-size: 0.8em;
+            }
+        }
+
+        .category-section ul li.science a:before {
+            display: inline-block;
+            content: '';
+            background: url(http://static.tumblr.com/oa7pmzw/cNWof21aj/icon_science_w.png) no-repeat;
+            background-size: cover;
+            position: relative;
+            height: 25px;
+            width: 25px;
+            left: 5px;
+            top: 5px;
+            margin-right: 25px;
+            z-index: 110;
+        }
+
+        @media (max-width: 750px) {
+            .category-section ul li.science a:before {
+                margin-right: 15px;
+            }
+        }
+
+        .category-section ul li.science a:after {
+            content: '';
+            background: #a4d705;
+            height: 35px;
+            width: 35px;
+            position: absolute;
+            left: 0;
+            z-index: 100;
+            border-radius: 50%;
+        }
+
+        .category-section ul li.weird a:before {
+            display: inline-block;
+            content: '';
+            background: url(http://static.tumblr.com/oa7pmzw/bd9of21b0/icon_weird_w.png) no-repeat;
+            background-size: cover;
+            position: relative;
+            height: 25px;
+            width: 25px;
+            left: 5px;
+            top: 5px;
+            margin-right: 25px;
+            z-index: 110;
+        }
+
+        @media (max-width: 750px) {
+            .category-section ul li.weird a:before {
+                margin-right: 15px;
+            }
+        }
+
+        .category-section ul li.weird a:after {
+            content: '';
+            background: #2db79c;
+            height: 35px;
+            width: 35px;
+            position: absolute;
+            left: 0;
+            z-index: 100;
+            border-radius: 50%;
+        }
+
+        .category-section ul li.animals-nature a:before {
+            display: inline-block;
+            content: '';
+            background: url(http://static.tumblr.com/oa7pmzw/cUfof21bn/icon_animals_w.png) no-repeat;
+            background-size: cover;
+            position: relative;
+            height: 25px;
+            width: 25px;
+            left: 5px;
+            top: 5px;
+            margin-right: 25px;
+            z-index: 110;
+        }
+
+        @media (max-width: 750px) {
+            .category-section ul li.animals-nature a:before {
+                margin-right: 15px;
+            }
+        }
+
+        .category-section ul li.animals-nature a:after {
+            content: '';
+            background: #2ecc71;
+            height: 35px;
+            width: 35px;
+            position: absolute;
+            left: 0;
+            z-index: 100;
+            border-radius: 50%;
+        }
+
+        .category-section ul li.humor a:before {
+            display: inline-block;
+            content: '';
+            background: url(http://static.tumblr.com/oa7pmzw/QFxof21cb/icon_humor_w.png) no-repeat;
+            background-size: cover;
+            position: relative;
+            height: 25px;
+            width: 25px;
+            left: 5px;
+            top: 5px;
+            margin-right: 25px;
+            z-index: 110;
+        }
+
+        @media (max-width: 750px) {
+            .category-section ul li.humor a:before {
+                margin-right: 15px;
+            }
+        }
+
+        .category-section ul li.humor a:after {
+            content: '';
+            background: #f1c40f;
+            height: 35px;
+            width: 35px;
+            position: absolute;
+            left: 0;
+            z-index: 100;
+            border-radius: 50%;
+        }
+
+        .category-section ul li.society-laws a:before {
+            display: inline-block;
+            content: '';
+            background: url(http://static.tumblr.com/oa7pmzw/KnBof21cw/icon_world_w.png) no-repeat;
+            background-size: cover;
+            position: relative;
+            height: 25px;
+            width: 25px;
+            left: 5px;
+            top: 5px;
+            margin-right: 25px;
+            z-index: 110;
+        }
+
+        @media (max-width: 750px) {
+            .category-section ul li.society-laws a:before {
+                margin-right: 15px;
+            }
+        }
+
+        .category-section ul li.society-laws a:after {
+            content: '';
+            background: #8e2560;
+            height: 35px;
+            width: 35px;
+            position: absolute;
+            left: 0;
+            z-index: 100;
+            border-radius: 50%;
+        }
+
+        .category-section ul li.technology a:before {
+            display: inline-block;
+            content: '';
+            background: url(http://static.tumblr.com/oa7pmzw/awzof21de/icon_technology_w.png) no-repeat;
+            background-size: cover;
+            position: relative;
+            height: 25px;
+            width: 25px;
+            left: 5px;
+            top: 5px;
+            margin-right: 25px;
+            z-index: 110;
+        }
+
+        @media (max-width: 750px) {
+            .category-section ul li.technology a:before {
+                margin-right: 15px;
+            }
+        }
+
+        .category-section ul li.technology a:after {
+            content: '';
+            background: #df6d2a;
+            height: 35px;
+            width: 35px;
+            position: absolute;
+            left: 0;
+            z-index: 100;
+            border-radius: 50%;
+        }
+
+        .category-section ul li.historical a:before {
+            display: inline-block;
+            content: '';
+            background: url(http://static.tumblr.com/oa7pmzw/jdnof21e9/icon_history_w.png) no-repeat;
+            background-size: cover;
+            position: relative;
+            height: 25px;
+            width: 25px;
+            left: 5px;
+            top: 5px;
+            margin-right: 25px;
+            z-index: 110;
+        }
+
+        @media (max-width: 750px) {
+            .category-section ul li.historical a:before {
+                margin-right: 15px;
+            }
+        }
+
+        .category-section ul li.historical a:after {
+            content: '';
+            background: #403f4d;
+            height: 35px;
+            width: 35px;
+            position: absolute;
+            left: 0;
+            z-index: 100;
+            border-radius: 50%;
+        }
+
+        .category-section ul li.celebrities a:before {
+            display: inline-block;
+            content: '';
+            background: url(http://static.tumblr.com/oa7pmzw/5H9of219d/icon_celebrities_w.png) no-repeat;
+            background-size: cover;
+            position: relative;
+            height: 25px;
+            width: 25px;
+            left: 5px;
+            top: 5px;
+            margin-right: 25px;
+            z-index: 110;
+        }
+
+        @media (max-width: 750px) {
+            .category-section ul li.celebrities a:before {
+                margin-right: 15px;
+            }
+        }
+
+        .category-section ul li.celebrities a:after {
+            content: '';
+            background: #db5432;
+            height: 35px;
+            width: 35px;
+            position: absolute;
+            left: 0;
+            z-index: 100;
+            border-radius: 50%;
         }
 
         .modal-overlay {
@@ -808,6 +1185,7 @@
 
         footer {
             text-align: center;
+            font-size: .9em;
         }
 
         footer a {
@@ -824,196 +1202,6 @@
 
         footer .follow-links {
             font-size: 1.5em;
-        }
-
-        /* Slider */
-        .slick-loading .slick-list
-        {
-            background: #fff url('http://i.imgur.com/R3BV1cH.gif') center center no-repeat;
-        }
-        .slide-top {
-            margin: 0 40px;
-        }
-        .slide {
-            display: none;
-        }
-        .slide-content img {
-            padding: 1em;
-            width: 100%;
-            height: auto;
-        }
-        .slide-content h3 {
-            margin: 0;
-            padding: 0 1em 0.4em 1em;
-            font-size: 16px;
-        }
-        .slide-content a {
-            color: #000;
-        }
-
-        /* Arrows */
-        .slick-prev,
-        .slick-next
-        {
-            font-size: 0;
-            line-height: 0;
-            position: absolute;
-            top: 50%;
-            display: block;
-            width: 36px;
-            height: 36px;
-            padding: 0;
-            -webkit-transform: translate(0, -50%);
-            -ms-transform: translate(0, -50%);
-            transform: translate(0, -50%);
-            cursor: pointer;
-            color: transparent;
-            border: none;
-            outline: none;
-            background: transparent;
-        }
-        .slick-prev:hover,
-        .slick-prev:focus,
-        .slick-next:hover,
-        .slick-next:focus
-        {
-            color: transparent;
-            outline: none;
-            background: transparent;
-        }
-        .slick-prev:hover:before,
-        .slick-prev:focus:before,
-        .slick-next:hover:before,
-        .slick-next:focus:before
-        {
-            opacity: 1;
-        }
-        .slick-prev.slick-disabled:before,
-        .slick-next.slick-disabled:before
-        {
-            opacity: .25;
-        }
-
-        .slick-prev:before,
-        .slick-next:before
-        {
-            font-family: 'FontAwesome';
-            font-size: 36px;
-            line-height: 1;
-            opacity: .75;
-            color: #000;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        .slick-prev
-        {
-            left: -25px;
-        }
-        [dir='rtl'] .slick-prev
-        {
-            right: -25px;
-            left: auto;
-        }
-        .slick-prev:before
-        {
-            content: '\f137';
-        }
-        [dir='rtl'] .slick-prev:before
-        {
-            content: '\f138';
-        }
-
-        .slick-next
-        {
-            right: -25px;
-        }
-        [dir='rtl'] .slick-next
-        {
-            right: auto;
-            left: -25px;
-        }
-        .slick-next:before
-        {
-            content: '\f138';
-        }
-        [dir='rtl'] .slick-next:before
-        {
-            content: '\f137';
-        }
-
-        /* Dots */
-        .slick-dotted.slick-slider
-        {
-            margin-bottom: 30px;
-        }
-
-        .slick-dots
-        {
-            position: absolute;
-            bottom: -25px;
-            display: block;
-            width: 100%;
-            padding: 0;
-            margin: 0;
-            list-style: none;
-            text-align: center;
-        }
-        .slick-dots li
-        {
-            position: relative;
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            margin: 0 5px;
-            padding: 0;
-            cursor: pointer;
-        }
-        .slick-dots li button
-        {
-            font-size: 0;
-            line-height: 0;
-            display: block;
-            width: 20px;
-            height: 20px;
-            padding: 5px;
-            cursor: pointer;
-            color: transparent;
-            border: 0;
-            outline: none;
-            background: transparent;
-        }
-        .slick-dots li button:hover,
-        .slick-dots li button:focus
-        {
-            outline: none;
-        }
-        .slick-dots li button:hover:before,
-        .slick-dots li button:focus:before
-        {
-            opacity: 1;
-        }
-        .slick-dots li button:before
-        {
-            font-family: 'FontAwesome';
-            font-size: 6px;
-            line-height: 20px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 20px;
-            height: 20px;
-            content: '•';
-            text-align: center;
-            opacity: .25;
-            color: black;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        .slick-dots li.slick-active button:before
-        {
-            opacity: .75;
-            color: #000;
         }
 
         </style>
@@ -1063,16 +1251,16 @@
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="{BlogURL}tagged/science">Science</a></li>
-                        <li><a href="{BlogURL}tagged/weird">Weird</a></li>
-                        <li><a href="{BlogURL}tagged/animals+%26+nature">Animals & Nature</a></li>
-                        <li><a href="{BlogURL}tagged/humor">Funny</a></li>
-                        <li><a href="{BlogURL}tagged/historical">History</a></li>
-                        <li><a href="{BlogURL}tagged/society+&+laws">World Culture</a></li>
-                        <li><a href="{BlogURL}tagged/technology">Tech</a></li>
+                        <li><a href="http://didyouknowfacts.com/category/science/" class="science">Science</a></li>
+                        <li><a href="http://didyouknowfacts.com/category/weird/" class="weird">Weird</a></li>
+                        <li><a href="http://didyouknowfacts.com/category/animals-nature/" class="animals-nature">Animals & Nature</a></li>
+                        <li><a href="http://didyouknowfacts.com/category/funny/" class="funny">Funny</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
                             <ul class="dropdown-menu">
+                                <li><a href="http://didyouknowfacts.com/category/history/">History</a></li>
+                                <li><a href="http://didyouknowfacts.com/category/world-culture/">World Culture</a></li>
+                                <li><a href="http://didyouknowfacts.com/category/technology/">Tech</a></li>
                                 <li><a href="{BlogURL}DMCA" title="DMCA">DMCA</a></li>
                                 <li><a href="{BlogURL}privacy-policy" title="Privacy Policy">Privacy</a></li>
                                 <li><a href="{BlogURL}submit" title="Submit Idea">Submit Idea</a></li>
@@ -1157,7 +1345,7 @@
                       });
                     </script>
                 </div>
-                </div>
+            </div>
 <!-- TEMP DIABLE OF MOBILE AD
                 <div class="mobile">
                     <script type="text/javascript" src="//ap.lijit.com/www/delivery/fpi.js?z=299146&u=didyouknow&width=300&height=250"></script>
@@ -1166,80 +1354,9 @@
 TEMP DIABLE OF MOBILE AD -->
             <!-- END JS TAG - DYK - DT - Leaderboard - 728x90 < - DO NOT MODIFY -->
 
-            {block:IndexPage}
-            <!-- DYK Slider Content
-            <div class="slide-top">
-                <div class="slide">
-                    <div class="slide-content">
-                        <a href="http://didyouknowblog.com/Everything-You-Think-You-Know-About-Ninjas-Is-Completely-Wrong?utm_source=Facebook&utm_medium=Partner&utm_campaign=SugWidget-Ninja">
-                            <img src="https://41.media.tumblr.com/2a8f63a5e35bc19b2cc3ada8bc3b0829/tumblr_inline_o3bl1isJ7p1qz6ue3_500.jpg" width="320" height="160">
-                            <h3>Everything You Think You Know About Ninjas Is Wrong</h3>
-                        </a>
-                    </div>
-                </div>
-                <div class="slide">
-                    <div class="slide-content">
-                        <a href="http://didyouknowblog.com/actress-hedy-lamarr?utm_source=Facebook&utm_medium=Partner&utm_campaign=SugWidget-HedyLamarr">
-                            <img src="https://41.media.tumblr.com/5e8725e77a2b3f74ff25f3c8a804903e/tumblr_inline_o3ble8jiDG1qz6ue3_500.jpg" width="320" height="160">
-                            <h3>The Movie Star Who Was Too Pretty To Be Smart</h3>
-                        </a>
-                    </div>
-                </div>
-                <div class="slide">
-                    <div class="slide-content">
-                        <a href="http://didyouknowblog.com/Professors-Junk-Food-Diet-Had-Amazing-Results?utm_source=Facebook&utm_medium=Partner&utm_campaign=SugWidget-JunkFood">
-                            <img src="https://66.media.tumblr.com/d497f652de85e9c689a5bc88dd3a8171/tumblr_inline_o3bldnzYCQ1qz6ue3_500.jpg" width="320" height="160">
-                            <h3>A Nutrition Professor Went On A Junk Food Diet To Prove A Point</h3>
-                        </a>
-                    </div>
-                </div>
-                <div class="slide">
-                    <div class="slide-content">
-                        <a href="http://didyouknowblog.com/7-Poses-That-Instantly-Make-You-Look-Better-in-Photos?utm_source=Facebook&utm_medium=Partner&utm_campaign=SugWidget-PhotoPoses">
-                            <img src="https://41.media.tumblr.com/06b033342133635e280299a3435dc7a1/tumblr_inline_o3blduoa1p1qz6ue3_500.jpg" width="320" height="160">
-                            <h3>7 Tricks for Taking Great Photos Every Time</h3>
-                        </a>
-                    </div>
-                </div>
-                <div class="slide">
-                    <div class="slide-content">
-                        <a href="http://didyouknowblog.com/7-Crazy-Facts-About-IKEA-You-Need-To-Know?utm_source=Facebook&utm_medium=Partner&utm_campaign=SugWidget-IKEAFacts">
-                            <img src="https://40.media.tumblr.com/5f4b7572bd244ea0e23c35f9c11d8b0b/tumblr_inline_o3bldhMBSt1qz6ue3_500.jpg" width="320" height="160">
-                            <h3>7 Crazy IKEA Facts You Need To Know</h3>
-                        </a>
-                    </div>
-                </div>
-                <div class="slide">
-                    <div class="slide-content">
-                        <a href="http://didyouknowblog.com/worlds-deepest-hotel-room-65-million-years-old?utm_source=Facebook&utm_medium=Partner&utm_campaign=SugWidget-UndergroundHotel">
-                            <img src="https://41.media.tumblr.com/21a9ca11a5d2c1150955d621fe1ebfe1/tumblr_inline_o3bldbti2u1qz6ue3_500.jpg" width="320" height="160">
-                            <h3>You Can Stay in a 65 Million Year Old Hotel Room</h3>
-                        </a>
-                    </div>
-                </div>
-                <div class="slide">
-                    <div class="slide-content">
-                        <a href="http://didyouknowblog.com/really-weird-facts-that-completely-change-everything?utm_source=Facebook&utm_medium=Partner&utm_campaign=SugWidget-8WeirdFacts">
-                            <img src="https://41.media.tumblr.com/1d1be8abc0e4e26987a2a3674b58d70a/tumblr_inline_o3bld6wQKk1qz6ue3_500.jpg" width="320" height="160">
-                            <h3>8 Really Weird Facts That Completely Change Everything</h3>
-                        </a>
-                    </div>
-                </div>
-                <div class="slide">
-                    <div class="slide-content">
-                        <a href="http://didyouknowblog.com/robert-the-doll-haunted?utm_source=Facebook&utm_medium=Partner&utm_campaign=SugWidget-ChuckyDoll">
-                            <img src="https://40.media.tumblr.com/6ad758153591a8e97cc5c1646dbaea42/tumblr_inline_o3blctcSb11qz6ue3_500.jpg" width="320" height="160">
-                            <h3>You Probably Didn't Know This Creepy Doll Was The Inspiration For Chucky...</h3>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            End DYK Slider Content -->
-            {/block:IndexPage}
-
             <hr>
 
-            <div class="col-xs-12 col-sm-9 col-md-8 col-left">
+            <div class="col-sm-12">
 
                 <div class="content-area">
 
@@ -1249,16 +1366,15 @@ TEMP DIABLE OF MOBILE AD -->
                         {/block:TagPage}
                     </div>
 
-                    <div class="content-infinite">
+                    <div class="content-area">
                     {block:Posts}
                     {block:NotReblog}
-                    <div class="content-wrapper">
+                    <div class="{block:IndexPage}col-sm-6{/block:IndexPage}{block:Permalink}col-sm-8 col-sm-offset-2{/block:Permalink} {TagsAsClasses}">
+                        <div class="content-wrapper">
 
-                        <div class="post-box {PostType} {block:IndexPage}index{/block:IndexPage}{block:Permalink}permalink{/block:Permalink} {TagsAsClasses}" id="{PostID}">
+                            <div class="post-box {PostType} {block:IndexPage}index{/block:IndexPage}{block:Permalink}permalink{/block:Permalink} {TagsAsClasses}" id="{PostID}">
 
-                            <div class="row">
-
-                                <div class="post-body">
+                                <div class="post-body row">
 
                                     <div class="social-share {block:IndexPage}col-sm-2 col-md-1 col-lg-1{/block:IndexPage}{block:Permalink}col-sm-12{/block:Permalink}">
                                         <div class="share-container">
@@ -1338,12 +1454,9 @@ TEMP DIABLE OF MOBILE AD -->
 
                                 </div>
 
-                            </div>
-
-                            <hr>
-
-                        </div><!--/.post-box-->
-                    </div><!--/.content-wrapper-->
+                            </div><!--/.post-box-->
+                        </div><!--/.content-wrapper-->
+                    </div>
 
                     {block:PermalinkPage}
                     <div class="content-wrapper">
@@ -1360,9 +1473,11 @@ TEMP DIABLE OF MOBILE AD -->
 
                     </div><!--/.content-wrapper-->
 
-                    <div id="facebook_thread">
-                        <div class="fb-comments" data-href="{Permalink}" data-num-posts="5" data-width="600"></div>
-                    </div><!--/Post Comments-->
+                    <div class="{block:Permalink}col-sm-8 col-sm-offset-2{/block:Permalink}">
+                        <div id="facebook_thread">
+                            <div class="fb-comments" data-href="{Permalink}" data-num-posts="5" data-width="600"></div>
+                        </div><!--/Post Comments-->
+                    </div>
 
                     {/block:PermalinkPage}
 
@@ -1379,234 +1494,141 @@ TEMP DIABLE OF MOBILE AD -->
                     </div><!--/.content-wrapper-->
                     {/block:SearchPage}
 
-                        <div class="post-ad" id="{PostID}">
-                            <div class="row">
-                                <!-- BEGIN IFRAME TAG - DYK - DT - Content1 - 300x250 in-between content tag -->
-                                <div class="col-sm-6">
-                                    <div class="ad-left-box-{block:Pagination}{CurrentPage}{/block:Pagination} ad-box" id="ad-left-{block:Pagination}{CurrentPage}{/block:Pagination}">
-                                        <div id="538263149_BetweenContent_{block:Pagination}{CurrentPage}{/block:Pagination}" style="width:300px;height:250px;margin:0;padding:0">
-                                          <iframe id="f80ee35536" name="f80ee35536" src="//bumpclick-d.openx.net/w/1.0/afr?auid=538263149&cb=4{block:Pagination}{CurrentPage}{/block:Pagination}" frameborder="0" scrolling="no" width="300" height="250"><a href="//bumpclick-d.openx.net/w/1.0/rc?cs=f80ee35536&cb=4{block:Pagination}{CurrentPage}{/block:Pagination}" ><img src="//bumpclick-d.openx.net/w/1.0/ai?auid=538263149&cs=f80ee35536&cb=4{block:Pagination}{CurrentPage}{/block:Pagination}" border="0" alt=""></a></iframe>
-                                        </div>
-                                     </div>
-                                </div>
-                                <!-- END IFRAME TAG - DYK - DT - Content1 - 300x250 in-between content tag -->
+                    </div><!--/.content-area-->
 
-                                <!-- SOVRN 300x250 footer tag -->
-                                <div class="col-sm-6">
-                                    <div class="ad-right-box-{block:Pagination}{CurrentPage}{/block:Pagination} ad-box" id="ad-right-{block:Pagination}{CurrentPage}{/block:Pagination}">
-                                        <script type="text/javascript" src="//ap.lijit.com/www/delivery/fpi.js?z=299145&u=didyouknow&width=300&height=250"></script>
-                                    </div>
+                    <div class="col-sm-12">
+                        {block:IndexPage}<hr>{/block:IndexPage}
+                        <div class="footer-ad">
+                            <div class="desktop">
+                                <div id="538263153_Leaderboard" style="width:728px;height:90px;margin:0;padding:0">
+                                  <noscript><iframe id="0d0350cec9" name="0d0350cec9" src="//bumpclick-d.openx.net/w/1.0/afr?auid=538263153&cb=5" frameborder="0" scrolling="no" width="728" height="90"><a href="//bumpclick-d.openx.net/w/1.0/rc?cs=0d0350cec9&cb=5" ><img src="//bumpclick-d.openx.net/w/1.0/ai?auid=538263153&cs=0d0350cec9&cb=5" border="0" alt=""></a></iframe></noscript>
                                 </div>
-                                <!-- END SOVRN 300x250 footer tag -->
+                                <script type="text/javascript">
+                                  var OX_ads = OX_ads || [];
+                                  OX_ads.push({
+                                     slot_id: "538263153_Leaderboard",
+                                     auid: "538263153"
+                                  });
+                                </script>
                             </div>
-                         </div><!--/Post Ads-->
-
-                    </div><!--/.content-infinite-->
+                        </div>
+                    </div>
 
                     {block:PermalinkPage}
-                    <div class="content-wrapper">
+                    <div class="col-sm-12 {block:Permalink}col-sm-8 col-sm-offset-2{/block:Permalink}">
+                        <div class="content-wrapper">
 
-                        <div class="next-page-button">
-                            {block:PermalinkPagination}
-                            {block:PreviousPost}  <a href="{PreviousPost}" class="next-button-large">Next Page <i class="fa fa-chevron-right"></i></a>{/block:PreviousPost}
-                            {/block:PermalinkPagination}
-                        </div>
+                            <div class="next-page-button">
+                                {block:PermalinkPagination}
+                                {block:PreviousPost}  <a href="{PreviousPost}" class="next-button-large">Next Page <i class="fa fa-chevron-right"></i></a>{/block:PreviousPost}
+                                {/block:PermalinkPagination}
+                            </div>
 
-                        <!-- START - DYKB - DT - Below Article Thumbnails -->
-                        <div id="taboola-below-article-thumbnails"></div>
-                        <script type="text/javascript">
-                        window._taboola = window._taboola || [];
-                        _taboola.push({
-                        mode: 'thumbnails-b',
-                        container: 'taboola-below-article-thumbnails',
-                        placement: 'DYKB - DT - Below Article Thumbnails',
-                        target_type: 'mix'
-                        });
-                        </script>
-                        <!-- END - DYKB - DT - Below Article Thumbnails -->
+                            <!-- START - DYKB - DT - Below Article Thumbnails -->
+                            <div id="taboola-below-article-thumbnails"></div>
+                            <script type="text/javascript">
+                            window._taboola = window._taboola || [];
+                            _taboola.push({
+                            mode: 'thumbnails-b',
+                            container: 'taboola-below-article-thumbnails',
+                            placement: 'DYKB - DT - Below Article Thumbnails',
+                            target_type: 'mix'
+                            });
+                            </script>
+                            <!-- END - DYKB - DT - Below Article Thumbnails -->
 
-                    </div><!--/.content-wrapper-->
+                        </div><!--/.content-wrapper-->
+                    </div>
 
                     {/block:PermalinkPage}
                 </div><!--/.content-area-->
 
-                <hr>
-
-                <div class="row">
-                    <div class="pagination">
-                        <div class="prev">
-                            {block:PreviousPage}
-                            <a href="{PreviousPage}">Prev <span>Page</span></a>
-                            {/block:PreviousPage}
-                        </div>
-                        {block:JumpPagination length="5"}
-                        {block:CurrentPage}
-                        <span class="current">{PageNumber}</span>
-                        {/block:CurrentPage}
-                        {block:JumpPage}
-                        <a class="jump" href="{URL}">{PageNumber}</a>
-                        {/block:JumpPage}
-                        {/block:JumpPagination}
-                        <div class="next">
-                            {block:NextPage}
-                            <a href="{NextPage}">Next <span>Page</span></a>
-                            {/block:NextPage}
-                        </div>
-                    </div><!--/.pagination-->
-                </div>
-
             </div><!--/.col-left-->
-
-            <div class="hidden-xs col-sm-3 col-md-4 col-right" id="sidebar">
-                <div class="sidebar-wrapper">
-                    <div class="row margin-bottom">
-                        <!-- Facebook LIKE Widget -->
-                        <span class="sidebar-label">Like Us On Facebook:</span>
-                        <div class="fb-like"><div class="fb-page" data-href="https://www.facebook.com/didyouknowblog" data-small-header="false" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true"></div></div>
-                        <!-- End Facebook LIKE Widget -->
-                    </div>
-
-                    <div class="row margin-bottom">
-                        <!-- BEGIN IFRAME TAG - DYK - DT - RR2 - 300x250 sidebar tag -->
-                        <ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3719303142105804" data-ad-slot="1588657976"></ins>
-                        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-                        <!-- END IFRAME TAG - DYK - DT - RR2 - 300x250 300x250 sidebar tag -->
-                    </div>
-
-                    <div class="row margin-bottom">
-                        <!-- Begin VR Signup Form -->
-                        <span class="sidebar-label">Sign Up For Our Best Stuff:</span>
-                        <form class="vr-signup-form" id="vr-signup-form-4398046512102"><div class="form-group"><input class="form_field form-control" type="email" name="email_address" placeholder="enter your email" required><input type="submit" value="subscribe!" class="form_button btn btn-dark"></div></form><script type="text/javascript" src="https://vr2.verticalresponse.com/signup_forms/signup_forms.embedded-1.js"></script> <script type="text/javascript">if (typeof VR !== "undefined" && typeof VR.SignupForm !== "undefined") { new VR.SignupForm({ id: "4398046512102", element: "vr-signup-form-4398046512102", endpoint: "https://vr2.verticalresponse.com/se/"}); }</script>
-                        <!-- End VR Signup Form -->
-                     </div>
-
-                     <div class="row margin-bottom">
-                         <!-- RR-Native 1 Sidebar Content -->
-                         <div id="contentad85466"></div>
-                         <script type="text/javascript">
-                         (function(d) {
-                         var params =
-                         {
-                         id: "e92e62ac-96d7-48db-8272-178ae982a4cd",
-                         d:  "ZGlkeW91a25vd2Jsb2cuY29t",
-                         wid: "85466",
-                         cb: (new Date()).getTime()
-                         };
-
-                         var qs=[];
-                         for(var key in params) qs.push(key+'='+encodeURIComponent(params[key]));
-                         var s = d.createElement('script');s.type='text/javascript';s.async=true;
-                         var p = 'https:' == document.location.protocol ? 'https' : 'http';
-                         s.src = p + "://api.content.ad/Scripts/widget2.aspx?" + qs.join('&');
-                         d.getElementById("contentad85466").appendChild(s);
-                         })(document);
-                         </script>
-                         <!-- END RR-Native 1 Sidebar Content -->
-                     </div>
-
-                     <div class="row margin-bottom">
-                         <!-- 300x250 sidebar footer tag
-                         <div id="538263138_Footer" style="width:300px;height:250px;margin:0;padding:0">
-                           <noscript><iframe id="31f6656744" name="31f6656744" src="//bumpclick-d.openx.net/w/1.0/afr?auid=538263138&cb=3" frameborder="0" scrolling="no" width="300" height="250"><a href="//bumpclick-d.openx.net/w/1.0/rc?cs=31f6656744&cb=3" ><img src="//bumpclick-d.openx.net/w/1.0/ai?auid=538263138&cs=31f6656744&cb=3" border="0" alt=""></a></iframe></noscript>
-                         </div>
-                         <script type="text/javascript">
-                           var OX_ads = OX_ads || [];
-                           OX_ads.push({
-                              slot_id: "538263138_Footer",
-                              auid: "538263138"
-                           });
-                         </script>
-                         END 300x250 sidebar footer tag -->
-                     </div>
-                 </div>
-
-            </div><!--/.col-right-->
         </div><!--/row-->
-
-        <div class="row">
-            <footer>
-                <div class="credits">
-                    <p class="credits-links">
-                        <a href="http://didyouknowblog.com/DMCA" title="DMCA">DMCA</a> |
-                        <a href="http://didyouknowblog.com/privacy-policy" title="Privacy Policy">Privacy</a> |
-                        <a href="http://didyouknowblog.com/submit" title="Submit Idea">Submit Idea</a> |
-                        <a href="http://didyouknowfacts.com/contact/" title="Contact/Advertise">Contact</a>
-                    </p>
-                    <p class="follow-links">
-                        <a href="http://www.facebook.com/didyouknowblog" title="Facebook"><i class="fa fa-facebook"></i></a>
-                        <a href="http://twitter.com/didyouknowfacts" title="Twitter"><i class="fa fa-twitter"></i></a>
-                        <a href="http://instagram.com/didyouknowblog" title="Instagram"><i class="fa fa-instagram"></i></a>
-                        <a href="http://did-you-kno.tumblr.com/" title="Tumblr"><i class="fa fa-tumblr"></i></a>
-                    </p>
-                    <p>Copyright &copy; {CopyrightYears}</p>
-                </div>
-            </footer>
-        </div>
 
     </div><!--/.container-->
 
-    <!-- START - Teads TV Tag -->
-<script type="text/javascript">
-window._ttf = window._ttf || [];
-_ttf.push({
-       pid          : 54585
-       ,lang        : "en"
-       ,slot        : '.content-infinite .content-wrapper .post-box, .row .post-body .post-content'
-       ,format      : "inread"
-       ,minSlot     : 1
-       ,components  : { skip: {delay : 0}}
-       ,css         : "margin: 0px auto 0px; max-width: 600px;"
-});
+    <div class="pagination-nav">
+        <ul>
+            {block:PreviousPage}
+            <li class="prev">
+                <a href="{PreviousPage}"><i class="fa fa-chevron-left"></i> Prev</a>
+            </li>
+            {/block:PreviousPage}
+            {block:JumpPagination length="5"}
+            {block:CurrentPage}
+            <li class="current"><span>{PageNumber}</span></li>
+            {/block:CurrentPage}
+            {block:JumpPage}
+            <li><a class="jump" href="{URL}">{PageNumber}</a></li>
+            {/block:JumpPage}
+            {/block:JumpPagination}
+            {block:NextPage}
+            <li class="next">
+                <a href="{NextPage}">Next <i class="fa fa-chevron-right"></i></a>
+            </li>
+            {/block:NextPage}
+        </ul>
+    </div><!--/.pagination-->
 
-(function (d) {
-        var js, s = d.getElementsByTagName('script')[0];
-        js = d.createElement('script');
-        js.async = true;
-        js.src = '//cdn.teads.tv/media/format.js';
-        s.parentNode.insertBefore(js, s);
-})(window.document);
-</script>
+    <div class="category-section">
+        <div class="container">
+            <h2>What piques your interest?</h2>
+            <ul>
+                <li class="science"><a href="{BlogURL}tagged/science"><span>Science</span></a></li>
+                <li class="weird"><a href="{BlogURL}tagged/weird"><span>Weird</span></a></li>
+                <li class="animals-nature"><a href="{BlogURL}tagged/animals+%26+nature"><span>Animals</span></a></li>
+                <li class="humor"><a href="{BlogURL}tagged/humor"><span>Funny</span></a></li>
+                <li class="historical"><a href="{BlogURL}tagged/historical"><span>History</span></a></li>
+                <li class="society-laws"><a href="{BlogURL}tagged/society+&+laws"><span>World</span></a></li>
+                <li class="technology"><a href="{BlogURL}tagged/technology"><span>Tech</span></a></li>
+                <li class="celebrities"><a href="{BlogURL}tagged/celebrities"><span>Celebrities</span></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <div class="credits">
+            <p class="credits-links">
+                <a href="http://didyouknowblog.com/DMCA" title="DMCA">DMCA</a> |
+                <a href="http://didyouknowblog.com/privacy-policy" title="Privacy Policy">Privacy</a> |
+                <a href="http://didyouknowblog.com/submit" title="Submit Idea">Submit Idea</a> |
+                <a href="http://didyouknowfacts.com/contact/" title="Contact/Advertise">Contact</a>
+            </p>
+            <p class="follow-links">
+                <a href="http://www.facebook.com/didyouknowblog" title="Facebook"><i class="fa fa-facebook"></i></a>
+                <a href="http://twitter.com/didyouknowfacts" title="Twitter"><i class="fa fa-twitter"></i></a>
+                <a href="http://instagram.com/didyouknowblog" title="Instagram"><i class="fa fa-instagram"></i></a>
+                <a href="http://did-you-kno.tumblr.com/" title="Tumblr"><i class="fa fa-tumblr"></i></a>
+            </p>
+            <p>Copyright &copy; {CopyrightYears}</p>
+        </div>
+    </footer><!--/footer-->
+
+    <!-- START - Teads TV Tag -->
+    <script type="text/javascript">
+    window._ttf = window._ttf || [];
+    _ttf.push({
+           pid          : 54585
+           ,lang        : "en"
+           ,slot        : '.content-infinite .content-wrapper .post-box, .row .post-body .post-content'
+           ,format      : "inread"
+           ,minSlot     : 1
+           ,components  : { skip: {delay : 0}}
+           ,css         : "margin: 0px auto 0px; max-width: 600px;"
+    });
+
+    (function (d) {
+            var js, s = d.getElementsByTagName('script')[0];
+            js = d.createElement('script');
+            js.async = true;
+            js.src = '//cdn.teads.tv/media/format.js';
+            s.parentNode.insertBefore(js, s);
+    })(window.document);
+    </script>
     <!-- END - Teads TV Tag -->
 
     <!-- DYK Scripts -->
-
-    {block:IndexPage}
-    <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js"></script>
-    <script type="text/javascript">
-    $('.slide-top').slick({
-      dots: false,
-      infinite: true,
-      speed: 300,
-      slidesToShow: 4,
-      slidesToScroll: 4,
-      responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
-            infinite: true,
-            dots: true
-          }
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-      ]
-    });
-    </script>
-    {/block:IndexPage}
 
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
