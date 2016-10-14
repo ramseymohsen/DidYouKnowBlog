@@ -17,29 +17,43 @@
         {/block:PermalinkPage}
 
         <!-- Facebook App -->
-        <meta property="fb:app_id" content="849304505189414" />
+        <meta property="fb:app_id" content="849304505189414"/>
 
         <meta property="og:site_name" content="{Title}"/>
+        <meta property="og:locale" content="en_US" />
+
+        <meta name="twitter:url" content="{Permalink}"/>
+        <meta name="twitter:site" content="@didyouknowfacts">
+        <meta name="twitter:creator" content="@didyouknowfacts">
+
+
         {block:IndexPage}
-            <meta property="og:title" content="{block:TagPage}&quot;{PlaintextTag}&quot; - {/block:TagPage}{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{Title}"/>
+            <meta property="og:title" content="{block:TagPage}"{PlaintextTag}" - {/block:TagPage}{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{Title}"/>
             <meta property="og:url" content="{blogURL}{block:TagPage}tagged/{URLSafeTag}{/block:TagPage}"/>
-            <meta property="og:type" content="blog" />
+            <meta property="og:type" content="website"/>
             <meta property="og:description" content="{MetaDescription} {block:TagPage}{PlaintextDescription}{/block:TagPage}"/>
             <meta property="og:image" content="http://56.media.tumblr.com/cd5cb3cf2cef2f12d07f581eba188d57/tumblr_inline_o0szh2NwcF1qz6ue3_500.jpg"/>
+            <meta property="twitter:image" content="http://56.media.tumblr.com/cd5cb3cf2cef2f12d07f581eba188d57/tumblr_inline_o0szh2NwcF1qz6ue3_500.jpg"/>
         {/block:IndexPage}
         {block:PermalinkPage}
             <meta property="og:url" content="{Permalink}"/>
-            <meta property="og:type" content="article"/>
+            <meta property="og:type" content="website"/>
             <meta property="og:title" content="{block:SearchPage}{lang:Search results for SearchQuery}{/block:SearchPage}{block:PostSummary}{PlaintextPostSummary}{/block:PostSummary}{block:IndexPage}{PlaintextDescription}{/block:IndexPage}"/>
+            <meta property="twitter:title" content="{block:SearchPage}{lang:Search results for SearchQuery}{/block:SearchPage}{block:PostSummary}{PlaintextPostSummary}{/block:PostSummary}{block:IndexPage}{PlaintextDescription}{/block:IndexPage}"/>
+            <meta property="article:author" content="https://www.facebook.com/didyouknowblog"/>
+            <meta property="article:publisher" content="https://www.facebook.com/didyouknowblog"/>
                 {block:Posts}
                     {block:Text}
                         {block:Title}<meta property="og:title" content="{PlaintextTitle}"/>{/block:Title}
+                        {block:Title}<meta property="twitter:title" content="{PlaintextTitle}"/>{/block:Title}
                         <meta property="og:description" content="{PlaintextBody}"/>
-                        <meta property="og:image" content="http://56.media.tumblr.com/cd5cb3cf2cef2f12d07f581eba188d57/tumblr_inline_o0szh2NwcF1qz6ue3_500.jpg"/>
                     {/block:Text}
                     {block:Photo}
                         <meta property="og:image" content="{PhotoURL-HighRes}"/>
+                        <meta name="twitter:card" content="photo">
+                        <meta name="twitter:image" content="{PhotoURL-HighRes}">
                         {block:Caption}<meta property="og:description" content="{PlaintextCaption}"/>{/block:Caption}
+                        {block:Caption}<meta property="twitter:description" content="{PlaintextCaption}"/>{/block:Caption}
                     {/block:Photo}
                 {/block:Posts}
         {/block:PermalinkPage}
@@ -56,6 +70,8 @@
 
         <!-- FontAwesome CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/jquery.slick/1.5.9/slick.css"/>
 
         <!-- DYK Custom CSS -->
         <style>
@@ -126,6 +142,26 @@
 
         .header-ad {
             text-align: center;
+        }
+
+        .header-ad .desktop {
+            display: none;
+        }
+
+        @media (min-width: 740px) {
+            .header-ad .desktop {
+                display: block;
+            }
+        }
+
+        .header-ad .mobile {
+            display: none;
+        }
+
+        @media (max-width: 739px) {
+            .header-ad .mobile {
+                display: block;
+            }
         }
 
         .navbar-inverse {
@@ -274,6 +310,28 @@
 
         .post-body .social-share {
             text-align: center;
+        }
+
+        .post-body .post-video {
+            background: #000;
+            padding: 5px 0px;
+            border-radius: 5px;
+        }
+
+        .post-body .post-video {
+            position: relative;
+            padding-bottom: 56.25%;
+            overflow: hidden;
+            width: 100% !important;
+            height: 0 !important;
+        }
+
+        .post-body .post-video iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
         }
 
         #index .share-container {
@@ -455,10 +513,6 @@
             width: 100% !important;
         }
 
-        #sidebar {
-            min-height: 3000px;
-        }
-
         #sidebar .sidebar-wrapper {
             padding: 0px 20px;
         }
@@ -626,12 +680,13 @@
         .pagination {
             text-align: center;
             width: 100%;
+            font-size: 1.5em;
         }
 
         .pagination a {
             background: #000;
             color: #fff;
-            padding: 5px 8px;
+            padding: 5px 12px;
             border-radius: 4px;
             display: inline-block;
         }
@@ -643,6 +698,40 @@
 
         .pagination .next, .pagination .prev {
             display: inline-block;
+        }
+
+        .pagination .current {
+            padding: 5px 8px;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 9000;
+            background: rgba(0,0,0,0.8);
+        }
+
+        .modal-overlay .modal-box {
+            width: 310px;
+            margin: 25% auto;
+        }
+
+        .modal-overlay .modal-ad {
+            transform: scale(0.9);
+        }
+
+        .modal-overlay .modal-close {
+            text-align: right;
+            font-size: 1.5em;
+            color: #fff;
+            padding: 0 1em;
+        }
+
+        .modal-overlay .modal-close a, .modal-overlay .modal-close a:hover{
+            color: #fff;
         }
 
         /* QA styles */
@@ -737,21 +826,213 @@
             font-size: 1.5em;
         }
 
+        /* Slider */
+        .slick-loading .slick-list
+        {
+            background: #fff url('http://i.imgur.com/R3BV1cH.gif') center center no-repeat;
+        }
+        .slide-top {
+            margin: 0 40px;
+        }
+        .slide {
+            display: none;
+        }
+        .slide-content img {
+            padding: 1em;
+            width: 100%;
+            height: auto;
+        }
+        .slide-content h3 {
+            margin: 0;
+            padding: 0 1em 0.4em 1em;
+            font-size: 16px;
+        }
+        .slide-content a {
+            color: #000;
+        }
+
+        /* Arrows */
+        .slick-prev,
+        .slick-next
+        {
+            font-size: 0;
+            line-height: 0;
+            position: absolute;
+            top: 50%;
+            display: block;
+            width: 36px;
+            height: 36px;
+            padding: 0;
+            -webkit-transform: translate(0, -50%);
+            -ms-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+            cursor: pointer;
+            color: transparent;
+            border: none;
+            outline: none;
+            background: transparent;
+        }
+        .slick-prev:hover,
+        .slick-prev:focus,
+        .slick-next:hover,
+        .slick-next:focus
+        {
+            color: transparent;
+            outline: none;
+            background: transparent;
+        }
+        .slick-prev:hover:before,
+        .slick-prev:focus:before,
+        .slick-next:hover:before,
+        .slick-next:focus:before
+        {
+            opacity: 1;
+        }
+        .slick-prev.slick-disabled:before,
+        .slick-next.slick-disabled:before
+        {
+            opacity: .25;
+        }
+
+        .slick-prev:before,
+        .slick-next:before
+        {
+            font-family: 'FontAwesome';
+            font-size: 36px;
+            line-height: 1;
+            opacity: .75;
+            color: #000;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .slick-prev
+        {
+            left: -25px;
+        }
+        [dir='rtl'] .slick-prev
+        {
+            right: -25px;
+            left: auto;
+        }
+        .slick-prev:before
+        {
+            content: '\f137';
+        }
+        [dir='rtl'] .slick-prev:before
+        {
+            content: '\f138';
+        }
+
+        .slick-next
+        {
+            right: -25px;
+        }
+        [dir='rtl'] .slick-next
+        {
+            right: auto;
+            left: -25px;
+        }
+        .slick-next:before
+        {
+            content: '\f138';
+        }
+        [dir='rtl'] .slick-next:before
+        {
+            content: '\f137';
+        }
+
+        /* Dots */
+        .slick-dotted.slick-slider
+        {
+            margin-bottom: 30px;
+        }
+
+        .slick-dots
+        {
+            position: absolute;
+            bottom: -25px;
+            display: block;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            text-align: center;
+        }
+        .slick-dots li
+        {
+            position: relative;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin: 0 5px;
+            padding: 0;
+            cursor: pointer;
+        }
+        .slick-dots li button
+        {
+            font-size: 0;
+            line-height: 0;
+            display: block;
+            width: 20px;
+            height: 20px;
+            padding: 5px;
+            cursor: pointer;
+            color: transparent;
+            border: 0;
+            outline: none;
+            background: transparent;
+        }
+        .slick-dots li button:hover,
+        .slick-dots li button:focus
+        {
+            outline: none;
+        }
+        .slick-dots li button:hover:before,
+        .slick-dots li button:focus:before
+        {
+            opacity: 1;
+        }
+        .slick-dots li button:before
+        {
+            font-family: 'FontAwesome';
+            font-size: 6px;
+            line-height: 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            content: '•';
+            text-align: center;
+            opacity: .25;
+            color: black;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .slick-dots li.slick-active button:before
+        {
+            opacity: .75;
+            color: #000;
+        }
+
         </style>
 
         <script>window.jQuery || document.write('<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"><\/script>')</script>
 
         <!-- Google Analytics JS -->
         <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-52636076-1', 'auto');
-        ga('send', 'pageview');
-
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-52636076-1']);
+            _gaq.push(['_trackPageview']);
+            _gaq.push(['_setDomainName', ''+document.domain+'']);
+            (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
         </script>
+
         <!-- End Google Analytics JS -->
 
     </head>
@@ -766,6 +1047,8 @@
         '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-5V3KXV');</script>
         <!-- End Google Tag Manager -->
+
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
         <nav class="navbar navbar-fixed-top navbar-inverse navbar-main">
             <div class="container">
@@ -793,7 +1076,7 @@
                                 <li><a href="{BlogURL}DMCA" title="DMCA">DMCA</a></li>
                                 <li><a href="{BlogURL}privacy-policy" title="Privacy Policy">Privacy</a></li>
                                 <li><a href="{BlogURL}submit" title="Submit Idea">Submit Idea</a></li>
-                                <li><a href="{BlogURL}ask" title="Contact/Advertise">Contact</a></li>
+                                <li><a href="http://didyouknowfacts.com/contact/" title="Contact/Advertise">Contact</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -815,7 +1098,7 @@
                             </ul>
                         </li>
                         <li><a href="http://www.facebook.com/didyouknowblog" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="http://twitter.com/officialdykn" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="http://twitter.com/didyouknowfacts" title="Twitter"><i class="fa fa-twitter"></i></a></li>
                         <li><a href="http://instagram.com/didyouknowblog" title="Instagram"><i class="fa fa-instagram"></i></a></li>
                         <li><a href="http://did-you-kno.tumblr.com/" title="Tumblr"><i class="fa fa-tumblr"></i></a></li>
                     </ul>
@@ -862,17 +1145,97 @@
 
             <!-- BEGIN JS TAG - DYK - DT - Leaderboard - 728x90 < - DO NOT MODIFY -->
             <div class="header-ad" id="header-google-ad">
-            <script>
-            if ( $(window).width() > 739) {
-             document.write('<iframe src="http://ads.pubsqrd.com/tt?id=5627652&cb=[CACHEBUSTER]" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="728" height="90"></iframe>');
-            }
-            else {
-
-            document.write('<scr'+'ipt type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299146&u=didyouknow&width=300&height=250"></scr'+'ipt>');
-            }
-            </script>
+                <div class="desktop">
+                    <div id="538263152_Leaderboard" style="width:728px;height:90px;margin:0;padding:0">
+                      <noscript><iframe id="0d0350cec9" name="0d0350cec9" src="//bumpclick-d.openx.net/w/1.0/afr?auid=538263152&cb=5" frameborder="0" scrolling="no" width="728" height="90"><a href="//bumpclick-d.openx.net/w/1.0/rc?cs=0d0350cec9&cb=5" ><img src="//bumpclick-d.openx.net/w/1.0/ai?auid=538263152&cs=0d0350cec9&cb=5" border="0" alt=""></a></iframe></noscript>
+                    </div>
+                    <script type="text/javascript">
+                      var OX_ads = OX_ads || [];
+                      OX_ads.push({
+                         slot_id: "538263152_Leaderboard",
+                         auid: "538263152"
+                      });
+                    </script>
+                </div>
+                </div>
+<!-- TEMP DIABLE OF MOBILE AD
+                <div class="mobile">
+                    <script type="text/javascript" src="//ap.lijit.com/www/delivery/fpi.js?z=299146&u=didyouknow&width=300&height=250"></script>
+                </div>
             </div>
+TEMP DIABLE OF MOBILE AD -->
             <!-- END JS TAG - DYK - DT - Leaderboard - 728x90 < - DO NOT MODIFY -->
+
+            {block:IndexPage}
+            <!-- DYK Slider Content
+            <div class="slide-top">
+                <div class="slide">
+                    <div class="slide-content">
+                        <a href="http://didyouknowblog.com/Everything-You-Think-You-Know-About-Ninjas-Is-Completely-Wrong?utm_source=Facebook&utm_medium=Partner&utm_campaign=SugWidget-Ninja">
+                            <img src="https://41.media.tumblr.com/2a8f63a5e35bc19b2cc3ada8bc3b0829/tumblr_inline_o3bl1isJ7p1qz6ue3_500.jpg" width="320" height="160">
+                            <h3>Everything You Think You Know About Ninjas Is Wrong</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-content">
+                        <a href="http://didyouknowblog.com/actress-hedy-lamarr?utm_source=Facebook&utm_medium=Partner&utm_campaign=SugWidget-HedyLamarr">
+                            <img src="https://41.media.tumblr.com/5e8725e77a2b3f74ff25f3c8a804903e/tumblr_inline_o3ble8jiDG1qz6ue3_500.jpg" width="320" height="160">
+                            <h3>The Movie Star Who Was Too Pretty To Be Smart</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-content">
+                        <a href="http://didyouknowblog.com/Professors-Junk-Food-Diet-Had-Amazing-Results?utm_source=Facebook&utm_medium=Partner&utm_campaign=SugWidget-JunkFood">
+                            <img src="https://66.media.tumblr.com/d497f652de85e9c689a5bc88dd3a8171/tumblr_inline_o3bldnzYCQ1qz6ue3_500.jpg" width="320" height="160">
+                            <h3>A Nutrition Professor Went On A Junk Food Diet To Prove A Point</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-content">
+                        <a href="http://didyouknowblog.com/7-Poses-That-Instantly-Make-You-Look-Better-in-Photos?utm_source=Facebook&utm_medium=Partner&utm_campaign=SugWidget-PhotoPoses">
+                            <img src="https://41.media.tumblr.com/06b033342133635e280299a3435dc7a1/tumblr_inline_o3blduoa1p1qz6ue3_500.jpg" width="320" height="160">
+                            <h3>7 Tricks for Taking Great Photos Every Time</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-content">
+                        <a href="http://didyouknowblog.com/7-Crazy-Facts-About-IKEA-You-Need-To-Know?utm_source=Facebook&utm_medium=Partner&utm_campaign=SugWidget-IKEAFacts">
+                            <img src="https://40.media.tumblr.com/5f4b7572bd244ea0e23c35f9c11d8b0b/tumblr_inline_o3bldhMBSt1qz6ue3_500.jpg" width="320" height="160">
+                            <h3>7 Crazy IKEA Facts You Need To Know</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-content">
+                        <a href="http://didyouknowblog.com/worlds-deepest-hotel-room-65-million-years-old?utm_source=Facebook&utm_medium=Partner&utm_campaign=SugWidget-UndergroundHotel">
+                            <img src="https://41.media.tumblr.com/21a9ca11a5d2c1150955d621fe1ebfe1/tumblr_inline_o3bldbti2u1qz6ue3_500.jpg" width="320" height="160">
+                            <h3>You Can Stay in a 65 Million Year Old Hotel Room</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-content">
+                        <a href="http://didyouknowblog.com/really-weird-facts-that-completely-change-everything?utm_source=Facebook&utm_medium=Partner&utm_campaign=SugWidget-8WeirdFacts">
+                            <img src="https://41.media.tumblr.com/1d1be8abc0e4e26987a2a3674b58d70a/tumblr_inline_o3bld6wQKk1qz6ue3_500.jpg" width="320" height="160">
+                            <h3>8 Really Weird Facts That Completely Change Everything</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-content">
+                        <a href="http://didyouknowblog.com/robert-the-doll-haunted?utm_source=Facebook&utm_medium=Partner&utm_campaign=SugWidget-ChuckyDoll">
+                            <img src="https://40.media.tumblr.com/6ad758153591a8e97cc5c1646dbaea42/tumblr_inline_o3blctcSb11qz6ue3_500.jpg" width="320" height="160">
+                            <h3>You Probably Didn't Know This Creepy Doll Was The Inspiration For Chucky...</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            End DYK Slider Content -->
+            {/block:IndexPage}
 
             <hr>
 
@@ -933,18 +1296,39 @@
 
                                             <ul class="post-comments">
                                                 <li class="comments">
-                                                    <span><a href="{Permalink}#facebook_thread"><i class="fa fa-comment"></i> <fb:comments-count href="{Permalink}"></fb:comments-count> Comments</a></span>
+                                                    <span><a href="{Permalink}#facebook_thread">+ Add Comment</a></span>
                                                 </li>
                                             </ul>
 
                                             <ul class="post-permalink">
                                                 <li class="source">
-                                                    <a href="{Permalink}">Permalink / Fact Source</a>
+                                                    <a href="{Permalink}">permalink</a>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
                                     {/block:Photo}
+
+                                    {block:Video}
+                                    <div class="post-content {block:IndexPage}col-sm-10 col-md-11 col-lg-11{/block:IndexPage}{block:Permalink}col-sm-12{/block:Permalink}">
+                                        <div class="post-video">{Video-700}</div>
+
+                                        <div class="post-footer">
+
+                                            <ul class="post-comments">
+                                                <li class="comments">
+                                                    <span><a href="{Permalink}#facebook_thread"><i class="fa fa-comment"></i> (<fb:comments-count href="{Permalink}">0</fb:comments-count>) Add Comment</a></span>
+                                                </li>
+                                            </ul>
+
+                                            <ul class="post-permalink">
+                                                <li class="source">
+                                                    <a href="{Permalink}">Permalink</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    {/block:Video}
 
                                     {block:PermalinkPage}
                                         <div class="page-copy">
@@ -976,6 +1360,10 @@
 
                     </div><!--/.content-wrapper-->
 
+                    <div id="facebook_thread">
+                        <div class="fb-comments" data-href="{Permalink}" data-num-posts="5" data-width="600"></div>
+                    </div><!--/Post Comments-->
+
                     {/block:PermalinkPage}
 
                     {/block:NotReblog}
@@ -996,7 +1384,9 @@
                                 <!-- BEGIN IFRAME TAG - DYK - DT - Content1 - 300x250 in-between content tag -->
                                 <div class="col-sm-6">
                                     <div class="ad-left-box-{block:Pagination}{CurrentPage}{/block:Pagination} ad-box" id="ad-left-{block:Pagination}{CurrentPage}{/block:Pagination}">
-                                         <iframe src="http://ads.pubsqrd.com/tt?id=5704804&cb=[CACHEBUSTER]" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>
+                                        <div id="538263149_BetweenContent_{block:Pagination}{CurrentPage}{/block:Pagination}" style="width:300px;height:250px;margin:0;padding:0">
+                                          <iframe id="f80ee35536" name="f80ee35536" src="//bumpclick-d.openx.net/w/1.0/afr?auid=538263149&cb=4{block:Pagination}{CurrentPage}{/block:Pagination}" frameborder="0" scrolling="no" width="300" height="250"><a href="//bumpclick-d.openx.net/w/1.0/rc?cs=f80ee35536&cb=4{block:Pagination}{CurrentPage}{/block:Pagination}" ><img src="//bumpclick-d.openx.net/w/1.0/ai?auid=538263149&cs=f80ee35536&cb=4{block:Pagination}{CurrentPage}{/block:Pagination}" border="0" alt=""></a></iframe>
+                                        </div>
                                      </div>
                                 </div>
                                 <!-- END IFRAME TAG - DYK - DT - Content1 - 300x250 in-between content tag -->
@@ -1004,7 +1394,7 @@
                                 <!-- SOVRN 300x250 footer tag -->
                                 <div class="col-sm-6">
                                     <div class="ad-right-box-{block:Pagination}{CurrentPage}{/block:Pagination} ad-box" id="ad-right-{block:Pagination}{CurrentPage}{/block:Pagination}">
-                                        <script type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299145&u=didyouknow&width=300&height=250"></script>
+                                        <script type="text/javascript" src="//ap.lijit.com/www/delivery/fpi.js?z=299145&u=didyouknow&width=300&height=250"></script>
                                     </div>
                                 </div>
                                 <!-- END SOVRN 300x250 footer tag -->
@@ -1022,20 +1412,16 @@
                             {/block:PermalinkPagination}
                         </div>
 
-                        <div id="facebook_thread">
-                            <div class="fb-comments" data-href="{Permalink}" data-num-posts="5" data-width="600"></div>
-                        </div><!--/Post Comments-->
-
                         <!-- START - DYKB - DT - Below Article Thumbnails -->
                         <div id="taboola-below-article-thumbnails"></div>
                         <script type="text/javascript">
                         window._taboola = window._taboola || [];
-                            _taboola.push({
-                                mode: 'thumbnails-b',
-                                container: 'taboola-below-article-thumbnails',
-                                placement: 'DYKB - DT - Below Article Thumbnails',
-                                target_type: 'mix'
-                            });
+                        _taboola.push({
+                        mode: 'thumbnails-b',
+                        container: 'taboola-below-article-thumbnails',
+                        placement: 'DYKB - DT - Below Article Thumbnails',
+                        target_type: 'mix'
+                        });
                         </script>
                         <!-- END - DYKB - DT - Below Article Thumbnails -->
 
@@ -1076,13 +1462,14 @@
                     <div class="row margin-bottom">
                         <!-- Facebook LIKE Widget -->
                         <span class="sidebar-label">Like Us On Facebook:</span>
-                        <div class="fb-like"><div class="fb-page" data-href="https://www.facebook.com/didyouknowblog" data-small-header="false" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/didyouknowblog"><a href="https://www.facebook.com/didyouknowblog">Did You Know</a></blockquote></div></div></div>
+                        <div class="fb-like"><div class="fb-page" data-href="https://www.facebook.com/didyouknowblog" data-small-header="false" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true"></div></div>
                         <!-- End Facebook LIKE Widget -->
                     </div>
 
                     <div class="row margin-bottom">
                         <!-- BEGIN IFRAME TAG - DYK - DT - RR2 - 300x250 sidebar tag -->
-                        <iframe src="http://ads.pubsqrd.com/tt?id=5627655&cb=[CACHEBUSTER]" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>
+                        <ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3719303142105804" data-ad-slot="1588657976"></ins>
+                        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
                         <!-- END IFRAME TAG - DYK - DT - RR2 - 300x250 300x250 sidebar tag -->
                     </div>
 
@@ -1118,42 +1505,18 @@
                      </div>
 
                      <div class="row margin-bottom">
-                         <!-- SOVRN 300x250 sidebar footer tag -->
-                         <script type="text/javascript" src="http://ap.lijit.com/www/delivery/fpi.js?z=299144&u=didyouknow&width=300&height=250"></script>
-                         <!-- END SOVRN 300x250 sidebar footer tag -->
-                     </div>
-
-                     <div class="row">
-                         <!-- DYK Featured Sidebar Content -->
-                         <div class="featured-content">
-                             <ul>
-                                 <li>
-                                     <a href="http://didyouknowblog.com/dogs-watch-tv?utm_source=Facebook&utm_medium=Partner&utm_campaign=Siderail_Dogs-Watch-TV">
-                                         <img src="http://36.media.tumblr.com/846eede3ce04bbd2ec87535a4c9ff0c1/tumblr_inline_o0nm3m6TDW1qz6ue3_500.jpg" alt="Fugiat Nulla Pariatur">
-                                         <p>Why Does Your Dog Watch TV?</p>
-                                     </a>
-                                 </li>
-                                 <li>
-                                     <a href="http://didyouknowblog.com/post/136362292094/there-was-no-communication-between-campbell-and?utm_source=Facebook&utm_medium=Partner&utm_campaign=Siderail-Tattoo-Artist-Hole">
-                                         <img src="http://40.media.tumblr.com/712ec62cb49c5d86fc42c07eb40408a1/tumblr_inline_o0nm3uxSie1qz6ue3_500.jpg" alt="Lorem Ipsum Dolor">
-                                         <p>People Stuck Their Arms In A Hole And Blindly Let A Tattoo Artist Ink Them</p>
-                                     </a>
-                                 </li>
-                                 <li>
-                                     <a href="http://didyouknowblog.com/graham-crackers-invented-to-stop-masturbation?utm_source=Facebook&utm_medium=Partner&utm_campaign=Siderail-Graham-Crackers">
-                                         <img src="http://41.media.tumblr.com/577da481c713ae26de96d2ccd5c04d22/tumblr_inline_o0nm40OBWh1qz6ue3_500.jpg" alt="Consectetur Adipisicing Elit">
-                                         <p>Graham Crackers Were Invented So You Would Stop Masturbating</p>
-                                     </a>
-                                 </li>
-                                 <li>
-                                     <a href="http://didyouknowblog.com/actress-hedy-lamarr?utm_source=Facebook&utm_medium=Partner&utm_campaign=Siderail-Hedy-Lemar">
-                                         <img src="http://40.media.tumblr.com/019d3fd5404d6d21fb16c1a382cba6bb/tumblr_inline_o0nm46dVYX1qz6ue3_500.jpg" alt="Eiusmod Tempor Incididunt">
-                                         <p>The Actress Once Dubbed ‘The Most Beautiful Woman In The World’ Is Responsible For The WiFi You’re Using</p>
-                                     </a>
-                                 </li>
-                             </ul>
+                         <!-- 300x250 sidebar footer tag
+                         <div id="538263138_Footer" style="width:300px;height:250px;margin:0;padding:0">
+                           <noscript><iframe id="31f6656744" name="31f6656744" src="//bumpclick-d.openx.net/w/1.0/afr?auid=538263138&cb=3" frameborder="0" scrolling="no" width="300" height="250"><a href="//bumpclick-d.openx.net/w/1.0/rc?cs=31f6656744&cb=3" ><img src="//bumpclick-d.openx.net/w/1.0/ai?auid=538263138&cs=31f6656744&cb=3" border="0" alt=""></a></iframe></noscript>
                          </div>
-                         <!-- END DYK Featured Sidebar Content -->
+                         <script type="text/javascript">
+                           var OX_ads = OX_ads || [];
+                           OX_ads.push({
+                              slot_id: "538263138_Footer",
+                              auid: "538263138"
+                           });
+                         </script>
+                         END 300x250 sidebar footer tag -->
                      </div>
                  </div>
 
@@ -1167,11 +1530,11 @@
                         <a href="http://didyouknowblog.com/DMCA" title="DMCA">DMCA</a> |
                         <a href="http://didyouknowblog.com/privacy-policy" title="Privacy Policy">Privacy</a> |
                         <a href="http://didyouknowblog.com/submit" title="Submit Idea">Submit Idea</a> |
-                        <a href="http://didyouknowblog.com/ask" title="Contact/Advertise">Contact</a>
+                        <a href="http://didyouknowfacts.com/contact/" title="Contact/Advertise">Contact</a>
                     </p>
                     <p class="follow-links">
                         <a href="http://www.facebook.com/didyouknowblog" title="Facebook"><i class="fa fa-facebook"></i></a>
-                        <a href="http://twitter.com/officialdykn" title="Twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="http://twitter.com/didyouknowfacts" title="Twitter"><i class="fa fa-twitter"></i></a>
                         <a href="http://instagram.com/didyouknowblog" title="Instagram"><i class="fa fa-instagram"></i></a>
                         <a href="http://did-you-kno.tumblr.com/" title="Tumblr"><i class="fa fa-tumblr"></i></a>
                     </p>
@@ -1182,9 +1545,72 @@
 
     </div><!--/.container-->
 
+    <!-- START - Teads TV Tag -->
+<script type="text/javascript">
+window._ttf = window._ttf || [];
+_ttf.push({
+       pid          : 54585
+       ,lang        : "en"
+       ,slot        : '.content-infinite .content-wrapper .post-box, .row .post-body .post-content'
+       ,format      : "inread"
+       ,minSlot     : 1
+       ,components  : { skip: {delay : 0}}
+       ,css         : "margin: 0px auto 0px; max-width: 600px;"
+});
+
+(function (d) {
+        var js, s = d.getElementsByTagName('script')[0];
+        js = d.createElement('script');
+        js.async = true;
+        js.src = '//cdn.teads.tv/media/format.js';
+        s.parentNode.insertBefore(js, s);
+})(window.document);
+</script>
+    <!-- END - Teads TV Tag -->
+
     <!-- DYK Scripts -->
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    {block:IndexPage}
+    <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js"></script>
+    <script type="text/javascript">
+    $('.slide-top').slick({
+      dots: false,
+      infinite: true,
+      speed: 300,
+      slidesToShow: 4,
+      slidesToScroll: 4,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+    </script>
+    {/block:IndexPage}
+
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="//bumpclick-d.openx.net/w/1.0/jstag"></script>
 
     <!-- AddThis.com Social Media Sharing Tags -->
     <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js"></script>
@@ -1215,62 +1641,18 @@
     });
     </script>
 
-    <!-- INFINITE SCROLL -->
-    <script type="text/javascript" src="http://static.tumblr.com/ib6vvvn/h4Rmt3ou9/jquery.infinitescroll.min.js"></script>
-    <script src="http://static.tumblr.com/oa7pmzw/2tenzq9pi/postscribe.min.js"></script>
-
     <script>
-    $('.content-area').infinitescroll({
-
-      navSelector  : ".pagination",
-                     // selector for the paged navigation (it will be hidden)
-
-      nextSelector : ".next a:last",
-                     // selector for the NEXT link (to page 2)
-
-      itemSelector : ".content-area .content-infinite",
-                     // selector for all items you'll retrieve
-
-      loading      : { img: "http://i.imgur.com/R3BV1cH.gif", finishedMsg: "No more posts to load.", msgText: "<em>Loading posts...</em>" },
-
-      animate      : false,
-
-      extraScrollPx: 50,
-
-      bufferPx     : 40,
-
-        },function( arrayOfNewElems, opts ){
-
-         addthis.toolbox('.addthis_toolbox');
-
-         var page = opts.state.currPage;
-
-         var num = +page;
-         var div = "#ad-right-";
-         var div2 = "#ad-middle-right-";
-         var numdiv = div + num;
-         var numdiv2 = div2 + num;
-
-         postscribe( numdiv , '<script src=http://ap.lijit.com/www/delivery/fpi.js?z=299145&u=didyouknow&width=300&height=250><\/script>', {
-         });
-
-         if(num % 2 == 0)
-         {
-           $( ".ad-right-box-" + num ).addClass( "hidden-xs" );
-         }
-         else
-         {
-           $( ".ad-left-box-" + num ).addClass( "hidden-xs" );
-         }
-
-         FB.XFBML.parse();
-
-         try { _gaq.push(['_trackPageview', '/page/'+page]); } catch(err) {  }
-
+    // get all video wrappers
+    var videoWrappers = document.getElementsByClassName('post-video');
+    // loop over each of them
+    [].forEach.call( videoWrappers, function (el, i) {
+        // cache width and height values of the iframe
+        var width = el.getElementsByTagName('iframe')[0].width,
+            height = el.getElementsByTagName('iframe')[0].height;
+        // apply the padding to the video wrapper
+        el.style.paddingBottom = height / width * 100 + '%';
     });
     </script>
-
-    <!-- END INFINITE SCROLL -->
 
     <!-- QA show answer script -->
     <script type="text/javascript">
@@ -1283,6 +1665,20 @@
         });
     </script>
     <!-- /QA show answer -->
+
+    <script type="text/javascript">
+    $(".modal-close .close-button").click(function(e){
+        $(".modal-overlay").css('display', 'none'),
+        $(".modal-overlay").css('visibility', 'hidden'),
+        $(".modal-box").css('display', 'none'),
+        $(".modal-box").css('visibility', 'hidden'),
+        $(".modal-box-content").css('display', 'none'),
+        $(".modal-box-content").css('visibility', 'hidden'),
+        $(".modal-ad").css('display', 'none'),
+        $(".modal-ad").css('visibility', 'hidden'),
+        e.preventDefault();
+    });
+    </script>
 
     </body>
 
