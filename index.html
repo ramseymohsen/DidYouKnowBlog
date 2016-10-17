@@ -96,6 +96,16 @@
             display: none !important;
         }
 
+        .post-single.table {
+            width: 50%;
+        }
+
+        @media (max-width: 750px) {
+            .post-single.table {
+                width: 100%;
+            }
+        }
+
         .col-left {
             border-right: 1px solid #eee;
         }
@@ -275,6 +285,10 @@
             .navbar-brand .site-description {
                 font-size: 0.5em;
             }
+        }
+
+        #permalink .reblog {
+            display: block !important;
         }
 
         #permalink .navbar-main {
@@ -517,26 +531,23 @@
             }
 
             .post-ad div {
-                display: inherit;
+                display: inline-block;
             }
         }
 
         .post-ad .ad-box {
-            transform: scale(0.9);
+            /*transform: scale(0.9);*/
         }
 
         @media (max-width: 750px) {
-            .post-ad div:first-child {
-                margin: 0px;
-            }
-
-            .post-ad div:last-child {
-                margin: 0px;
-            }
-
             .post-ad .ad-box, .post-ad .ad-box iframe[style], .post-ad .ad-box span, .post-ad .ad-box img, .post-ad .ad-box iframe div, .post-ad .ad-box iframe img {
-                width: 100% !important;
+                max-width: 290px;
                 overflow: hidden;
+                margin: 0 auto;
+                text-align: center;
+            }
+            .content-area .post-ad:nth-child(4) {
+                display: none !important;
             }
         }
 
@@ -1315,7 +1326,7 @@
                 </div>
                 <div id="navbar-transparent">
                     <ul class="nav navbar-nav float-right">
-                        <div class="addthis_toolbox add-this" addthis:url="{Permalink}" addthis:title="Title">
+                        <div class="addthis_toolbox add-this" addthis:url="{Permalink}" addthis:title="{Title}">
                             <li><a class="addthis_button_facebook"></a></li>
                             <li><a class="addthis_button_twitter"></a></li>
                         </div>
@@ -1360,19 +1371,17 @@ TEMP DIABLE OF MOBILE AD -->
 
                 <div class="content-area">
 
+                    {block:TagPage}
                     <div class="content-wrapper">
-                        {block:TagPage}
                             <h2>Posts tagged "{Tag}"</h2><br>
-                        {/block:TagPage}
                     </div>
+                    {/block:TagPage}
 
-                    <div class="content-area">
                     {block:Posts}
-                    {block:NotReblog}
-                    <div class="{block:IndexPage}col-sm-6{/block:IndexPage}{block:Permalink}col-sm-8 col-sm-offset-2{/block:Permalink} {TagsAsClasses}">
+                    <div class="post-single {PostType} {block:IndexPage}col-sm-6{/block:IndexPage}{block:Permalink}col-sm-8 col-sm-offset-2{/block:Permalink} {TagsAsClasses}">
                         <div class="content-wrapper">
 
-                            <div class="post-box {PostType} {block:IndexPage}index{/block:IndexPage}{block:Permalink}permalink{/block:Permalink} {TagsAsClasses}" id="{PostID}">
+                            <div class="post-box {PostType} {block:IndexPage}index{/block:IndexPage}{block:Permalink}permalink{/block:Permalink}" id="{PostID}">
 
                                 <div class="post-body row">
 
@@ -1384,7 +1393,7 @@ TEMP DIABLE OF MOBILE AD -->
                                                     <p class="share-description">Shares</p>
                                                 </a>
                                             </div>
-                                            <div class="addthis_toolbox add-this" addthis:url="{Permalink}" addthis:title="Title">
+                                            <div class="addthis_toolbox add-this" addthis:url="{Permalink}" addthis:title="{Title}">
                                                 <ul>
                                                     <li><a class="addthis_button_facebook"></a></li>
                                                     <li><a class="addthis_button_twitter"></a></li>
@@ -1458,20 +1467,23 @@ TEMP DIABLE OF MOBILE AD -->
                         </div><!--/.content-wrapper-->
                     </div>
 
+                    <div class="visible-xs-block post-ad" style="margin:15px 0px 15px -5px;">
+                        <div class="ad-box">
+                            <script type="text/javascript" src="//ap.lijit.com/www/delivery/fpi.js?z=299145&u=didyouknow&width=300&height=250"></script>
+                        </div>
+                    </div>
+
                     {block:PermalinkPage}
-                    <div class="content-wrapper">
 
-                        <div class="row">
-                            <div class="col-sm-12">
-                                {block:Caption}
-                                <div class="post-copy">
-                                    {Caption}
-                                </div>
-                                {/block:Caption}
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2">
+                            {block:Caption}
+                            <div class="post-copy">
+                                {Caption}
                             </div>
-                        </div><!--/Post Copy-->
-
-                    </div><!--/.content-wrapper-->
+                            {/block:Caption}
+                        </div>
+                    </div><!--/Post Copy-->
 
                     <div class="{block:Permalink}col-sm-8 col-sm-offset-2{/block:Permalink}">
                         <div id="facebook_thread">
@@ -1481,7 +1493,6 @@ TEMP DIABLE OF MOBILE AD -->
 
                     {/block:PermalinkPage}
 
-                    {/block:NotReblog}
                     {/block:Posts}
 
                     {block:SearchPage}
@@ -1493,8 +1504,6 @@ TEMP DIABLE OF MOBILE AD -->
                         {/block:NoSearchResults}
                     </div><!--/.content-wrapper-->
                     {/block:SearchPage}
-
-                    </div><!--/.content-area-->
 
                     <div class="col-sm-12">
                         {block:IndexPage}<hr>{/block:IndexPage}
@@ -1543,7 +1552,7 @@ TEMP DIABLE OF MOBILE AD -->
                     {/block:PermalinkPage}
                 </div><!--/.content-area-->
 
-            </div><!--/.col-left-->
+            </div><!--/.col-->
         </div><!--/row-->
 
     </div><!--/.container-->
