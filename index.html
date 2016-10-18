@@ -69,7 +69,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
         <!-- FontAwesome CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
         <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/jquery.slick/1.5.9/slick.css"/>
 
@@ -221,6 +221,25 @@
 
         .navbar-inverse .navbar-nav a.funny {
             background: #f1c40f !important;
+        }
+
+        .navbar-inverse .navbar-nav a.facts {
+            background: #cd0000 !important;
+            margin-left: 5px;
+        }
+
+        .navbar-inverse .navbar-nav a:hover.facts {
+            background: #13d120;
+            padding: 10px 10px;
+            margin: 6px 0 6px 5px;
+            transition: .2s;
+        }
+
+        @media (max-width: 750px) {
+            .navbar-inverse .navbar-nav a.facts {
+                background: #cd0000 !important;
+                margin-left: 0px;
+            }
         }
 
         .navbar-inverse .navbar-nav a.dropdown-toggle {
@@ -1234,6 +1253,20 @@
 
         <!-- End Google Analytics JS -->
 
+        <script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+        <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+        </script>
+
+        <script>
+        googletag.cmd.push(function() {
+        googletag.defineSlot('/114830612/DYKB_300x50_ABF_Mobile', [300, 50], 'div-gpt-ad-1476718101985-0').addService(googletag.pubads());
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+        });
+        </script>
+
     </head>
     <body id="{block:IndexPage}index{/block:IndexPage}{block:Permalink}permalink{/block:Permalink}" class="{block:IndexPage}index{/block:IndexPage}{block:Permalink}page{PostID}{/block:Permalink}">
 
@@ -1266,6 +1299,7 @@
                         <li><a href="http://didyouknowfacts.com/category/weird/" class="weird">Weird</a></li>
                         <li><a href="http://didyouknowfacts.com/category/animals-nature/" class="animals-nature">Animals & Nature</a></li>
                         <li><a href="http://didyouknowfacts.com/category/funny/" class="funny">Funny</a></li>
+                        <li><a href="http://didyouknowblog.com" class="facts"><i class="fa fa-question-circle-o"></i> Facts</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -1356,13 +1390,18 @@
                       });
                     </script>
                 </div>
-            </div>
-<!-- TEMP DIABLE OF MOBILE AD
-                <div class="mobile">
-                    <script type="text/javascript" src="//ap.lijit.com/www/delivery/fpi.js?z=299146&u=didyouknow&width=300&height=250"></script>
+                <div class="mobile post-ad">
+                    <!-- BEGIN /114830612/DYKB_300x50_ABF_Mobile -->
+                    <div class="ad-box">
+                        <div id="div-gpt-ad-1476718101985-0" style="height:50px; width:300px;">
+                        <script>
+                        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1476718101985-0'); });
+                        </script>
+                        </div>
+                    </div>
+                    <!-- END /114830612/DYKB_300x50_ABF_Mobile -->
                 </div>
             </div>
-TEMP DIABLE OF MOBILE AD -->
             <!-- END JS TAG - DYK - DT - Leaderboard - 728x90 < - DO NOT MODIFY -->
 
             <hr>
