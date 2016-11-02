@@ -554,20 +554,19 @@
             }
         }
 
-        .post-ad .ad-box {
-            /*transform: scale(0.9);*/
-        }
-
         @media (max-width: 750px) {
             .post-ad .ad-box, .post-ad .ad-box iframe[style], .post-ad .ad-box span, .post-ad .ad-box img, .post-ad .ad-box iframe div, .post-ad .ad-box iframe img {
-                max-width: 290px;
-                overflow: hidden;
                 margin: 0 auto;
                 text-align: center;
             }
-            .content-area .post-ad:nth-child(4) {
-                display: none !important;
-            }
+        }
+
+        .ad-tag {
+            font-size: .8em!important;
+            text-transform: uppercase;
+            color: #a4a4a4;
+            margin: 5px 0!important;
+            text-align: center;
         }
 
         #facebook_thread, .fb-comments, .fb-comments iframe[style], .fb-comments span {
@@ -1378,6 +1377,7 @@
         <div class="row">
 
             <div class="header-ad" id="header-google-ad">
+                <p class="ad-tag">Advertisement</p>
                 <div class="desktop">
                     <!-- BEGIN /114830612/DYKB_728x90_ABF_Desktop -->
                     <div id='div-gpt-ad-1477510333635-0' style='height:90px; width:728px; margin:0 auto;'>
@@ -1549,6 +1549,7 @@
                     <div class="col-sm-12">
                         {block:IndexPage}<hr>{/block:IndexPage}
                         <div class="footer-ad">
+                            <p class="ad-tag">Advertisement</p>
                             <div class="desktop">
                                 <!-- BEGIN /114830612/DYKB_728x90_BTF_Desktop -->
                                 <div id='div-gpt-ad-1477510333635-2' style='height:90px; width:728px; margin:0 auto;'>
