@@ -89,11 +89,11 @@
         }
 
         .index.reblog {
-            display: none;
+            visibility: hidden;
         }
 
         .content-area .reblog {
-            display: none !important;
+            visibility: hidden;
         }
 
         .post-single.table {
@@ -103,6 +103,49 @@
         @media (max-width: 750px) {
             .post-single.table {
                 width: 100%;
+            }
+        }
+
+        .main-content {
+            position: relative;
+        }
+
+        .nav-arrows {
+            position: fixed;
+            bottom: 50%;
+            font-size: 6em;
+            width: 100%;
+            color: #cdcdcd;
+            z-index: 9000;
+        }
+
+        .nav-arrows a {
+            color: #888;
+        }
+
+        .nav-arrows a:hover {
+            color: #000;
+        }
+
+        .nav-arrows #left-arrow {
+            position: absolute;
+            left: 20px;
+        }
+
+        .nav-arrows #right-arrow {
+            position: absolute;
+            right: 20px;
+        }
+
+        @media (max-width: 750px) {
+            .nav-arrows #left-arrow {
+                position: absolute;
+                left: 10px;
+            }
+
+            .nav-arrows #right-arrow {
+                position: absolute;
+                right: 10px;
             }
         }
 
@@ -542,6 +585,12 @@
 
         .post-ad div {
             display: inline-block;
+        }
+
+        @media (max-width: 750px) {
+            .content-area .post-ad:nth-child(4) {
+                display: none !important;
+            }
         }
 
         @media (max-width: 750px) {
@@ -1372,13 +1421,20 @@
 
         {/block:PermalinkPage}
 
+    <div class="nav-arrows">
+        <div id="left-arrow">{block:PreviousPage}<a href="{PreviousPage}">{/block:PreviousPage}<i class="fa fa-angle-left"></i>{block:PreviousPage}</a>{/block:PreviousPage}</div>
+        {block:NextPage}
+        <div id="right-arrow"><a href="{NextPage}"><i class="fa fa-angle-right"></i></a></div>
+        {/block:NextPage}
+    </div>
+
     <div class="container">
 
         <div class="row">
 
             <div class="header-ad" id="header-google-ad">
-                <p class="ad-tag">Advertisement</p>
                 <div class="desktop">
+                    <p class="ad-tag">Advertisement</p>
                     <!-- BEGIN /114830612/DYKB_728x90_ABF_Desktop -->
                     <div id='div-gpt-ad-1477510333635-0' style='height:90px; width:728px; margin:0 auto;'>
                     <script>
@@ -1388,6 +1444,7 @@
                     <!-- END /114830612/DYKB_728x90_ABF_Desktop -->
                 </div>
                 <div class="mobile post-ad">
+                    <p class="ad-tag">Advertisement</p>
                     <!-- BEGIN /114830612/DYKB_300x50_ABF_Mobile -->
                     <div class="ad-box">
                         <div id='div-gpt-ad-1477510333635-1' style='height:50px; width:300px; margin:0 auto;'>
@@ -1402,7 +1459,7 @@
 
             <hr>
 
-            <div class="col-sm-12">
+            <div class="col-sm-12 main-content">
 
                 <div class="content-area">
 
@@ -1503,6 +1560,7 @@
                     </div>
 
                     <div class="visible-xs-block post-ad" style="margin:15px 0px 15px -5px;">
+                        <p class="ad-tag">Advertisement</p>
                         <div class="ad-box">
                             <!-- BEGIN /114830612/DYKB_300x250_Inbetween_Mobile -->
                             <div id='div-gpt-ad-1477510333635-3' style='height:250px; width:300px; margin:0 auto;'>
@@ -1549,8 +1607,8 @@
                     <div class="col-sm-12">
                         {block:IndexPage}<hr>{/block:IndexPage}
                         <div class="footer-ad">
-                            <p class="ad-tag">Advertisement</p>
                             <div class="desktop">
+                                <p class="ad-tag">Advertisement</p>
                                 <!-- BEGIN /114830612/DYKB_728x90_BTF_Desktop -->
                                 <div id='div-gpt-ad-1477510333635-2' style='height:90px; width:728px; margin:0 auto;'>
                                 <script>
@@ -1652,6 +1710,10 @@
             <p>Copyright &copy; {CopyrightYears}</p>
         </div>
     </footer><!--/footer-->
+
+    <script>
+    $('.reblog.reblog').hide();
+    </script>
 
     <!-- START - Teads TV Tag -->
     <script type="text/javascript">
