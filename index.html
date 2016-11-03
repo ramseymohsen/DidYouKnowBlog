@@ -89,11 +89,11 @@
         }
 
         .index.reblog {
-            visibility: hidden;
+            display: none;
         }
 
         .content-area .reblog {
-            visibility: hidden;
+            display: none !important;
         }
 
         .post-single.table {
@@ -111,12 +111,12 @@
         }
 
         .nav-arrows {
-            position: fixed;
-            bottom: 50%;
+            position: absolute;
+            top: 50%;
             font-size: 6em;
             width: 100%;
             color: #cdcdcd;
-            z-index: 9000;
+            z-index: 1020;
         }
 
         .nav-arrows a {
@@ -138,6 +138,9 @@
         }
 
         @media (max-width: 750px) {
+            .nav-arrows {
+                display: none;
+            }
             .nav-arrows #left-arrow {
                 position: absolute;
                 left: 10px;
